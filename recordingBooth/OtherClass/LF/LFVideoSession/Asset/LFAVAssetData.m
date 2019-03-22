@@ -99,8 +99,9 @@
             __weak typeof(self) weakSelf = self;
             videoComposition = [AVMutableVideoComposition videoCompositionWithAsset:self.composition applyingCIFiltersWithHandler:^(AVAsynchronousCIImageFilteringRequest * _Nonnull request) {
                 
+                __strong typeof(weakSelf) strongSelf = weakSelf;
                 CIImage *image = request.sourceImage;
-                for (id filter in weakSelf.filters) {
+                for (id filter in strongSelf.filters) {
                     if ([filter isKindOfClass:[CIFilter class]]) {
                         [filter setValue:image forKey:kCIInputImageKey];
                         image = [filter valueForKey:kCIOutputImageKey];
