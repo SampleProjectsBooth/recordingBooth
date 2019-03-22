@@ -16,9 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol JRVideoEditingOperationControllerDelegate <NSObject>
 
-- (void)videoEditingOperationController:(JRVideoEditingOperationController *)operationer didFinishEditUrl:(NSURL *)url;
+- (void)videoEditingOperationController:(JRVideoEditingOperationController *)operationer didFinishEditUrl:(nullable NSURL *)url error:(nullable NSError *)error;
 
-- (void)videoEditingOperationControllerDidCancel:(JRVideoEditingOperationController *)operationer error:(nullable NSError *)error;
+- (void)videoEditingOperationControllerDidCancel:(JRVideoEditingOperationController *)operationer;
 
 @end
 

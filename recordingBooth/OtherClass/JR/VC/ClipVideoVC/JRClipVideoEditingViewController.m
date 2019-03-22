@@ -277,8 +277,8 @@
 - (void)cancel
 {
     JRVideoEditingOperationController *nav = (JRVideoEditingOperationController *)self.navigationController;
-    if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:error:)]) {
-        [nav.operationDelegate videoEditingOperationControllerDidCancel:nav error:nil];
+    if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:)]) {
+        [nav.operationDelegate videoEditingOperationControllerDidCancel:nav];
     }
 }
 

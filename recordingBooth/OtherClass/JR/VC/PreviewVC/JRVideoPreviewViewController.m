@@ -135,14 +135,14 @@
         if (compatible)
         {
             //保存相册核心代码
-            UISaveVideoAtPathToSavedPhotosAlbum([url path], self, @selector(_savedPhotoImage:didFinishSavingWithError:contextInfo:), nil);
+            UISaveVideoAtPathToSavedPhotosAlbum([url path], self, @selector(_savedVideoPath:didFinishSavingWithError:contextInfo:), nil);
         }
     }
 }
 
 
 //保存视频完成之后的回调
-- (void)_savedPhotoImage:(UIImage*)image didFinishSavingWithError: (NSError *)error contextInfo: (void *)contextInfo {
+- (void)_savedVideoPath:(NSString *)path didFinishSavingWithError: (NSError *)error contextInfo: (void *)contextInfo {
     NSString *name = @"保存视频成功";
     if (error) {
         name = [NSString stringWithFormat:@"保存视频失败%@", error.localizedDescription];
@@ -175,8 +175,8 @@
 - (void)cancel
 {
     JRVideoEditingOperationController *nav = (JRVideoEditingOperationController *)self.navigationController;
-    if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:error:)]) {
-        [nav.operationDelegate videoEditingOperationControllerDidCancel:nav error:nil];
+    if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:)]) {
+        [nav.operationDelegate videoEditingOperationControllerDidCancel:nav];
     }
 }
 
@@ -187,8 +187,8 @@
     
     NSURL *url = nav.videoUrl;
     if (!url) {
-        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:error:)]) {
-            [nav.operationDelegate videoEditingOperationControllerDidCancel:nav error:[NSError errorWithDomain:@"url is error" code:-90 userInfo:@{NSLocalizedDescriptionKey:@"视频存储地址无效"}]];
+        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationController:didFinishEditUrl:error:)]) {
+            [nav.operationDelegate videoEditingOperationController:nav didFinishEditUrl:nil error:[NSError errorWithDomain:@"url is error" code:-90 userInfo:@{NSLocalizedDescriptionKey:@"视频存储地址无效"}]];
         }
         return;
     }
@@ -211,21 +211,21 @@
                 }];
                 switch ([exportSession status]) {
                     case AVAssetExportSessionStatusFailed:
-                        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:error:)]) {
-                            [nav.operationDelegate videoEditingOperationControllerDidCancel:nav error:exportSession.error];
+                        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationController:didFinishEditUrl:error:)]) {
+                            [nav.operationDelegate videoEditingOperationController:nav didFinishEditUrl:nil error:exportSession.error];
                         }
                         break;
                     case AVAssetExportSessionStatusCancelled:
-                        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:error:)]) {
-                            [nav.operationDelegate videoEditingOperationControllerDidCancel:nav error:nil];
+                        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationController:didFinishEditUrl:error:)]) {
+                            [nav.operationDelegate videoEditingOperationController:nav didFinishEditUrl:nil error:[NSError errorWithDomain:@"url is error" code:-90 userInfo:@{NSLocalizedDescriptionKey:@"操作已取消"}]];
                         }
                         break;
                     case AVAssetExportSessionStatusCompleted:
                         if (nav.autoSavePhotoAlbum) {
                             [self _saveVideo:url];
                         }
-                        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationController:didFinishEditUrl:)]) {
-                            [nav.operationDelegate videoEditingOperationController:nav didFinishEditUrl:url];
+                        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationController:didFinishEditUrl:error:)]) {
+                            [nav.operationDelegate videoEditingOperationController:nav didFinishEditUrl:url error:nil];
                         }
                         NSLog(@"Export completed : %@", [url path]);
                         break;

@@ -34,14 +34,14 @@
 
 #pragma mark - JRVideoEditingOperationControllerDelegate
 
-- (void)videoEditingOperationController:(JRVideoEditingOperationController *)operationer didFinishEditUrl:(NSURL *)url
+- (void)videoEditingOperationController:(JRVideoEditingOperationController *)operationer didFinishEditUrl:(NSURL *)url error:(nullable NSError *)error
 {
     [operationer dismissViewControllerAnimated:YES completion:^{
         NSLog(@"videoEditingOperationControllerdidFinishEditUrl:%@", url);
     }];
 }
 
-- (void)videoEditingOperationControllerDidCancel:(JRVideoEditingOperationController *)operationer error:(nullable NSError *)error
+- (void)videoEditingOperationControllerDidCancel:(JRVideoEditingOperationController *)operationer
 {
     [operationer dismissViewControllerAnimated:YES completion:^{
         NSLog(@"videoEditingOperationControllerDidCancel error: %@", error);        
