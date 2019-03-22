@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0553BB712244901000B9A2EF /* JRVideoPlayerOperationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB622244901000B9A2EF /* JRVideoPlayerOperationViewController.m */; };
 		0553BB722244901000B9A2EF /* JRVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB632244901000B9A2EF /* JRVideoPlayerViewController.m */; };
 		0553BB732244901000B9A2EF /* JRVideoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB662244901000B9A2EF /* JRVideoPreviewViewController.m */; };
 		0553BB742244901000B9A2EF /* JRClipVideoEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB682244901000B9A2EF /* JRClipVideoEditingViewController.m */; };
@@ -116,9 +115,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0553BB602244901000B9A2EF /* JRVideoPlayerOperationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRVideoPlayerOperationViewController.h; sourceTree = "<group>"; };
 		0553BB612244901000B9A2EF /* JRVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRVideoPlayerViewController.h; sourceTree = "<group>"; };
-		0553BB622244901000B9A2EF /* JRVideoPlayerOperationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRVideoPlayerOperationViewController.m; sourceTree = "<group>"; };
 		0553BB632244901000B9A2EF /* JRVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRVideoPlayerViewController.m; sourceTree = "<group>"; };
 		0553BB652244901000B9A2EF /* JRVideoPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRVideoPreviewViewController.h; sourceTree = "<group>"; };
 		0553BB662244901000B9A2EF /* JRVideoPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRVideoPreviewViewController.m; sourceTree = "<group>"; };
@@ -359,9 +356,7 @@
 		0553BB5F2244901000B9A2EF /* BaseVC */ = {
 			isa = PBXGroup;
 			children = (
-				0553BB602244901000B9A2EF /* JRVideoPlayerOperationViewController.h */,
 				0553BB612244901000B9A2EF /* JRVideoPlayerViewController.h */,
-				0553BB622244901000B9A2EF /* JRVideoPlayerOperationViewController.m */,
 				0553BB632244901000B9A2EF /* JRVideoPlayerViewController.m */,
 			);
 			path = BaseVC;
@@ -1184,7 +1179,6 @@
 				C76136DC224472A000CD3785 /* LFAVAssetData.m in Sources */,
 				C76136C2224472A000CD3785 /* LFDataFilterVideoView.m in Sources */,
 				C76136BB224472A000CD3785 /* LFVideoClipToolbar.m in Sources */,
-				0553BB712244901000B9A2EF /* JRVideoPlayerOperationViewController.m in Sources */,
 				C76136C7224472A000CD3785 /* LFEditingView.m in Sources */,
 				C76136CE224472A000CD3785 /* LFMovingView.m in Sources */,
 				C76136962244729F00CD3785 /* JRVideoCollectionViewCell.m in Sources */,
