@@ -7,10 +7,13 @@
 //
 
 #import "LFBaseRecordingBoothController.h"
+#import "LFRecordConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LFConfigRecordingBoothController : LFBaseRecordingBoothController
+
+@property (nonatomic, strong) LFRecordConfig *config;
 
 @end
 

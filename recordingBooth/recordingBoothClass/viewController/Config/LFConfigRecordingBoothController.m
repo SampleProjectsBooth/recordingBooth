@@ -10,7 +10,8 @@
 #import "LFRecordManager.h"
 #import "LFDownloadManager.h"
 
-#import "JRClipVideoEditingViewController.h"
+#import "LFConfigRecordingBoothController+VideoEditingViewController.h"
+#import "LFConfigRecordingBoothController+JRRecordVideoViewController.h"
 
 @interface LFConfigRecordingBoothController ()
 
@@ -20,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *urlLinkField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *recordSegment;
 
-@property (nonatomic, strong) LFRecordConfig *config;
+//@property (nonatomic, strong) LFRecordConfig *config;
 
 @end
 
@@ -30,6 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [self loadUIConfig];
 }
 
 - (IBAction)saveOnClick:(id)sender {
@@ -123,36 +125,38 @@
 
 - (IBAction)setClipsOnClick:(id)sender {
     NSLog(@"set clips");
-    [self saveOnClick:nil];
+    [self saveUIConfig];
     
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"SampleVideo" withExtension:@"mp4"];
     AVAsset *asset = [AVAsset assetWithURL:url];
-    JRClipVideoEditingViewController *vc = [[JRClipVideoEditingViewController alloc] initWithVideoAsset:asset placeholderImage:[asset lf_firstImage:nil]];
-//    vc.operationDelegate = self;
-    [self presentViewController:vc animated:YES completion:nil];
+    [self showVideoEditingViewController:asset];
 }
 
 - (IBAction)startOnClick:(id)sender {
     NSLog(@"start record");
-    [self saveOnClick:nil];
+    [self saveUIConfig];
     
-    
+    [self showRecordVideoViewController];
 }
+
+
 
 #pragma mark - private
 - (void)loadUIConfig
 {
-    self.eventField.text = self.config.event;
-    NSString *title = nil;
-    for (NSInteger i=0; i<self.fpsSegment.numberOfSegments; i++) {
-        title = [self.fpsSegment titleForSegmentAtIndex:i];
-        if (title.integerValue == self.config.fps) {
-            self.fpsSegment.selectedSegmentIndex = i;
-            break;
+    if (self.config) {
+        self.eventField.text = self.config.event;
+        NSString *title = nil;
+        for (NSInteger i=0; i<self.fpsSegment.numberOfSegments; i++) {
+            title = [self.fpsSegment titleForSegmentAtIndex:i];
+            if (title.integerValue == self.config.fps) {
+                self.fpsSegment.selectedSegmentIndex = i;
+                break;
+            }
         }
+        [self.overlaySwitch setOn:self.config.overlayIsOn];
+        self.recordSegment.selectedSegmentIndex = self.config.automatic ? 1 : 0;
     }
-    [self.overlaySwitch setOn:self.config.overlayIsOn];
-    self.recordSegment.selectedSegmentIndex = self.config.automatic ? 1 : 0;
 }
 
 - (void)saveUIConfig
