@@ -72,7 +72,7 @@
 {
     _autoSavePhotoAlbum = YES;
     _presetQuality = AVAssetExportPresetHighestQuality;
-    _videoType = AVFileTypeMPEG4;
+    _videoType = AVFileTypeQuickTimeMovie;
     _minClippingDuration = 1.f;
     _maxClippingDuration = CMTimeGetSeconds(_asset.duration);
 }

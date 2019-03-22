@@ -30,12 +30,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JRRecordVideoViewController : UIViewController
 
-+ (instancetype)showRecordVideoViewControllerWithVC:(UIViewController *)vc fps:(JRRecordVideoViewControllerFPSType)fps;
+
+/**
+ 初始化方法
+
+ @param vc vc
+ @param fps zhenlv
+ @param sessionPreset 视频质量
+ @return instancetype
+ */
++ (instancetype)showRecordVideoViewControllerWithVC:(UIViewController *)vc fps:(JRRecordVideoViewControllerFPSType)fps sessionPreset:(AVCaptureSessionPreset)sessionPreset;
 
 /** 视频保存路径 */
 @property (nonatomic, strong) NSURL *saveURL;
-/** 录制视频质量 */
-@property(nonatomic, copy) AVCaptureSessionPreset sessionPreset;
 
 @property (nonatomic, weak) id<JRRecordVideoViewControllerDelegate> recordDelegate;
 

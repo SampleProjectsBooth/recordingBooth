@@ -200,9 +200,9 @@
 
     UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:nil message:@"正在储存..." preferredStyle:(UIAlertControllerStyleAlert)];
     [self presentViewController:alertCon animated:YES completion:^{
-        AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:self.assetData.composition presetName:AVAssetExportPresetHighestQuality];
+        AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:self.assetData.composition presetName:nav.presetQuality];
         exportSession.outputURL = url;
-        exportSession.outputFileType = AVFileTypeQuickTimeMovie;
+        exportSession.outputFileType = nav.videoType;
         exportSession.audioMix = self.assetData.audioMix;
         exportSession.videoComposition = self.assetData.videoComposition;
         [exportSession exportAsynchronouslyWithCompletionHandler:^{
@@ -249,6 +249,10 @@
     lfVideoEditVC.delegate = self;
         lfVideoEditVC.operationType = LFVideoEditOperationType_draw | LFVideoEditOperationType_sticker | LFVideoEditOperationType_text | LFVideoEditOperationType_audio | LFVideoEditOperationType_filter;
     //    lfVideoEditVC.minClippingDuration = 3;
+    JRVideoEditingOperationController *nav = (JRVideoEditingOperationController *)self.navigationController;
+    if (nav.videoEditingLibrary) {
+        nav.videoEditingLibrary(lfVideoEditVC);
+    }
     if (self.videoEdit) {
         lfVideoEditVC.videoEdit = self.videoEdit;
     } else {

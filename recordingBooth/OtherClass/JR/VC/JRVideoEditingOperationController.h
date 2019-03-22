@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-@class JRVideoEditingOperationController;
+@class JRVideoEditingOperationController, LFVideoEditingController;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 自动保存到相册 默认YES */
 @property (nonatomic, assign) BOOL autoSavePhotoAlbum;
+
+@property (nonatomic, copy) void(^videoEditingLibrary)(LFVideoEditingController *videoEditingController);
 
 /** 视频保存的地址 */
 @property (nonatomic, strong) NSURL *videoUrl;

@@ -46,6 +46,8 @@
 
 @property (nonatomic) AVCaptureMovieFileOutput *movieFileOutput;
 
+@property (nonatomic) AVCaptureSessionPreset sessionPreset;
+
 @end
 
 @implementation JRRecordVideoViewController
@@ -145,15 +147,18 @@
 
 - (void)setSessionPreset:(AVCaptureSessionPreset)sessionPreset
 {
+//    [self.session stopRunning];
     _sessionPreset = sessionPreset;
-    self.session.sessionPreset = _sessionPreset;
+//    self.session.sessionPreset = _sessionPreset;
+//    [self.session startRunning];
 }
 
 #pragma mark - Public Methods
-+ (instancetype)showRecordVideoViewControllerWithVC:(UIViewController *)vc fps:(JRRecordVideoViewControllerFPSType)fps
++ (instancetype)showRecordVideoViewControllerWithVC:(UIViewController *)vc fps:(JRRecordVideoViewControllerFPSType)fps sessionPreset:(nonnull AVCaptureSessionPreset)sessionPreset
 {
     if (vc) {
         JRRecordVideoViewController *recordVC = [[JRRecordVideoViewController alloc] init];
+        recordVC.sessionPreset = sessionPreset;
         [recordVC _createCameraTools];
         [recordVC _setCaremaFPSWithType:fps];
         [vc presentViewController:recordVC animated:YES completion:^{
@@ -210,7 +215,7 @@
     
     /** 工程操作空间 */
     self.session = [[AVCaptureSession alloc] init];
-    self.session.sessionPreset = AVCaptureSessionPresetInputPriority;
+    self.session.sessionPreset = self.sessionPreset;
     
     if ([self.session canAddInput:self.input]) {
         [self.session addInput:self.input];
@@ -310,7 +315,7 @@
 
         [self.timer invalidate];
         self.timer = nil;
-        
+        self.timeLab.text = @"00:00:00";
         self.fpsControl.enabled = YES;
     }
 
