@@ -102,6 +102,7 @@
 		C76136E6224472A000CD3785 /* LFVideoFilterCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136802244729F00CD3785 /* LFVideoFilterCommand.m */; };
 		C76136EA2244B23E00CD3785 /* LFConfigRecordingBoothController+JRRecordVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136E92244B23E00CD3785 /* LFConfigRecordingBoothController+JRRecordVideoViewController.m */; };
 		C76136EE2244B44700CD3785 /* LFConfigRecordingBoothController+VideoEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136ED2244B44700CD3785 /* LFConfigRecordingBoothController+VideoEditingViewController.m */; };
+		C76136F02244E2F200CD3785 /* waterMark.png in Resources */ = {isa = PBXBuildFile; fileRef = C76136EF2244E2F200CD3785 /* waterMark.png */; };
 		C7B6BA502221036100970D96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6BA4F2221036100970D96 /* AppDelegate.m */; };
 		C7B6BA532221036100970D96 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6BA522221036100970D96 /* ViewController.m */; };
 		C7B6BA562221036100970D96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B6BA542221036100970D96 /* Main.storyboard */; };
@@ -315,6 +316,7 @@
 		C76136E92244B23E00CD3785 /* LFConfigRecordingBoothController+JRRecordVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LFConfigRecordingBoothController+JRRecordVideoViewController.m"; sourceTree = "<group>"; };
 		C76136EC2244B44700CD3785 /* LFConfigRecordingBoothController+VideoEditingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LFConfigRecordingBoothController+VideoEditingViewController.h"; sourceTree = "<group>"; };
 		C76136ED2244B44700CD3785 /* LFConfigRecordingBoothController+VideoEditingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LFConfigRecordingBoothController+VideoEditingViewController.m"; sourceTree = "<group>"; };
+		C76136EF2244E2F200CD3785 /* waterMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waterMark.png; sourceTree = "<group>"; };
 		C7B6BA4B2221036100970D96 /* recordingBooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordingBooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B6BA4E2221036100970D96 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C7B6BA4F2221036100970D96 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1004,6 +1006,7 @@
 		C7B6BA4D2221036100970D96 /* recordingBooth */ = {
 			isa = PBXGroup;
 			children = (
+				C76136EF2244E2F200CD3785 /* waterMark.png */,
 				C76134FC22432D9F00CD3785 /* SampleVideo.mp4 */,
 				C76135922244729E00CD3785 /* OtherClass */,
 				C7B6BA642221037900970D96 /* recordingBoothClass */,
@@ -1152,6 +1155,7 @@
 				C7B6BA582221036200970D96 /* Assets.xcassets in Resources */,
 				C7B6BA742221087B00970D96 /* LFConfigRecordingBoothController.xib in Resources */,
 				C76136AA2244729F00CD3785 /* README.md in Resources */,
+				C76136F02244E2F200CD3785 /* waterMark.png in Resources */,
 				C76134FD22432D9F00CD3785 /* SampleVideo.mp4 in Resources */,
 				C7B6BA562221036100970D96 /* Main.storyboard in Resources */,
 				C76136AC2244729F00CD3785 /* LFMediaEditingController.bundle in Resources */,

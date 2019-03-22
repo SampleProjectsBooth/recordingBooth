@@ -23,6 +23,7 @@
     vc.minClippingDuration = 5.f;
     vc.maxClippingDuration = 20.f;
     
+    /** audio url */
     NSMutableArray *audioUrls = [NSMutableArray arrayWithCapacity:3];
     NSString *filePath = nil;
     NSURL *fileUrl = nil;
@@ -38,6 +39,15 @@
     vc.videoEditingLibrary = ^(LFVideoEditingController * _Nonnull videoEditingController) {
         videoEditingController.defaultAudioUrls = audioUrls;
     };
+    
+    /** water mark */
+    UIImage *image = [UIImage imageNamed:@"waterMark.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.frame = CGRectMake(10, 10, image.size.width, image.size.height);
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
+    UIView *waterView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [waterView addSubview:imageView];
     
     /** save video url */
     NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES).firstObject;
