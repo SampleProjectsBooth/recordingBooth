@@ -8,7 +8,6 @@
 
 #import "JRVideoPlayerViewController.h"
 
-@class JRVideoPreviewViewController;
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -10,6 +10,7 @@
 #import "JRVideoClipInfo.h"
 #import "JRHorizontalCollectioView.h"
 #import "LFVideoEditingController.h"
+#import "JRVideoEditingOperationController.h"
 
 @interface JRVideoPreviewViewController () <JRHorizontalCollectioViewDelegate, LFVideoEditingControllerDelegate>
 
@@ -173,20 +174,30 @@
 
 - (void)cancel
 {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    JRVideoEditingOperationController *nav = (JRVideoEditingOperationController *)self.navigationController;
+    if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:error:)]) {
+        [nav.operationDelegate videoEditingOperationControllerDidCancel:nav error:nil];
+    }
 }
 
 - (void)finish
 {
-    NSString *path = [JRVideoPlayerViewController createDirectoryUnderTemporaryDirectory:@"Append" file:@"a.mp4"];
-    NSURL *url = [NSURL fileURLWithPath:path];
+    JRVideoEditingOperationController *nav = (JRVideoEditingOperationController *)self.navigationController;
+
+    
+    NSURL *url = nav.videoUrl;
+    if (!url) {
+        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:error:)]) {
+            [nav.operationDelegate videoEditingOperationControllerDidCancel:nav error:[NSError errorWithDomain:@"url is error" code:-90 userInfo:@{NSLocalizedDescriptionKey:@"视频存储地址无效"}]];
+        }
+        return;
+    }
     NSFileManager *fm = [NSFileManager defaultManager];
-    if([fm fileExistsAtPath:path]) {
+    if([fm fileExistsAtPath:url.path]) {
         [fm removeItemAtURL:url error:nil];
     }
     
+
     UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:nil message:@"正在储存..." preferredStyle:(UIAlertControllerStyleAlert)];
     [self presentViewController:alertCon animated:YES completion:^{
         AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:self.assetData.composition presetName:AVAssetExportPresetHighestQuality];
@@ -200,13 +211,22 @@
                 }];
                 switch ([exportSession status]) {
                     case AVAssetExportSessionStatusFailed:
-                        NSLog(@"Export failed: %@", [exportSession error]);
+                        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:error:)]) {
+                            [nav.operationDelegate videoEditingOperationControllerDidCancel:nav error:exportSession.error];
+                        }
                         break;
                     case AVAssetExportSessionStatusCancelled:
-                        NSLog(@"Export canceled");
+                        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:error:)]) {
+                            [nav.operationDelegate videoEditingOperationControllerDidCancel:nav error:nil];
+                        }
                         break;
                     case AVAssetExportSessionStatusCompleted:
-                        [self _saveVideo:url];
+                        if (nav.autoSavePhotoAlbum) {
+                            [self _saveVideo:url];
+                        }
+                        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:didFinishEditUrl:)]) {
+                            [nav.operationDelegate videoEditingOperationController:nav didFinishEditUrl:url];
+                        }
                         NSLog(@"Export completed : %@", [url path]);
                         break;
                     default:

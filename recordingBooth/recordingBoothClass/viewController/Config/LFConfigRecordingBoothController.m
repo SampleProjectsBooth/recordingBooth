@@ -10,9 +10,10 @@
 #import "LFRecordManager.h"
 #import "LFDownloadManager.h"
 
-#import "JRClipVideoEditingViewController.h"
+//#import "JRClipVideoEditingViewController.h"
+#import "JRVideoEditingOperationController.h"
 
-@interface LFConfigRecordingBoothController ()
+@interface LFConfigRecordingBoothController () <JRVideoEditingOperationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *eventField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *fpsSegment;
@@ -127,9 +128,14 @@
     
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"SampleVideo" withExtension:@"mp4"];
     AVAsset *asset = [AVAsset assetWithURL:url];
-    JRClipVideoEditingViewController *vc = [[JRClipVideoEditingViewController alloc] initWithVideoAsset:asset placeholderImage:[asset lf_firstImage:nil]];
+//    JRClipVideoEditingViewController *vc = [[JRClipVideoEditingViewController alloc] initWithVideoAsset:asset placeholderImage:[asset lf_firstImage:nil]];
 //    vc.operationDelegate = self;
-    [self presentViewController:vc animated:YES completion:nil];
+//    [self presentViewController:vc animated:YES completion:nil];
+    
+    JRVideoEditingOperationController *nav = [[JRVideoEditingOperationController alloc] initWithAsset:asset];
+    nav.operationDelegate = self;
+    nav.maxClippingDuration = 10.f;
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (IBAction)startOnClick:(id)sender {
@@ -171,6 +177,21 @@
         [config.musicList setArray:@[path]];
     }
     self.config = config;
+}
+
+#pragma mark - JRVideoEditingOperationControllerDelegate
+
+- (void)videoEditingOperationController:(JRVideoEditingOperationController *)operationer didFinishEditUrl:(NSURL *)url
+{
+    NSLog(@"videoEditingOperationControllerdidFinishEditUrl");
+}
+
+- (void)videoEditingOperationControllerDidCancel:(JRVideoEditingOperationController *)operationer error:(nullable NSError *)error
+{
+    [operationer dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    NSLog(@"videoEditingOperationControllerDidCancel");
 }
 
 @end

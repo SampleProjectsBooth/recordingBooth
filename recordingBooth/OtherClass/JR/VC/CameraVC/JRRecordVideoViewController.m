@@ -143,8 +143,14 @@
     return (UIInterfaceOrientationMaskPortrait);
 }
 
+- (void)setSessionPreset:(AVCaptureSessionPreset)sessionPreset
+{
+    _sessionPreset = sessionPreset;
+    self.session.sessionPreset = _sessionPreset;
+}
+
 #pragma mark - Public Methods
-+ (instancetype)showRecordVideoViewControllerWithVC:(UIViewController *)vc fps:(JRCaremaFPSType)fps
++ (instancetype)showRecordVideoViewControllerWithVC:(UIViewController *)vc fps:(JRRecordVideoViewControllerFPSType)fps
 {
     if (vc) {
         JRRecordVideoViewController *recordVC = [[JRRecordVideoViewController alloc] init];
@@ -243,6 +249,11 @@
     NSURL *mediaURL = nil;
     mediaURL = self.saveURL;
     if (mediaURL) {
+        /** 删除文件，不然无法保存视频 */
+        NSFileManager *fm = [NSFileManager defaultManager];
+        if ([fm fileExistsAtPath:[self.saveURL path]]) {
+            [fm removeItemAtURL:self.saveURL error:nil];
+        }
         if (self.movieFileOutput && !self.movieFileOutput.isRecording) {
             [self.movieFileOutput startRecordingToOutputFileURL:mediaURL recordingDelegate:self];
         }
@@ -265,7 +276,11 @@
 }
 
 - (IBAction)_cancelCameraAction:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        if ([self.recordDelegate respondsToSelector:@selector(didCancelRecordVideoVC:)]) {
+            [self.recordDelegate didCancelRecordVideoVC:self];
+        }
+    }];
 }
 
 - (IBAction)_recordAction:(id)sender {
@@ -354,20 +369,20 @@
     
 }
 
-- (void)_setCaremaFPSWithType:(JRCaremaFPSType)type
+- (void)_setCaremaFPSWithType:(JRRecordVideoViewControllerFPSType)type
 {
     CGFloat desiredFPS = 0.f;
     switch (type) {
-        case JRCaremaFPSType30:
+        case JRRecordVideoViewControllerFPS30:
             desiredFPS = 30.f;
             break;
-        case JRCaremaFPSType60:
+        case JRRecordVideoViewControllerFPS60:
             desiredFPS = 60.f;
             break;
-        case JRCaremaFPSType120:
+        case JRRecordVideoViewControllerFPS120:
             desiredFPS = 120.f;
             break;
-        case JRCaremaFPSType240:
+        case JRRecordVideoViewControllerFPS240:
             desiredFPS = 240.f;
             break;
     }
@@ -457,8 +472,8 @@
             });
         }];
     } else {
-        if ([self.recordDelegate respondsToSelector:@selector(didFinishRecordVideo:)]) {
-            [self.recordDelegate didFinishRecordVideo:self];
+        if ([self.recordDelegate respondsToSelector:@selector(didFinishRecordVideoVC:)]) {
+            [self.recordDelegate didFinishRecordVideoVC:self];
         }
     }    
 }

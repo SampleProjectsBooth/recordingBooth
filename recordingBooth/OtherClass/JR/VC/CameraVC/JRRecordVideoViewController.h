@@ -11,16 +11,18 @@
 
 @class JRRecordVideoViewController;
 
-typedef NS_ENUM(NSUInteger, JRCaremaFPSType) {
-    JRCaremaFPSType30 = 30,
-    JRCaremaFPSType60 = 60,
-    JRCaremaFPSType120 = 120,
-    JRCaremaFPSType240 = 240,
+typedef NS_ENUM(NSUInteger, JRRecordVideoViewControllerFPSType) {
+    JRRecordVideoViewControllerFPS30 = 30,
+    JRRecordVideoViewControllerFPS60 = 60,
+    JRRecordVideoViewControllerFPS120 = 120,
+    JRRecordVideoViewControllerFPS240 = 240,
 };
 
-@protocol JRRecordVideoDelegate <NSObject>
+@protocol JRRecordVideoViewControllerDelegate <NSObject>
 
-- (void)didFinishRecordVideo:(JRRecordVideoViewController *)recordVC;
+- (void)didFinishRecordVideoVC:(JRRecordVideoViewController *)recordVC;
+
+- (void)didCancelRecordVideoVC:(JRRecordVideoViewController *)recordVC;
 
 @end
 
@@ -28,14 +30,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JRRecordVideoViewController : UIViewController
 
-+ (instancetype)showRecordVideoViewControllerWithVC:(UIViewController *)vc fps:(JRCaremaFPSType)fps;
++ (instancetype)showRecordVideoViewControllerWithVC:(UIViewController *)vc fps:(JRRecordVideoViewControllerFPSType)fps;
 
 /** 视频保存路径 */
 @property (nonatomic, strong) NSURL *saveURL;
 /** 录制视频质量 */
 @property(nonatomic, copy) AVCaptureSessionPreset sessionPreset;
 
-@property (nonatomic, weak) id<JRRecordVideoDelegate> recordDelegate;
+@property (nonatomic, weak) id<JRRecordVideoViewControllerDelegate> recordDelegate;
 
 @end
 

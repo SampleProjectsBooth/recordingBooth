@@ -12,6 +12,7 @@
 #import "JRVideoClipInfo.h"
 #import "JRHorizontalCollectioView.h"
 #import "JRVideoPreviewViewController.h"
+#import "JRVideoEditingOperationController.h"
 
 @interface JRClipVideoEditingViewController () <LFVideoTrimmerViewDelegate, JRHorizontalCollectioViewDelegate>
 
@@ -229,18 +230,19 @@
 
 #pragma mark - Setter And Getter
 
-
-#pragma mark - VideoPlayerDelegate
+#pragma mark - VideoPlayerProtocol
 - (void)didReayToplay:(double)duration
 {
     self.aPlayBtn.hidden = NO;
     self.aPlayBtn.enabled = YES;
     self.startTime = 0;
-    self.totalDuration = self.endTime = self.maxClippingDuration = duration;
+    self.totalDuration = self.endTime = duration;
     [self.aVideoTrimmerView setHiddenProgress:NO];
     self.aVideoTrimmerView.progress = 0;
     self.aVideoTrimmerView.controlMinWidth = CGRectGetWidth(self.aVideoTrimmerView.frame) * (self.minClippingDuration / self.totalDuration);
-    self.aVideoTrimmerView.controlMaxWidth = CGRectGetWidth(self.aVideoTrimmerView.frame) * (self.maxClippingDuration / self.totalDuration);
+    if (self.maxClippingDuration > 0.f) {
+        self.aVideoTrimmerView.controlMaxWidth = CGRectGetWidth(self.aVideoTrimmerView.frame) * (self.maxClippingDuration / self.totalDuration);
+    }
     NSRange firstRange = NSMakeRange(0, self.aVideoTrimmerView.controlMinWidth);
     self.noTag = YES;
     [self.aVideoTrimmerView setGridRange:firstRange animated:NO];
@@ -274,9 +276,10 @@
 
 - (void)cancel
 {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    JRVideoEditingOperationController *nav = (JRVideoEditingOperationController *)self.navigationController;
+    if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:error:)]) {
+        [nav.operationDelegate videoEditingOperationControllerDidCancel:nav error:nil];
+    }
 }
 
 - (void)finish

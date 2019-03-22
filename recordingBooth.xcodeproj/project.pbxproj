@@ -13,6 +13,7 @@
 		0553BB752244901000B9A2EF /* JRRecordVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB6B2244901000B9A2EF /* JRRecordVideoViewController.m */; };
 		0553BB762244901000B9A2EF /* JRRecordVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0553BB6D2244901000B9A2EF /* JRRecordVideoViewController.xib */; };
 		0553BB772244901000B9A2EF /* UIImage+JRBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB6F2244901000B9A2EF /* UIImage+JRBundle.m */; };
+		0553BB7A2244AFCC00B9A2EF /* JRVideoEditingOperationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB792244AFCC00B9A2EF /* JRVideoEditingOperationController.m */; };
 		C76134FD22432D9F00CD3785 /* SampleVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C76134FC22432D9F00CD3785 /* SampleVideo.mp4 */; };
 		C761368C2244729F00CD3785 /* JRVideoEditing.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C76135972244729E00CD3785 /* JRVideoEditing.bundle */; };
 		C76136932244729F00CD3785 /* JRVideoClipInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135AB2244729E00CD3785 /* JRVideoClipInfo.m */; };
@@ -126,6 +127,8 @@
 		0553BB6D2244901000B9A2EF /* JRRecordVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JRRecordVideoViewController.xib; sourceTree = "<group>"; };
 		0553BB6F2244901000B9A2EF /* UIImage+JRBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JRBundle.m"; sourceTree = "<group>"; };
 		0553BB702244901000B9A2EF /* UIImage+JRBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JRBundle.h"; sourceTree = "<group>"; };
+		0553BB782244AFCC00B9A2EF /* JRVideoEditingOperationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRVideoEditingOperationController.h; sourceTree = "<group>"; };
+		0553BB792244AFCC00B9A2EF /* JRVideoEditingOperationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRVideoEditingOperationController.m; sourceTree = "<group>"; };
 		C76134FC22432D9F00CD3785 /* SampleVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SampleVideo.mp4; sourceTree = "<group>"; };
 		C76135972244729E00CD3785 /* JRVideoEditing.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JRVideoEditing.bundle; sourceTree = "<group>"; };
 		C76135A92244729E00CD3785 /* JRClipInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRClipInfo.h; sourceTree = "<group>"; };
@@ -345,6 +348,8 @@
 		0553BB5E2244901000B9A2EF /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				0553BB782244AFCC00B9A2EF /* JRVideoEditingOperationController.h */,
+				0553BB792244AFCC00B9A2EF /* JRVideoEditingOperationController.m */,
 				0553BB5F2244901000B9A2EF /* BaseVC */,
 				0553BB642244901000B9A2EF /* PreviewVC */,
 				0553BB672244901000B9A2EF /* ClipVideoVC */,
@@ -1216,6 +1221,7 @@
 				0553BB742244901000B9A2EF /* JRClipVideoEditingViewController.m in Sources */,
 				C76136A52244729F00CD3785 /* LFContext.m in Sources */,
 				C76136B02244729F00CD3785 /* UIView+LFMECommon.m in Sources */,
+				0553BB7A2244AFCC00B9A2EF /* JRVideoEditingOperationController.m in Sources */,
 				C76136C3224472A000CD3785 /* LFMEGIFImageSerialization.m in Sources */,
 				C76136E4224472A000CD3785 /* LFVideoWatermarkCommand.m in Sources */,
 				C76136D3224472A000CD3785 /* LFStickerBar.m in Sources */,
@@ -1380,6 +1386,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = recordingBooth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1397,6 +1404,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = recordingBooth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
