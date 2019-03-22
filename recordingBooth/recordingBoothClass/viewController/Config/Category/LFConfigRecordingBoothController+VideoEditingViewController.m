@@ -37,14 +37,14 @@
 - (void)videoEditingOperationController:(JRVideoEditingOperationController *)operationer didFinishEditUrl:(NSURL *)url error:(nullable NSError *)error
 {
     [operationer dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"videoEditingOperationControllerdidFinishEditUrl:%@", url);
+        NSLog(@"videoEditingOperationControllerdidFinishEditUrl:%@ error:%@", url, error);
     }];
 }
 
 - (void)videoEditingOperationControllerDidCancel:(JRVideoEditingOperationController *)operationer
 {
     [operationer dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"videoEditingOperationControllerDidCancel error: %@", error);        
+        NSLog(@"videoEditingOperationControllerDidCancel");        
     }];
 }
 
