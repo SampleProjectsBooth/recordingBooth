@@ -99,7 +99,6 @@
 		C76136E3224472A000CD3785 /* LFVideoBaseCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C761367C2244729F00CD3785 /* LFVideoBaseCommand.m */; };
 		C76136E4224472A000CD3785 /* LFVideoWatermarkCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C761367D2244729F00CD3785 /* LFVideoWatermarkCommand.m */; };
 		C76136E5224472A000CD3785 /* LFVideoClipCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C761367E2244729F00CD3785 /* LFVideoClipCommand.m */; };
-		C76136E6224472A000CD3785 /* LFVideoFilterCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136802244729F00CD3785 /* LFVideoFilterCommand.m */; };
 		C76136EA2244B23E00CD3785 /* LFConfigRecordingBoothController+JRRecordVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136E92244B23E00CD3785 /* LFConfigRecordingBoothController+JRRecordVideoViewController.m */; };
 		C76136EE2244B44700CD3785 /* LFConfigRecordingBoothController+VideoEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136ED2244B44700CD3785 /* LFConfigRecordingBoothController+VideoEditingViewController.m */; };
 		C76136F02244E2F200CD3785 /* waterMark.png in Resources */ = {isa = PBXBuildFile; fileRef = C76136EF2244E2F200CD3785 /* waterMark.png */; };
@@ -288,13 +287,11 @@
 		C76136692244729F00CD3785 /* LFSplashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFSplashView.m; sourceTree = "<group>"; };
 		C761366B2244729F00CD3785 /* LFVideoSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoSession.h; sourceTree = "<group>"; };
 		C761366D2244729F00CD3785 /* LFAVAssetData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFAVAssetData.m; sourceTree = "<group>"; };
-		C761366E2244729F00CD3785 /* LFAVAssetData+Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFAVAssetData+Filter.h"; sourceTree = "<group>"; };
 		C761366F2244729F00CD3785 /* LFAVAssetData+private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFAVAssetData+private.h"; sourceTree = "<group>"; };
 		C76136702244729F00CD3785 /* LFAVAssetData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFAVAssetData.h; sourceTree = "<group>"; };
 		C76136712244729F00CD3785 /* LFVideoSessionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoSessionHeader.h; sourceTree = "<group>"; };
 		C76136732244729F00CD3785 /* LFVideoCommandProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoCommandProtocol.h; sourceTree = "<group>"; };
 		C76136742244729F00CD3785 /* LFVideoSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoSession.m; sourceTree = "<group>"; };
-		C76136762244729F00CD3785 /* LFVideoFilterCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoFilterCommand.h; sourceTree = "<group>"; };
 		C76136772244729F00CD3785 /* LFVideoMergeCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoMergeCommand.m; sourceTree = "<group>"; };
 		C76136782244729F00CD3785 /* LFVideoAudioMixCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoAudioMixCommand.m; sourceTree = "<group>"; };
 		C76136792244729F00CD3785 /* LFVideoRotateCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoRotateCommand.m; sourceTree = "<group>"; };
@@ -304,7 +301,6 @@
 		C761367D2244729F00CD3785 /* LFVideoWatermarkCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoWatermarkCommand.m; sourceTree = "<group>"; };
 		C761367E2244729F00CD3785 /* LFVideoClipCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoClipCommand.m; sourceTree = "<group>"; };
 		C761367F2244729F00CD3785 /* LFVideoMergeCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoMergeCommand.h; sourceTree = "<group>"; };
-		C76136802244729F00CD3785 /* LFVideoFilterCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoFilterCommand.m; sourceTree = "<group>"; };
 		C76136812244729F00CD3785 /* LFVideoAudioMixCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoAudioMixCommand.h; sourceTree = "<group>"; };
 		C76136822244729F00CD3785 /* LFVideoRateCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoRateCommand.h; sourceTree = "<group>"; };
 		C76136832244729F00CD3785 /* LFVideoCropCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoCropCommand.h; sourceTree = "<group>"; };
@@ -936,7 +932,6 @@
 			isa = PBXGroup;
 			children = (
 				C761366D2244729F00CD3785 /* LFAVAssetData.m */,
-				C761366E2244729F00CD3785 /* LFAVAssetData+Filter.h */,
 				C761366F2244729F00CD3785 /* LFAVAssetData+private.h */,
 				C76136702244729F00CD3785 /* LFAVAssetData.h */,
 			);
@@ -954,7 +949,6 @@
 		C76136752244729F00CD3785 /* Command */ = {
 			isa = PBXGroup;
 			children = (
-				C76136762244729F00CD3785 /* LFVideoFilterCommand.h */,
 				C76136772244729F00CD3785 /* LFVideoMergeCommand.m */,
 				C76136782244729F00CD3785 /* LFVideoAudioMixCommand.m */,
 				C76136792244729F00CD3785 /* LFVideoRotateCommand.m */,
@@ -964,7 +958,6 @@
 				C761367D2244729F00CD3785 /* LFVideoWatermarkCommand.m */,
 				C761367E2244729F00CD3785 /* LFVideoClipCommand.m */,
 				C761367F2244729F00CD3785 /* LFVideoMergeCommand.h */,
-				C76136802244729F00CD3785 /* LFVideoFilterCommand.m */,
 				C76136812244729F00CD3785 /* LFVideoAudioMixCommand.h */,
 				C76136822244729F00CD3785 /* LFVideoRateCommand.h */,
 				C76136832244729F00CD3785 /* LFVideoCropCommand.h */,
@@ -1201,7 +1194,6 @@
 				C76136EE2244B44700CD3785 /* LFConfigRecordingBoothController+VideoEditingViewController.m in Sources */,
 				C76136932244729F00CD3785 /* JRVideoClipInfo.m in Sources */,
 				C76136CF224472A000CD3785 /* LFStickerLabel.m in Sources */,
-				C76136E6224472A000CD3785 /* LFVideoFilterCommand.m in Sources */,
 				C76136D0224472A000CD3785 /* LFClipToolbar.m in Sources */,
 				C76136DE224472A000CD3785 /* LFVideoMergeCommand.m in Sources */,
 				C76136DC224472A000CD3785 /* LFAVAssetData.m in Sources */,

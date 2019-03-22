@@ -16,7 +16,6 @@
 #import "LFVideoRateCommand.h"
 #import "LFVideoMergeCommand.h"
 #import "LFVideoWatermarkCommand.h"
-#import "LFVideoFilterCommand.h"
 #import "LFVideoAudioMixCommand.h"
 
 #endif /* LFVideoSessionHeader_h */

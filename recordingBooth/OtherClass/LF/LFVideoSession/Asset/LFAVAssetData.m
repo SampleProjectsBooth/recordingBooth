@@ -9,6 +9,7 @@
 #import "LFAVAssetData.h"
 #import <CoreImage/CoreImage.h>
 
+
 @interface LFAVAssetData ()
 
 @property (nonatomic, strong) AVAsset *asset;
@@ -24,8 +25,6 @@
 
 @property (nonatomic, readonly) AVMutableVideoComposition *internal_videoComposition;
 
-@property (nonatomic, copy) NSMutableArray <CIFilter *> *filters NS_AVAILABLE_IOS(9_0) __TVOS_PROHIBITED;
-
 @end
 
 @implementation LFAVAssetData
@@ -36,7 +35,6 @@
     if (self) {
         NSAssert(asset, @"AVAsset is nil.");
         _asset = asset;
-        _filters = [NSMutableArray array];
         [self loadAsset:asset];
     }
     return self;
@@ -90,32 +88,7 @@
         
         _videoSize = _videoCompositionTrack.naturalSize;
         
-        AVMutableVideoComposition *videoComposition = nil;
-        if ([[AVMutableVideoComposition class] respondsToSelector:@selector(videoCompositionWithAsset:applyingCIFiltersWithHandler:)]) {
-            if (self.context == nil) {
-                self.context = [CIContext contextWithOptions:@{kCIContextWorkingColorSpace : [NSNull null], kCIContextOutputColorSpace : [NSNull null]}];
-            }
-            CIContext *context = self.context;
-            __weak typeof(self) weakSelf = self;
-            videoComposition = [AVMutableVideoComposition videoCompositionWithAsset:self.composition applyingCIFiltersWithHandler:^(AVAsynchronousCIImageFilteringRequest * _Nonnull request) {
-                
-                __strong typeof(weakSelf) strongSelf = weakSelf;
-                CIImage *image = request.sourceImage;
-                for (id filter in strongSelf.filters) {
-                    if ([filter isKindOfClass:[CIFilter class]]) {
-                        [filter setValue:image forKey:kCIInputImageKey];
-                        image = [filter valueForKey:kCIOutputImageKey];
-                    } else if ([filter isKindOfClass:[CIImage class]]) {
-                        image = [(CIImage *)filter imageByCompositingOverImage:image];
-                    }
-                }
-                
-                [request finishWithImage:image context:context];
-            }];
-        } else {
-            videoComposition = [AVMutableVideoComposition videoComposition];
-        }
-        _videoComposition = videoComposition;
+        _videoComposition = [AVMutableVideoComposition videoComposition];
         _videoComposition.frameDuration = CMTimeMake(1, 30);
         _videoComposition.renderSize = _videoSize;
     }
@@ -129,16 +102,8 @@
 
 - (AVMutableVideoComposition *)videoComposition
 {
-    if (_videoComposition) {
-        if ([[AVMutableVideoComposition class] respondsToSelector:@selector(videoCompositionWithAsset:applyingCIFiltersWithHandler:)]) {
-            if (self.filters.count == 0) {
-                return nil;
-            }
-        } else {
-            if (_videoComposition.instructions.count == 0) {
-                return nil;
-            }
-        }
+    if (_videoComposition.instructions.count == 0) {
+        return nil;
     }
     return _videoComposition;
 }
