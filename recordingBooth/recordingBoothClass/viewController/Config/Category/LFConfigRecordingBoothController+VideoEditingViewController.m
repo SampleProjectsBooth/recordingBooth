@@ -19,18 +19,7 @@
 - (void)showVideoEditingViewController:(AVAsset *)asset
 {
     JRVideoEditingOperationController *vc = [[JRVideoEditingOperationController alloc] initWithAsset:asset];
-    AVAssetTrack *videoTrack = [[asset tracksWithMediaType:AVMediaTypeVideo] firstObject];
-    if (videoTrack) {
-        CGSize size = videoTrack.naturalSize;
-        UIView *view = [[UIView alloc] initWithFrame:(CGRect){0, 0, size}];
-        UIView *markView = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, 20.f, 20.f)];
-        markView.backgroundColor = [UIColor yellowColor];
-        [view addSubview:markView];
-        view.backgroundColor = [UIColor blackColor];
-        vc.overlayView = view;
-    }
-    NSString *path = [LFConfigRecordingBoothController createDirectoryUnderTemporaryDirectory:@"JR" file:@"test.mp4"];
-    vc.videoUrl = [NSURL fileURLWithPath:path];
+
     vc.operationDelegate = self;
     vc.minClippingDuration = 5.f;
     vc.maxClippingDuration = 20.f;
@@ -60,6 +49,7 @@
     imageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
     UIView *waterView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [waterView addSubview:imageView];
+    vc.overlayView = waterView;
     
     /** save video url */
     NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES).firstObject;
@@ -85,25 +75,5 @@
     }];
 }
 
-#pragma mark - Class Methods
-+ (NSString *)createDirectoryUnderTemporaryDirectory:(NSString *)name file:(NSString *)file
-{
-    NSError *error = nil;
-    NSFileManager *fm = [NSFileManager new];
-    NSString *path = NSTemporaryDirectory();
-    if (name.length > 0) {
-        path = [path stringByAppendingString:name];
-    }
-    BOOL exist = [fm fileExistsAtPath:path];
-    if (!exist) {
-        if (![fm createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error]) {
-            NSLog(@"createMediaFolder error: %@ \n",[error localizedDescription]);
-        }
-    }
-    if (file.length > 0) {
-        path = [path stringByAppendingPathComponent:file];
-    }
-    return path;
-}
 
 @end
