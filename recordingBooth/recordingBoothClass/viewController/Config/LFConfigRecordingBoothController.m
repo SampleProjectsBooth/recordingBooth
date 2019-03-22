@@ -123,7 +123,7 @@
 
 - (IBAction)setClipsOnClick:(id)sender {
     NSLog(@"set clips");
-    [self saveUIConfig];
+    [self saveOnClick:nil];
     
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"SampleVideo" withExtension:@"mp4"];
     AVAsset *asset = [AVAsset assetWithURL:url];
@@ -134,7 +134,7 @@
 
 - (IBAction)startOnClick:(id)sender {
     NSLog(@"start record");
-    [self saveUIConfig];
+    [self saveOnClick:nil];
     
     
 }
