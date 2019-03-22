@@ -7,7 +7,9 @@
 //
 
 #import "LFConfigRecordingBoothController+JRRecordVideoViewController.h"
+#import "LFConfigRecordingBoothController+VideoEditingViewController.h"
 #import "JRRecordVideoViewController.h"
+#import <Photos/Photos.h>
 
 @interface LFConfigRecordingBoothController (JRRecordVideoViewControllerDelegate) <JRRecordVideoViewControllerDelegate>
 
@@ -22,41 +24,43 @@
     cameraVC.recordDelegate = self;
     /** save video url */
     NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES).firstObject;
-    NSString *name = [[[NSDate date] description] stringByAppendingString:@".mp4"];;
+    NSString *name = [[[NSDate date] description] stringByAppendingString:@".mp4"];
     cameraVC.saveURL = [NSURL fileURLWithPath:[docPath stringByAppendingPathComponent:name]];
-}
-
-- (void)_saveVideo:(NSURL *)url{
-    
-    if (url) {
-        BOOL compatible = UIVideoAtPathIsCompatibleWithSavedPhotosAlbum([url path]);
-        if (compatible)
-        {
-            //保存相册核心代码
-            UISaveVideoAtPathToSavedPhotosAlbum([url path], self, @selector(_savedPhotoImage:didFinishSavingWithError:contextInfo:), nil);
-        }
-    }
-}
-
-
-//保存视频完成之后的回调
-- (void)_savedPhotoImage:(UIImage*)image didFinishSavingWithError: (NSError *)error contextInfo: (void *)contextInfo {
-    NSString *name = @"保存视频成功";
-    if (error) {
-        name = [NSString stringWithFormat:@"保存视频失败%@", error.localizedDescription];
-        
-    }
-    UIAlertController *ale = [UIAlertController alertControllerWithTitle:nil message:name preferredStyle:(UIAlertControllerStyleAlert)];
-    [ale addAction:[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
-        
-    }]];
-    [self presentViewController:ale animated:YES completion:nil];
 }
 
 #pragma mark - JRRecordVideoViewControllerDelegate
 - (void)didFinishRecordVideoVC:(JRRecordVideoViewController *)recordVC
 {
-    [self _saveVideo:recordVC.saveURL];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"create video..." preferredStyle:(UIAlertControllerStyleAlert)];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    __block NSString *localIdentifier = nil;
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        
+        localIdentifier = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:recordVC.saveURL].placeholderForCreatedAsset.localIdentifier;
+        
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        
+        if (success) {
+            if (localIdentifier) {
+                PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[localIdentifier] options:nil].firstObject;
+                PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
+                options.version = PHVideoRequestOptionsVersionOriginal;
+                options.deliveryMode = PHVideoRequestOptionsDeliveryModeHighQualityFormat;
+                [[PHImageManager defaultManager] requestAVAssetForVideo:asset options:options resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+                    
+                    [alert dismissViewControllerAnimated:YES completion:^{
+                        [self showVideoEditingViewController:asset];
+                    }];
+                }];
+            }
+            
+        } else {
+            NSLog(@"save video error:%@", error);
+        }
+        
+    }];
 }
 
 - (void)didCancelRecordVideoVC:(JRRecordVideoViewController *)recordVC

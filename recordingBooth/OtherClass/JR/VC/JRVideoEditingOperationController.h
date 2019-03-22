@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-@class JRVideoEditingOperationController, LFVideoEditingController;
+#import "LFVideoEditingController.h"
+
+@class JRVideoEditingOperationController;
 
 NS_ASSUME_NONNULL_BEGIN
 
