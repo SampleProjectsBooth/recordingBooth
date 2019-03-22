@@ -1,16 +1,16 @@
 //
-//  UIImage+Bundle.m
+//  UIImage+JRBundle.m
 //  JRVideoClipDemo
 //
 //  Created by 丁嘉睿 on 2019/3/15.
 //  Copyright © 2019 djr. All rights reserved.
 //
 
-#import "UIImage+Bundle.h"
+#import "UIImage+JRBundle.h"
 
-@implementation UIImage (Bundle)
+@implementation UIImage (JRBundle)
 
-+ (UIImage *)getImgFromJRVideoEditingBundleWithName:(NSString *)name
++ (UIImage *)jr_getImgFromJRVideoEditingBundleWithName:(NSString *)name
 {
     UIImage *image = nil;
     if (name.length > 0) {

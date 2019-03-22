@@ -8,7 +8,7 @@
 
 #import "JRVideoCollectionViewCell.h"
 #import "JRVideoPlayerViewController.h"
-#import "UIImage+Bundle.h"
+#import "UIImage+JRBundle.h"
 
 @interface JRVideoCollectionViewCell ()
 
@@ -22,7 +22,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    [self.deleteBtn setImage:[UIImage getImgFromJRVideoEditingBundleWithName:@"delete.png"] forState:(UIControlStateNormal)];
+    [self.deleteBtn setImage:[UIImage jr_getImgFromJRVideoEditingBundleWithName:@"delete.png"] forState:(UIControlStateNormal)];
 }
 
 - (void)setIsDelete:(BOOL)isDelete

@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "LFVideoSessionHeader.h"
 #import "LFVideoSession.h"
-#import "UIImage+Bundle.h"
+#import "UIImage+JRBundle.h"
 #import "AVAsset+LFMECommon.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -47,6 +47,10 @@ NS_ASSUME_NONNULL_BEGIN
  @param error error
  */
 - (void)didRefusedPlay:(NSError *)error;
+
+- (void)cancel;
+
+- (void)finish;
 
 @end
 

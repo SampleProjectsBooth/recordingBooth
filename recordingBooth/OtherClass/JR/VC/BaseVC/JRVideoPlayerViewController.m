@@ -18,6 +18,10 @@
 
 @property (nonatomic, strong) UIImage *image;
 
+@property (nonatomic, weak) UIButton *cancelBtn;
+
+@property (nonatomic, weak) UIButton *completeBtn;
+
 @end
 
 @implementation JRVideoPlayerViewController
@@ -40,6 +44,19 @@
         rect = AVMakeRectWithAspectRatioInsideRect(self.aVideoPlayer.size, self.view.bounds);
     }
     _videoPlayerViewFrame = self.aVideoPlayerLayerView.frame = rect;
+    
+    CGFloat topMargin = CGRectGetMaxY([UIApplication sharedApplication].statusBarFrame);
+    if (@available(iOS 11.0, *)) {
+        topMargin = self.view.safeAreaInsets.top;
+    }
+    topMargin += 10.f;
+    
+    CGRect rectBtn = (CGRect){20.f, topMargin, 40.f, 20.f};
+    self.cancelBtn.frame = rectBtn;
+    
+    CGRect rect1 = (CGRect){CGRectGetWidth(self.view.frame) - 40.f - 20.f, topMargin, 40.f, 20.f};
+    self.completeBtn.frame = rect1;
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -160,8 +177,32 @@
     [self.view addSubview:playerLayerView];
     self.aVideoPlayerLayerView  = playerLayerView;
     
+    UIButton *button = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    [button setTitle:@"取消" forState:(UIControlStateNormal)];
+    [button addTarget:self action:@selector(_cancelAction)
+     forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundColor:[UIColor colorWithWhite:0.f alpha:0.3]];
+    [self.view addSubview:button];
+    self.cancelBtn = button;
+    
+    UIButton *button1 = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    [button1 setTitle:@"完成" forState:(UIControlStateNormal)];
+    [button1 setBackgroundColor:[UIColor colorWithWhite:0.f alpha:0.3]];
+    [button1 addTarget:self action:@selector(_completeAction)
+      forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button1];
+    self.completeBtn = button1;
 }
 
+- (void)_cancelAction
+{
+    [self cancel];
+}
+
+- (void)_completeAction
+{
+    [self finish];
+}
 
 #pragma mark - LFVideoPlayerDelegate
 /** 画面回调 */
@@ -210,6 +251,16 @@
 }
 
 - (void)didRefusedPlay:(NSError *)error
+{
+    
+}
+
+- (void)cancel
+{
+    
+}
+
+- (void)finish
 {
     
 }

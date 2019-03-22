@@ -6,13 +6,10 @@
 //  Copyright © 2019 djr. All rights reserved.
 //
 
-#import "JRCameraVideoViewController.h"
-#import "JRClipVideoEditingViewController.h"
-#import <AVFoundation/AVFoundation.h>
-#import <AssetsLibrary/AssetsLibrary.h>
-#import "UIImage+Bundle.h"
+#import "JRRecordVideoViewController.h"
+#import "UIImage+JRBundle.h"
 
-@interface JRCameraVideoViewController () < AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate, AVCaptureFileOutputRecordingDelegate>
+@interface JRRecordVideoViewController () < AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate, AVCaptureFileOutputRecordingDelegate>
 {
     dispatch_queue_t _movieWritingQueue;
 }
@@ -51,7 +48,7 @@
 
 @end
 
-@implementation JRCameraVideoViewController
+@implementation JRRecordVideoViewController
 
 
 #pragma mark - VC Life And Methods
@@ -59,9 +56,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.recordBtn.selected = self.slowRecordBtn.selected = NO;
-    [self.recordBtn setImage:[[UIImage getImgFromJRVideoEditingBundleWithName:@"ShutterButton1@2x.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:(UIControlStateNormal)];
-    [self.recordBtn setImage:[[UIImage getImgFromJRVideoEditingBundleWithName:@"ShutterButtonStop@2x.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:(UIControlStateSelected)];
-    [self.slowRecordBtn setImage:[UIImage getImgFromJRVideoEditingBundleWithName:@"outer_normal@2x"] forState:(UIControlStateNormal)];
+    [self.recordBtn setImage:[[UIImage jr_getImgFromJRVideoEditingBundleWithName:@"ShutterButton1@2x.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:(UIControlStateNormal)];
+    [self.recordBtn setImage:[[UIImage jr_getImgFromJRVideoEditingBundleWithName:@"ShutterButtonStop@2x.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:(UIControlStateSelected)];
+    [self.slowRecordBtn setImage:[UIImage jr_getImgFromJRVideoEditingBundleWithName:@"outer_normal@2x"] forState:(UIControlStateNormal)];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -147,20 +144,17 @@
 }
 
 #pragma mark - Public Methods
-+ (void)showRecordVideoViewControllerWithVC:(UIViewController *)vc
-{
-    [JRCameraVideoViewController showRecordVideoViewControllerWithVC:vc fps:JRCaremaFPSType240];
-}
-
-+ (void)showRecordVideoViewControllerWithVC:(UIViewController *)vc fps:(JRCaremaFPSType)fps
++ (instancetype)showRecordVideoViewControllerWithVC:(UIViewController *)vc fps:(JRCaremaFPSType)fps
 {
     if (vc) {
-        JRCameraVideoViewController *recordVC = [[JRCameraVideoViewController alloc] init];
+        JRRecordVideoViewController *recordVC = [[JRRecordVideoViewController alloc] init];
         [recordVC _createCameraTools];
         [recordVC _setCaremaFPSWithType:fps];
         [vc presentViewController:recordVC animated:YES completion:^{
         }];
+        return recordVC;
     }
+    return nil;
 }
 
 #pragma mark - Class Methods
@@ -243,18 +237,25 @@
     [self.session startRunning];
 }
 
-- (void)_startRecord
+- (BOOL)_startRecord
 {
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd-HH-mm-ss"];
-    NSString* dateTimePrefix = [formatter stringFromDate:[NSDate date]];
-
-    NSString *filePath = [JRVideoPlayerViewController createDirectoryUnderTemporaryDirectory:@"Carame" file:[NSString stringWithFormat:@"%@.mp4", dateTimePrefix]];
     
-    NSURL *mediaURL = [NSURL fileURLWithPath:filePath];
-    if (self.movieFileOutput && !self.movieFileOutput.isRecording) {
-        [self.movieFileOutput startRecordingToOutputFileURL:mediaURL recordingDelegate:self];
+    NSURL *mediaURL = nil;
+    mediaURL = self.saveURL;
+    if (mediaURL) {
+        if (self.movieFileOutput && !self.movieFileOutput.isRecording) {
+            [self.movieFileOutput startRecordingToOutputFileURL:mediaURL recordingDelegate:self];
+        }
+        return YES;
+    } else {
+        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:@"视频输出路径有误" preferredStyle:(UIAlertControllerStyleAlert)];
+        [self presentViewController:alertCon animated:YES completion:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.25f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [alertCon dismissViewControllerAnimated:YES completion:nil];
+            });
+        }];
     }
+    return NO;
 }
 
 - (void)_stopRecord {
@@ -268,25 +269,28 @@
 }
 
 - (IBAction)_recordAction:(id)sender {
-    self.recordBtn.selected = !self.recordBtn.selected;
     // REC START
     if (!self.movieFileOutput.isRecording) {
         
-        // change UI
-        self.fpsControl.enabled = NO;
-        
-        // timer start
-        self.startTime = [[NSDate date] timeIntervalSince1970];
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:0.01
-                                                      target:self
-                                                    selector:@selector(_timerHandler:)
-                                                    userInfo:nil
-                                                     repeats:YES];
-        [self _startRecord];
+        if([self _startRecord]) {
+            self.recordBtn.selected = YES;
+
+            // change UI
+            self.fpsControl.enabled = NO;
+            
+            // timer start
+            self.startTime = [[NSDate date] timeIntervalSince1970];
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:0.01
+                                                          target:self
+                                                        selector:@selector(_timerHandler:)
+                                                        userInfo:nil
+                                                         repeats:YES];
+        }
     }
     // REC STOP
     else {
         
+        self.recordBtn.selected = NO;
         [self _stopRecord];
 
         [self.timer invalidate];
@@ -337,10 +341,10 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (desiredFps >= 120.0) {
-                    [self.slowRecordBtn setImage:[UIImage getImgFromJRVideoEditingBundleWithName:@"outer_slow@2x"] forState:(UIControlStateNormal)];
+                    [self.slowRecordBtn setImage:[UIImage jr_getImgFromJRVideoEditingBundleWithName:@"outer_slow@2x"] forState:(UIControlStateNormal)];
                 }
                 else {
-                    [self.slowRecordBtn setImage:[UIImage getImgFromJRVideoEditingBundleWithName:@"outer_normal@2x"] forState:(UIControlStateNormal)];
+                    [self.slowRecordBtn setImage:[UIImage jr_getImgFromJRVideoEditingBundleWithName:@"outer_normal@2x"] forState:(UIControlStateNormal)];
                 }
                 [actionSheet dismissViewControllerAnimated:YES completion:nil];
             });
@@ -446,14 +450,17 @@
 - (void)_didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL error:(NSError *)error {
     
     if (error) {
-        NSLog(@"error:%@", error);
-        return;
-    }
-    AVAsset *videoAsset = [AVAsset assetWithURL:outputFileURL];
-    
-    
-    JRClipVideoEditingViewController *vc = [[JRClipVideoEditingViewController alloc] initWithVideoAsset:videoAsset placeholderImage:[videoAsset lf_firstImage:nil]];
-    [self presentViewController:vc animated:YES completion:nil];
+        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"%@", error.localizedDescription] preferredStyle:(UIAlertControllerStyleAlert)];
+        [self presentViewController:alertCon animated:YES completion:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.25f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [alertCon dismissViewControllerAnimated:YES completion:nil];
+            });
+        }];
+    } else {
+        if ([self.recordDelegate respondsToSelector:@selector(didFinishRecordVideo:)]) {
+            [self.recordDelegate didFinishRecordVideo:self];
+        }
+    }    
 }
 
 
@@ -462,6 +469,7 @@
 didStartRecordingToOutputFileAtURL:(NSURL *)fileURL
        fromConnections:(NSArray *)connections
 {
+    
 }
 
 - (void)captureOutput:(AVCaptureFileOutput *)captureOutput

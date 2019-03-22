@@ -6,20 +6,13 @@
 //  Copyright © 2019 djr. All rights reserved.
 //
 
-#import "JRVideoPlayerOperationViewController.h"
+#import "JRVideoPlayerViewController.h"
 
 @class JRVideoPreviewViewController;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol VideoPlayerMergeOperationDelegate <VideoPlayerOperationDelegate>
-
-@optional
-- (void)didFinishMergeOperation:(JRVideoPreviewViewController *)vc asset:(AVAsset *)asset audioMix:(AVAudioMix *)audioMix videoComposition:(AVVideoComposition *)videoComposition;
-
-@end
-
-@interface JRVideoPreviewViewController : JRVideoPlayerOperationViewController <VideoPlayerMergeOperationDelegate>
+@interface JRVideoPreviewViewController : JRVideoPlayerViewController
 
 - (instancetype)initWithAssets:(NSArray <AVAsset *>*)assets;
 

@@ -22,7 +22,6 @@
 /** 需要保存到编辑数据 */
 @property (nonatomic, strong) LFVideoEdit *videoEdit;
 
-@property (nonatomic, weak) id<VideoPlayerMergeOperationDelegate>mergeOperationDelegate;
 @end
 
 @implementation JRVideoPreviewViewController
@@ -43,7 +42,7 @@
             videoInfo.asset = assetObj;
             [self.collectionView addJRVideoClipInfo:videoInfo];
         }
-        [self createVideoSession];
+        [self _createVideoSession];
     } return self;
 }
 
@@ -78,19 +77,9 @@
     self.assetData = nil;
 }
 
-- (void)setOperationDelegate:(id<VideoPlayerOperationDelegate>)operationDelegate
-{
-    [super setOperationDelegate:operationDelegate];
-    self.mergeOperationDelegate = operationDelegate;
-}
 
 #pragma mark - Public Methods
-- (void)completeButtonAction
-{
-    if ([self.mergeOperationDelegate respondsToSelector:@selector(didFinishMergeOperation:asset:audioMix:videoComposition:)]) {
-        [self.mergeOperationDelegate didFinishMergeOperation:self asset:self.assetData.composition audioMix:self.assetData.audioMix videoComposition:self.assetData.videoComposition];
-    }
-}
+
 
 #pragma mark - Private Methods
 - (void)_createJRCollectionView
@@ -102,13 +91,12 @@
     
 }
 
-- (void)createVideoSession
+- (void)_createVideoSession
 {
     NSArray *assets = self.collectionView.dataSource;
     if (assets.count > 0) {
         JRVideoClipInfo *first = [assets firstObject];
         LFVideoSession *videoSession = [[LFVideoSession alloc] initWithAsset:first.asset];
-        CMTimeShow(first.asset.duration);
         NSUInteger i = 1;
         while (i<assets.count) {
             JRVideoClipInfo *assetObj = assets[i];
@@ -134,12 +122,39 @@
         JRVideoClipInfo *obj = [JRVideoClipInfo new];
         obj.asset = asset;
         [self.collectionView replaceObjectAtIndex:self.selectIndex withObject:obj];
-        [self createVideoSession];
+        [self _createVideoSession];
     }
     self.selectIndex = -10086;
 }
 
-#pragma mark - VideoPlayerDelegate
+- (void)_saveVideo:(NSURL *)url{
+    
+    if (url) {
+        BOOL compatible = UIVideoAtPathIsCompatibleWithSavedPhotosAlbum([url path]);
+        if (compatible)
+        {
+            //保存相册核心代码
+            UISaveVideoAtPathToSavedPhotosAlbum([url path], self, @selector(_savedPhotoImage:didFinishSavingWithError:contextInfo:), nil);
+        }
+    }
+}
+
+
+//保存视频完成之后的回调
+- (void)_savedPhotoImage:(UIImage*)image didFinishSavingWithError: (NSError *)error contextInfo: (void *)contextInfo {
+    NSString *name = @"保存视频成功";
+    if (error) {
+        name = [NSString stringWithFormat:@"保存视频失败%@", error.localizedDescription];
+        
+    }
+    UIAlertController *ale = [UIAlertController alertControllerWithTitle:nil message:name preferredStyle:(UIAlertControllerStyleAlert)];
+    [ale addAction:[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [self presentViewController:ale animated:YES completion:nil];
+}
+
+#pragma mark - VideoPlayerProtocol
 
 - (void)didReayToplay:(double)duration
 {
@@ -156,6 +171,51 @@
     [self play];
 }
 
+- (void)cancel
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+- (void)finish
+{
+    NSString *path = [JRVideoPlayerViewController createDirectoryUnderTemporaryDirectory:@"Append" file:@"a.mp4"];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    if([fm fileExistsAtPath:path]) {
+        [fm removeItemAtURL:url error:nil];
+    }
+    
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:nil message:@"正在储存..." preferredStyle:(UIAlertControllerStyleAlert)];
+    [self presentViewController:alertCon animated:YES completion:^{
+        AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:self.assetData.composition presetName:AVAssetExportPresetHighestQuality];
+        exportSession.outputURL = url;
+        exportSession.outputFileType = AVFileTypeQuickTimeMovie;
+        exportSession.audioMix = self.assetData.audioMix;
+        exportSession.videoComposition = self.assetData.videoComposition;
+        [exportSession exportAsynchronouslyWithCompletionHandler:^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [alertCon dismissViewControllerAnimated:YES completion:^{
+                }];
+                switch ([exportSession status]) {
+                    case AVAssetExportSessionStatusFailed:
+                        NSLog(@"Export failed: %@", [exportSession error]);
+                        break;
+                    case AVAssetExportSessionStatusCancelled:
+                        NSLog(@"Export canceled");
+                        break;
+                    case AVAssetExportSessionStatusCompleted:
+                        [self _saveVideo:url];
+                        NSLog(@"Export completed : %@", [url path]);
+                        break;
+                    default:
+                        break;
+                }
+            });
+        }];
+    }];
+}
 
 #pragma mark - JRHorizontalCollectioViewDelegate
 - (void)horizontalCollectioView:(JRHorizontalCollectioView *)collectioView didSelectItemAtIndex:(NSUInteger)index

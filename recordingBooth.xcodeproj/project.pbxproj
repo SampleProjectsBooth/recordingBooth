@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0553BB712244901000B9A2EF /* JRVideoPlayerOperationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB622244901000B9A2EF /* JRVideoPlayerOperationViewController.m */; };
+		0553BB722244901000B9A2EF /* JRVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB632244901000B9A2EF /* JRVideoPlayerViewController.m */; };
+		0553BB732244901000B9A2EF /* JRVideoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB662244901000B9A2EF /* JRVideoPreviewViewController.m */; };
+		0553BB742244901000B9A2EF /* JRClipVideoEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB682244901000B9A2EF /* JRClipVideoEditingViewController.m */; };
+		0553BB752244901000B9A2EF /* JRRecordVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB6B2244901000B9A2EF /* JRRecordVideoViewController.m */; };
+		0553BB762244901000B9A2EF /* JRRecordVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0553BB6D2244901000B9A2EF /* JRRecordVideoViewController.xib */; };
+		0553BB772244901000B9A2EF /* UIImage+JRBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB6F2244901000B9A2EF /* UIImage+JRBundle.m */; };
 		C76134FD22432D9F00CD3785 /* SampleVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C76134FC22432D9F00CD3785 /* SampleVideo.mp4 */; };
-		C761368B2244729F00CD3785 /* UIImage+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135952244729E00CD3785 /* UIImage+Bundle.m */; };
 		C761368C2244729F00CD3785 /* JRVideoEditing.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C76135972244729E00CD3785 /* JRVideoEditing.bundle */; };
-		C761368D2244729F00CD3785 /* JRVideoPlayerOperationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C761359C2244729E00CD3785 /* JRVideoPlayerOperationViewController.m */; };
-		C761368E2244729F00CD3785 /* JRVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C761359D2244729E00CD3785 /* JRVideoPlayerViewController.m */; };
-		C761368F2244729F00CD3785 /* JRVideoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135A02244729E00CD3785 /* JRVideoPreviewViewController.m */; };
-		C76136902244729F00CD3785 /* JRClipVideoEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135A22244729E00CD3785 /* JRClipVideoEditingViewController.m */; };
-		C76136912244729F00CD3785 /* JRCameraVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76135A62244729E00CD3785 /* JRCameraVideoViewController.xib */; };
-		C76136922244729F00CD3785 /* JRCameraVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135A72244729E00CD3785 /* JRCameraVideoViewController.m */; };
 		C76136932244729F00CD3785 /* JRVideoClipInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135AB2244729E00CD3785 /* JRVideoClipInfo.m */; };
 		C76136942244729F00CD3785 /* JRClipInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135AC2244729E00CD3785 /* JRClipInfo.m */; };
 		C76136952244729F00CD3785 /* JRHorizontalCollectioView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135AE2244729E00CD3785 /* JRHorizontalCollectioView.m */; };
@@ -116,21 +116,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0553BB602244901000B9A2EF /* JRVideoPlayerOperationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRVideoPlayerOperationViewController.h; sourceTree = "<group>"; };
+		0553BB612244901000B9A2EF /* JRVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRVideoPlayerViewController.h; sourceTree = "<group>"; };
+		0553BB622244901000B9A2EF /* JRVideoPlayerOperationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRVideoPlayerOperationViewController.m; sourceTree = "<group>"; };
+		0553BB632244901000B9A2EF /* JRVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRVideoPlayerViewController.m; sourceTree = "<group>"; };
+		0553BB652244901000B9A2EF /* JRVideoPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRVideoPreviewViewController.h; sourceTree = "<group>"; };
+		0553BB662244901000B9A2EF /* JRVideoPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRVideoPreviewViewController.m; sourceTree = "<group>"; };
+		0553BB682244901000B9A2EF /* JRClipVideoEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRClipVideoEditingViewController.m; sourceTree = "<group>"; };
+		0553BB692244901000B9A2EF /* JRClipVideoEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRClipVideoEditingViewController.h; sourceTree = "<group>"; };
+		0553BB6B2244901000B9A2EF /* JRRecordVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRRecordVideoViewController.m; sourceTree = "<group>"; };
+		0553BB6C2244901000B9A2EF /* JRRecordVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRRecordVideoViewController.h; sourceTree = "<group>"; };
+		0553BB6D2244901000B9A2EF /* JRRecordVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JRRecordVideoViewController.xib; sourceTree = "<group>"; };
+		0553BB6F2244901000B9A2EF /* UIImage+JRBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JRBundle.m"; sourceTree = "<group>"; };
+		0553BB702244901000B9A2EF /* UIImage+JRBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JRBundle.h"; sourceTree = "<group>"; };
 		C76134FC22432D9F00CD3785 /* SampleVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SampleVideo.mp4; sourceTree = "<group>"; };
-		C76135952244729E00CD3785 /* UIImage+Bundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Bundle.m"; sourceTree = "<group>"; };
-		C76135962244729E00CD3785 /* UIImage+Bundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Bundle.h"; sourceTree = "<group>"; };
 		C76135972244729E00CD3785 /* JRVideoEditing.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JRVideoEditing.bundle; sourceTree = "<group>"; };
-		C761359A2244729E00CD3785 /* JRVideoPlayerOperationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRVideoPlayerOperationViewController.h; sourceTree = "<group>"; };
-		C761359B2244729E00CD3785 /* JRVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRVideoPlayerViewController.h; sourceTree = "<group>"; };
-		C761359C2244729E00CD3785 /* JRVideoPlayerOperationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRVideoPlayerOperationViewController.m; sourceTree = "<group>"; };
-		C761359D2244729E00CD3785 /* JRVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRVideoPlayerViewController.m; sourceTree = "<group>"; };
-		C761359F2244729E00CD3785 /* JRVideoPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRVideoPreviewViewController.h; sourceTree = "<group>"; };
-		C76135A02244729E00CD3785 /* JRVideoPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRVideoPreviewViewController.m; sourceTree = "<group>"; };
-		C76135A22244729E00CD3785 /* JRClipVideoEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRClipVideoEditingViewController.m; sourceTree = "<group>"; };
-		C76135A32244729E00CD3785 /* JRClipVideoEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRClipVideoEditingViewController.h; sourceTree = "<group>"; };
-		C76135A52244729E00CD3785 /* JRCameraVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRCameraVideoViewController.h; sourceTree = "<group>"; };
-		C76135A62244729E00CD3785 /* JRCameraVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JRCameraVideoViewController.xib; sourceTree = "<group>"; };
-		C76135A72244729E00CD3785 /* JRCameraVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRCameraVideoViewController.m; sourceTree = "<group>"; };
 		C76135A92244729E00CD3785 /* JRClipInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRClipInfo.h; sourceTree = "<group>"; };
 		C76135AA2244729E00CD3785 /* JRVideoClipInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRVideoClipInfo.h; sourceTree = "<group>"; };
 		C76135AB2244729E00CD3785 /* JRVideoClipInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRVideoClipInfo.m; sourceTree = "<group>"; };
@@ -345,6 +345,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0553BB5E2244901000B9A2EF /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				0553BB5F2244901000B9A2EF /* BaseVC */,
+				0553BB642244901000B9A2EF /* PreviewVC */,
+				0553BB672244901000B9A2EF /* ClipVideoVC */,
+				0553BB6A2244901000B9A2EF /* CameraVC */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		0553BB5F2244901000B9A2EF /* BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				0553BB602244901000B9A2EF /* JRVideoPlayerOperationViewController.h */,
+				0553BB612244901000B9A2EF /* JRVideoPlayerViewController.h */,
+				0553BB622244901000B9A2EF /* JRVideoPlayerOperationViewController.m */,
+				0553BB632244901000B9A2EF /* JRVideoPlayerViewController.m */,
+			);
+			path = BaseVC;
+			sourceTree = "<group>";
+		};
+		0553BB642244901000B9A2EF /* PreviewVC */ = {
+			isa = PBXGroup;
+			children = (
+				0553BB652244901000B9A2EF /* JRVideoPreviewViewController.h */,
+				0553BB662244901000B9A2EF /* JRVideoPreviewViewController.m */,
+			);
+			path = PreviewVC;
+			sourceTree = "<group>";
+		};
+		0553BB672244901000B9A2EF /* ClipVideoVC */ = {
+			isa = PBXGroup;
+			children = (
+				0553BB682244901000B9A2EF /* JRClipVideoEditingViewController.m */,
+				0553BB692244901000B9A2EF /* JRClipVideoEditingViewController.h */,
+			);
+			path = ClipVideoVC;
+			sourceTree = "<group>";
+		};
+		0553BB6A2244901000B9A2EF /* CameraVC */ = {
+			isa = PBXGroup;
+			children = (
+				0553BB6B2244901000B9A2EF /* JRRecordVideoViewController.m */,
+				0553BB6C2244901000B9A2EF /* JRRecordVideoViewController.h */,
+				0553BB6D2244901000B9A2EF /* JRRecordVideoViewController.xib */,
+			);
+			path = CameraVC;
+			sourceTree = "<group>";
+		};
+		0553BB6E2244901000B9A2EF /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				0553BB6F2244901000B9A2EF /* UIImage+JRBundle.m */,
+				0553BB702244901000B9A2EF /* UIImage+JRBundle.h */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		C76135922244729E00CD3785 /* OtherClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,72 +416,13 @@
 		C76135932244729E00CD3785 /* JR */ = {
 			isa = PBXGroup;
 			children = (
-				C76135942244729E00CD3785 /* Image */,
+				0553BB6E2244901000B9A2EF /* Image */,
+				0553BB5E2244901000B9A2EF /* VC */,
 				C76135972244729E00CD3785 /* JRVideoEditing.bundle */,
-				C76135982244729E00CD3785 /* VC */,
 				C76135A82244729E00CD3785 /* Model */,
 				C76135AD2244729E00CD3785 /* View */,
 			);
 			path = JR;
-			sourceTree = "<group>";
-		};
-		C76135942244729E00CD3785 /* Image */ = {
-			isa = PBXGroup;
-			children = (
-				C76135952244729E00CD3785 /* UIImage+Bundle.m */,
-				C76135962244729E00CD3785 /* UIImage+Bundle.h */,
-			);
-			path = Image;
-			sourceTree = "<group>";
-		};
-		C76135982244729E00CD3785 /* VC */ = {
-			isa = PBXGroup;
-			children = (
-				C76135992244729E00CD3785 /* BaseVC */,
-				C761359E2244729E00CD3785 /* PreviewVC */,
-				C76135A12244729E00CD3785 /* ClipVideoVC */,
-				C76135A42244729E00CD3785 /* CameraVC */,
-			);
-			path = VC;
-			sourceTree = "<group>";
-		};
-		C76135992244729E00CD3785 /* BaseVC */ = {
-			isa = PBXGroup;
-			children = (
-				C761359A2244729E00CD3785 /* JRVideoPlayerOperationViewController.h */,
-				C761359B2244729E00CD3785 /* JRVideoPlayerViewController.h */,
-				C761359C2244729E00CD3785 /* JRVideoPlayerOperationViewController.m */,
-				C761359D2244729E00CD3785 /* JRVideoPlayerViewController.m */,
-			);
-			path = BaseVC;
-			sourceTree = "<group>";
-		};
-		C761359E2244729E00CD3785 /* PreviewVC */ = {
-			isa = PBXGroup;
-			children = (
-				C761359F2244729E00CD3785 /* JRVideoPreviewViewController.h */,
-				C76135A02244729E00CD3785 /* JRVideoPreviewViewController.m */,
-			);
-			path = PreviewVC;
-			sourceTree = "<group>";
-		};
-		C76135A12244729E00CD3785 /* ClipVideoVC */ = {
-			isa = PBXGroup;
-			children = (
-				C76135A22244729E00CD3785 /* JRClipVideoEditingViewController.m */,
-				C76135A32244729E00CD3785 /* JRClipVideoEditingViewController.h */,
-			);
-			path = ClipVideoVC;
-			sourceTree = "<group>";
-		};
-		C76135A42244729E00CD3785 /* CameraVC */ = {
-			isa = PBXGroup;
-			children = (
-				C76135A52244729E00CD3785 /* JRCameraVideoViewController.h */,
-				C76135A62244729E00CD3785 /* JRCameraVideoViewController.xib */,
-				C76135A72244729E00CD3785 /* JRCameraVideoViewController.m */,
-			);
-			path = CameraVC;
 			sourceTree = "<group>";
 		};
 		C76135A82244729E00CD3785 /* Model */ = {
@@ -1133,11 +1133,11 @@
 				C7B6BA5B2221036200970D96 /* LaunchScreen.storyboard in Resources */,
 				C7B6BA582221036200970D96 /* Assets.xcassets in Resources */,
 				C7B6BA742221087B00970D96 /* LFConfigRecordingBoothController.xib in Resources */,
-				C76136912244729F00CD3785 /* JRCameraVideoViewController.xib in Resources */,
 				C76136AA2244729F00CD3785 /* README.md in Resources */,
 				C76134FD22432D9F00CD3785 /* SampleVideo.mp4 in Resources */,
 				C7B6BA562221036100970D96 /* Main.storyboard in Resources */,
 				C76136AC2244729F00CD3785 /* LFMediaEditingController.bundle in Resources */,
+				0553BB762244901000B9A2EF /* JRRecordVideoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1161,7 +1161,6 @@
 				C76136982244729F00CD3785 /* LFBaseEditingController.m in Sources */,
 				C76136C0224472A000CD3785 /* LFVideoTrimmerGridView.m in Sources */,
 				C76136CC224472A000CD3785 /* LFGridView.m in Sources */,
-				C761368D2244729F00CD3785 /* JRVideoPlayerOperationViewController.m in Sources */,
 				C76136DD224472A000CD3785 /* LFVideoSession.m in Sources */,
 				C76136AE2244729F00CD3785 /* NSString+LFMECoreText.m in Sources */,
 				C76136A02244729F00CD3785 /* LFFilter+UIImage.m in Sources */,
@@ -1175,18 +1174,17 @@
 				C7B6BA532221036100970D96 /* ViewController.m in Sources */,
 				C76136BC224472A000CD3785 /* LFAudioTrackBar.m in Sources */,
 				C76136B2224472A000CD3785 /* NSBundle+LFMediaEditing.m in Sources */,
+				0553BB752244901000B9A2EF /* JRRecordVideoViewController.m in Sources */,
 				C76136CB224472A000CD3785 /* LFResizeControl.m in Sources */,
 				C76136932244729F00CD3785 /* JRVideoClipInfo.m in Sources */,
 				C76136CF224472A000CD3785 /* LFStickerLabel.m in Sources */,
-				C76136902244729F00CD3785 /* JRClipVideoEditingViewController.m in Sources */,
 				C76136E6224472A000CD3785 /* LFVideoFilterCommand.m in Sources */,
-				C76136922244729F00CD3785 /* JRCameraVideoViewController.m in Sources */,
 				C76136D0224472A000CD3785 /* LFClipToolbar.m in Sources */,
 				C76136DE224472A000CD3785 /* LFVideoMergeCommand.m in Sources */,
 				C76136DC224472A000CD3785 /* LFAVAssetData.m in Sources */,
-				C761368E2244729F00CD3785 /* JRVideoPlayerViewController.m in Sources */,
 				C76136C2224472A000CD3785 /* LFDataFilterVideoView.m in Sources */,
 				C76136BB224472A000CD3785 /* LFVideoClipToolbar.m in Sources */,
+				0553BB712244901000B9A2EF /* JRVideoPlayerOperationViewController.m in Sources */,
 				C76136C7224472A000CD3785 /* LFEditingView.m in Sources */,
 				C76136CE224472A000CD3785 /* LFMovingView.m in Sources */,
 				C76136962244729F00CD3785 /* JRVideoCollectionViewCell.m in Sources */,
@@ -1194,8 +1192,10 @@
 				C76136AD2244729F00CD3785 /* UIDevice+LFMEOrientation.m in Sources */,
 				C7B6BA5E2221036200970D96 /* main.m in Sources */,
 				C76136E0224472A000CD3785 /* LFVideoRotateCommand.m in Sources */,
+				0553BB732244901000B9A2EF /* JRVideoPreviewViewController.m in Sources */,
 				C761369E2244729F00CD3785 /* LFImageUtil.m in Sources */,
 				C76136A62244729F00CD3785 /* LFFilterImageView.m in Sources */,
+				0553BB772244901000B9A2EF /* UIImage+JRBundle.m in Sources */,
 				C76136E1224472A000CD3785 /* LFVideoCropCommand.m in Sources */,
 				C76136A92244729F00CD3785 /* LFSampleBufferHolder.m in Sources */,
 				C76136DA224472A000CD3785 /* LFDrawView.m in Sources */,
@@ -1205,7 +1205,6 @@
 				C76136B5224472A000CD3785 /* LFMECancelBlock.m in Sources */,
 				C7B6BA7822212C8000970D96 /* LFRecordConfig.m in Sources */,
 				C76136E2224472A000CD3785 /* LFVideoRateCommand.m in Sources */,
-				C761368B2244729F00CD3785 /* UIImage+Bundle.m in Sources */,
 				C76136D7224472A000CD3785 /* LFFilterView.m in Sources */,
 				C76136B9224472A000CD3785 /* LFVideoEdit.m in Sources */,
 				C76136E3224472A000CD3785 /* LFVideoBaseCommand.m in Sources */,
@@ -1217,10 +1216,10 @@
 				C76136992244729F00CD3785 /* JRFilterBarCell.m in Sources */,
 				C76136C5224472A000CD3785 /* LFPhotoEdit.m in Sources */,
 				C761369F2244729F00CD3785 /* LFMutableFilter.m in Sources */,
-				C761368F2244729F00CD3785 /* JRVideoPreviewViewController.m in Sources */,
 				C76136AF2244729F00CD3785 /* AVAsset+LFMECommon.m in Sources */,
 				C76136CA224472A000CD3785 /* LFGridMaskLayer.m in Sources */,
 				C76136B6224472A000CD3785 /* LFScrollView.m in Sources */,
+				0553BB742244901000B9A2EF /* JRClipVideoEditingViewController.m in Sources */,
 				C76136A52244729F00CD3785 /* LFContext.m in Sources */,
 				C76136B02244729F00CD3785 /* UIView+LFMECommon.m in Sources */,
 				C76136C3224472A000CD3785 /* LFMEGIFImageSerialization.m in Sources */,
@@ -1240,6 +1239,7 @@
 				C76136D6224472A000CD3785 /* LFText.m in Sources */,
 				C761369B2244729F00CD3785 /* JRFilterBar.m in Sources */,
 				C7B6BA502221036100970D96 /* AppDelegate.m in Sources */,
+				0553BB722244901000B9A2EF /* JRVideoPlayerViewController.m in Sources */,
 				C76136952244729F00CD3785 /* JRHorizontalCollectioView.m in Sources */,
 				C76136BD224472A000CD3785 /* LFVideoPlayerLayerView.m in Sources */,
 				C76136A22244729F00CD3785 /* LFFilter.m in Sources */,

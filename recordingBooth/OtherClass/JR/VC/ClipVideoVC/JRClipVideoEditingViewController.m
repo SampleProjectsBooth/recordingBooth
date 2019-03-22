@@ -37,19 +37,9 @@
 
 @property (nonatomic, assign) BOOL noTag;
 
-@property (nonatomic, weak) id<VideoPlayerClipOperationDelegate>clipOperationDelegate;
-
 @end
 
 @implementation JRClipVideoEditingViewController
-
-- (instancetype)initWithVideoUrl:(NSURL *)videoUrl placeholderImage:(nullable UIImage *)placeholderImage
-{
-    self = [self initWithPlaceholderImage:placeholderImage];
-    if (self) {
-//        self.url = videoUrl;
-    } return self;
-}
 
 - (instancetype)initWithVideoAsset:(AVAsset *)videoAsset placeholderImage:(nullable UIImage *)placeholderImage
 {
@@ -148,9 +138,9 @@
     button.enabled = NO;
     button.hidden = YES;
     button.frame = CGRectMake(0.f, 0.f, 50.f, 50.f);
-    [button setImage:[UIImage getImgFromJRVideoEditingBundleWithName:@"pause.png"] forState:(UIControlStateSelected)];
-    [button setImage:[UIImage getImgFromJRVideoEditingBundleWithName:@"errorPlay.png"] forState:(UIControlStateDisabled)];
-    [button setImage:[UIImage getImgFromJRVideoEditingBundleWithName:@"play.png"] forState:(UIControlStateNormal)];
+    [button setImage:[UIImage jr_getImgFromJRVideoEditingBundleWithName:@"pause.png"] forState:(UIControlStateSelected)];
+    [button setImage:[UIImage jr_getImgFromJRVideoEditingBundleWithName:@"errorPlay.png"] forState:(UIControlStateDisabled)];
+    [button setImage:[UIImage jr_getImgFromJRVideoEditingBundleWithName:@"play.png"] forState:(UIControlStateNormal)];
     [button addTarget:self action:@selector(_vdeioPlayAction) forControlEvents:(UIControlEventTouchUpInside)];
     [self.view addSubview:button];
     self.aPlayBtn = button;
@@ -233,36 +223,11 @@
     [videoSession execute];
     
     videoInfo.asset = videoSession.assetData.composition;
-    
-    
     [self.collectionView addJRVideoClipInfo:videoInfo];
 
 }
 
-/** 完成按钮 */
-- (void)completeButtonAction
-{
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.collectionView.dataSource.count];
-    if (self.collectionView.dataSource.count > 0) {
-        for (NSUInteger i = 0; i < self.collectionView.dataSource.count; i++) {
-            JRVideoClipInfo *obj = [self.collectionView.dataSource objectAtIndex:i];
-            [array addObject:obj.asset];
-        }
-        
-    }
-//    [array removeAllObjects];
-//    [array addObject:[self.collectionView.dataSource objectAtIndex:1].asset];
-    if ([self.clipOperationDelegate respondsToSelector:@selector(didFinishClipOperation:clipAssets:)]) {
-        [self.clipOperationDelegate didFinishClipOperation:self clipAssets:[array copy]];
-    }
-}
-
 #pragma mark - Setter And Getter
-- (void)setOperationDelegate:(id<VideoPlayerOperationDelegate>)operationDelegate
-{
-    [super setOperationDelegate:operationDelegate];
-    self.clipOperationDelegate = operationDelegate;
-}
 
 
 #pragma mark - VideoPlayerDelegate
@@ -271,11 +236,11 @@
     self.aPlayBtn.hidden = NO;
     self.aPlayBtn.enabled = YES;
     self.startTime = 0;
-    self.totalDuration = self.endTime = duration;
+    self.totalDuration = self.endTime = self.maxClippingDuration = duration;
     [self.aVideoTrimmerView setHiddenProgress:NO];
     self.aVideoTrimmerView.progress = 0;
     self.aVideoTrimmerView.controlMinWidth = CGRectGetWidth(self.aVideoTrimmerView.frame) * (self.minClippingDuration / self.totalDuration);
-//    self.aVideoTrimmerView.controlMaxWidth = CGRectGetWidth(self.aVideoTrimmerView.frame) * (20.f / self.totalDuration);
+    self.aVideoTrimmerView.controlMaxWidth = CGRectGetWidth(self.aVideoTrimmerView.frame) * (self.maxClippingDuration / self.totalDuration);
     NSRange firstRange = NSMakeRange(0, self.aVideoTrimmerView.controlMinWidth);
     self.noTag = YES;
     [self.aVideoTrimmerView setGridRange:firstRange animated:NO];
@@ -305,6 +270,33 @@
 {
     self.aPlayBtn.hidden = NO;
     self.aPlayBtn.enabled = NO;
+}
+
+- (void)cancel
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+- (void)finish
+{
+    if (self.collectionView.dataSource.count > 0) {
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.collectionView.dataSource.count];
+        for (NSUInteger i = 0; i < self.collectionView.dataSource.count; i++) {
+            JRVideoClipInfo *obj = [self.collectionView.dataSource objectAtIndex:i];
+            [array addObject:obj.asset];
+        }
+        JRVideoPreviewViewController *vc = [[JRVideoPreviewViewController alloc] initWithAssets:[array copy]];
+        [self presentViewController:vc animated:YES completion:nil];
+    } else {
+        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:@"请裁剪视频" preferredStyle:(UIAlertControllerStyleAlert)];
+        [self presentViewController:alertCon animated:YES completion:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.25f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [alertCon dismissViewControllerAnimated:YES completion:nil];
+            });
+        }];
+    }
 }
 
 #pragma mark - LFVideoTrimmerViewDelegate

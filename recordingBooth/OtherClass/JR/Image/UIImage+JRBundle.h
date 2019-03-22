@@ -1,5 +1,5 @@
 //
-//  UIImage+Bundle.h
+//  UIImage+JRBundle.h
 //  JRVideoClipDemo
 //
 //  Created by 丁嘉睿 on 2019/3/15.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIImage (Bundle)
+@interface UIImage (JRBundle)
 
 /**
  获取bundle内图片资源
@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param name name
  @return UIImage
  */
-+ (UIImage *)getImgFromJRVideoEditingBundleWithName:(NSString *)name;
++ (UIImage *)jr_getImgFromJRVideoEditingBundleWithName:(NSString *)name;
 
 @end
 
