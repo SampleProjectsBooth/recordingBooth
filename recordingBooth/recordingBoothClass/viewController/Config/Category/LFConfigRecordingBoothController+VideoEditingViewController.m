@@ -26,6 +26,9 @@
 
 - (void)videoEditingOperationController:(JRVideoEditingOperationController *)operationer didFinishEditUrl:(NSURL *)url
 {
+    [operationer dismissViewControllerAnimated:YES completion:^{
+        
+    }];
     NSLog(@"videoEditingOperationControllerdidFinishEditUrl");
 }
 
