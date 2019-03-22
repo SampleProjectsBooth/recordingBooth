@@ -23,7 +23,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>鸽子，我要用你的相机</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string></string>
+	<string>鸽子，我要用你的相册</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>鸽子，我要用你的相册</string>
 	<key>UILaunchStoryboardName</key>

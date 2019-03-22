@@ -19,6 +19,7 @@
 - (void)showVideoEditingViewController:(AVAsset *)asset
 {
     JRVideoEditingOperationController *vc = [[JRVideoEditingOperationController alloc] initWithAsset:asset];
+
     vc.operationDelegate = self;
     vc.minClippingDuration = 5.f;
     vc.maxClippingDuration = 20.f;
@@ -48,6 +49,7 @@
     imageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
     UIView *waterView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [waterView addSubview:imageView];
+    vc.overlayView = waterView;
     
     /** save video url */
     NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES).firstObject;
@@ -72,5 +74,6 @@
     [operationer dismissViewControllerAnimated:YES completion:^{
     }];
 }
+
 
 @end
