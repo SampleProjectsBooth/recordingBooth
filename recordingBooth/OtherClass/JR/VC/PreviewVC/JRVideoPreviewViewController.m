@@ -184,6 +184,11 @@
 {
     JRVideoEditingOperationController *nav = (JRVideoEditingOperationController *)self.navigationController;
 
+    /** 加水印 */
+    LFVideoSession *videoSession = [[LFVideoSession alloc] initWithAsset:self.asset];
+    LFVideoWatermarkCommand *watermarkCommadn = [[LFVideoWatermarkCommand alloc] initWithAssetData:videoSession.assetData view:nav.overlayView];
+    [videoSession addCommand:watermarkCommadn];
+    [videoSession execute];
     
     NSURL *url = nav.videoUrl;
     if (!url) {
@@ -200,11 +205,11 @@
 
     UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:nil message:@"正在储存..." preferredStyle:(UIAlertControllerStyleAlert)];
     [self presentViewController:alertCon animated:YES completion:^{
-        AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:self.assetData.composition presetName:nav.presetQuality];
+        AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:videoSession.assetData.composition presetName:nav.presetQuality];
         exportSession.outputURL = url;
         exportSession.outputFileType = nav.videoType;
-        exportSession.audioMix = self.assetData.audioMix;
-        exportSession.videoComposition = self.assetData.videoComposition;
+        exportSession.audioMix = videoSession.assetData.audioMix;
+        exportSession.videoComposition = videoSession.assetData.videoComposition;
         [exportSession exportAsynchronouslyWithCompletionHandler:^{
             dispatch_async(dispatch_get_main_queue(), ^{
                 [alertCon dismissViewControllerAnimated:YES completion:^{

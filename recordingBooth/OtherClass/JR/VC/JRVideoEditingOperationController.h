@@ -46,6 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 允许剪辑的最大时长 默认视频长度 */
 @property (nonatomic, assign) double maxClippingDuration;
 
+/** 水印层 */
+@property (nonatomic, strong, nullable) UIView *overlayView;
+
 @end
 
 NS_ASSUME_NONNULL_END
