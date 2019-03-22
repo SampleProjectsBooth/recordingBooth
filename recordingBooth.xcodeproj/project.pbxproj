@@ -1,0 +1,1442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C76134FD22432D9F00CD3785 /* SampleVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C76134FC22432D9F00CD3785 /* SampleVideo.mp4 */; };
+		C761368B2244729F00CD3785 /* UIImage+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135952244729E00CD3785 /* UIImage+Bundle.m */; };
+		C761368C2244729F00CD3785 /* JRVideoEditing.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C76135972244729E00CD3785 /* JRVideoEditing.bundle */; };
+		C761368D2244729F00CD3785 /* JRVideoPlayerOperationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C761359C2244729E00CD3785 /* JRVideoPlayerOperationViewController.m */; };
+		C761368E2244729F00CD3785 /* JRVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C761359D2244729E00CD3785 /* JRVideoPlayerViewController.m */; };
+		C761368F2244729F00CD3785 /* JRVideoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135A02244729E00CD3785 /* JRVideoPreviewViewController.m */; };
+		C76136902244729F00CD3785 /* JRClipVideoEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135A22244729E00CD3785 /* JRClipVideoEditingViewController.m */; };
+		C76136912244729F00CD3785 /* JRCameraVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76135A62244729E00CD3785 /* JRCameraVideoViewController.xib */; };
+		C76136922244729F00CD3785 /* JRCameraVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135A72244729E00CD3785 /* JRCameraVideoViewController.m */; };
+		C76136932244729F00CD3785 /* JRVideoClipInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135AB2244729E00CD3785 /* JRVideoClipInfo.m */; };
+		C76136942244729F00CD3785 /* JRClipInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135AC2244729E00CD3785 /* JRClipInfo.m */; };
+		C76136952244729F00CD3785 /* JRHorizontalCollectioView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135AE2244729E00CD3785 /* JRHorizontalCollectioView.m */; };
+		C76136962244729F00CD3785 /* JRVideoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135B12244729E00CD3785 /* JRVideoCollectionViewCell.m */; };
+		C76136972244729F00CD3785 /* JRVideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C76135B22244729E00CD3785 /* JRVideoCollectionViewCell.xib */; };
+		C76136982244729F00CD3785 /* LFBaseEditingController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135B52244729E00CD3785 /* LFBaseEditingController.m */; };
+		C76136992244729F00CD3785 /* JRFilterBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135BA2244729E00CD3785 /* JRFilterBarCell.m */; };
+		C761369A2244729F00CD3785 /* JRFilterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135BE2244729E00CD3785 /* JRFilterModel.m */; };
+		C761369B2244729F00CD3785 /* JRFilterBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135BF2244729E00CD3785 /* JRFilterBar.m */; };
+		C761369C2244729F00CD3785 /* JRPickColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135C22244729E00CD3785 /* JRPickColorView.m */; };
+		C761369D2244729F00CD3785 /* LFColorMatrixType.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135C72244729E00CD3785 /* LFColorMatrixType.m */; };
+		C761369E2244729F00CD3785 /* LFImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135C82244729E00CD3785 /* LFImageUtil.m */; };
+		C761369F2244729F00CD3785 /* LFMutableFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135CB2244729F00CD3785 /* LFMutableFilter.m */; };
+		C76136A02244729F00CD3785 /* LFFilter+UIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135D12244729F00CD3785 /* LFFilter+UIImage.m */; };
+		C76136A12244729F00CD3785 /* LFFilter+save.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135D22244729F00CD3785 /* LFFilter+save.m */; };
+		C76136A22244729F00CD3785 /* LFFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135D42244729F00CD3785 /* LFFilter.m */; };
+		C76136A32244729F00CD3785 /* LFFilterVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135D92244729F00CD3785 /* LFFilterVideoView.m */; };
+		C76136A42244729F00CD3785 /* LFFilterGifView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135DB2244729F00CD3785 /* LFFilterGifView.m */; };
+		C76136A52244729F00CD3785 /* LFContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135DC2244729F00CD3785 /* LFContext.m */; };
+		C76136A62244729F00CD3785 /* LFFilterImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135DD2244729F00CD3785 /* LFFilterImageView.m */; };
+		C76136A72244729F00CD3785 /* LFContextImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135DE2244729F00CD3785 /* LFContextImageView.m */; };
+		C76136A82244729F00CD3785 /* LFWeakSelectorTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135E22244729F00CD3785 /* LFWeakSelectorTarget.m */; };
+		C76136A92244729F00CD3785 /* LFSampleBufferHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135E32244729F00CD3785 /* LFSampleBufferHolder.m */; };
+		C76136AA2244729F00CD3785 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C76135E72244729F00CD3785 /* README.md */; };
+		C76136AB2244729F00CD3785 /* LFVideoExportSession.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135EA2244729F00CD3785 /* LFVideoExportSession.m */; };
+		C76136AC2244729F00CD3785 /* LFMediaEditingController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C76135F12244729F00CD3785 /* LFMediaEditingController.bundle */; };
+		C76136AD2244729F00CD3785 /* UIDevice+LFMEOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135F32244729F00CD3785 /* UIDevice+LFMEOrientation.m */; };
+		C76136AE2244729F00CD3785 /* NSString+LFMECoreText.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135F62244729F00CD3785 /* NSString+LFMECoreText.m */; };
+		C76136AF2244729F00CD3785 /* AVAsset+LFMECommon.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135F82244729F00CD3785 /* AVAsset+LFMECommon.m */; };
+		C76136B02244729F00CD3785 /* UIView+LFMECommon.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135F92244729F00CD3785 /* UIView+LFMECommon.m */; };
+		C76136B1224472A000CD3785 /* UIView+LFMEFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135FB2244729F00CD3785 /* UIView+LFMEFrame.m */; };
+		C76136B2224472A000CD3785 /* NSBundle+LFMediaEditing.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135FC2244729F00CD3785 /* NSBundle+LFMediaEditing.m */; };
+		C76136B3224472A000CD3785 /* UIImage+LFMECommon.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135FE2244729F00CD3785 /* UIImage+LFMECommon.m */; };
+		C76136B4224472A000CD3785 /* FilterSuiteUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136042244729F00CD3785 /* FilterSuiteUtils.m */; };
+		C76136B5224472A000CD3785 /* LFMECancelBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136072244729F00CD3785 /* LFMECancelBlock.m */; };
+		C76136B6224472A000CD3785 /* LFScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C761360A2244729F00CD3785 /* LFScrollView.m */; };
+		C76136B7224472A000CD3785 /* LFVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C761360F2244729F00CD3785 /* LFVideoPlayer.m */; };
+		C76136B8224472A000CD3785 /* LFVideoEditingController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136122244729F00CD3785 /* LFVideoEditingController.m */; };
+		C76136B9224472A000CD3785 /* LFVideoEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136152244729F00CD3785 /* LFVideoEdit.m */; };
+		C76136BA224472A000CD3785 /* LFVideoEditingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136182244729F00CD3785 /* LFVideoEditingView.m */; };
+		C76136BB224472A000CD3785 /* LFVideoClipToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = C761361B2244729F00CD3785 /* LFVideoClipToolbar.m */; };
+		C76136BC224472A000CD3785 /* LFAudioTrackBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C761361C2244729F00CD3785 /* LFAudioTrackBar.m */; };
+		C76136BD224472A000CD3785 /* LFVideoPlayerLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C761361E2244729F00CD3785 /* LFVideoPlayerLayerView.m */; };
+		C76136BE224472A000CD3785 /* LFVideoClippingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C761361F2244729F00CD3785 /* LFVideoClippingView.m */; };
+		C76136BF224472A000CD3785 /* LFVideoTrimmerGridLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136212244729F00CD3785 /* LFVideoTrimmerGridLayer.m */; };
+		C76136C0224472A000CD3785 /* LFVideoTrimmerGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136222244729F00CD3785 /* LFVideoTrimmerGridView.m */; };
+		C76136C1224472A000CD3785 /* LFVideoTrimmerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136232244729F00CD3785 /* LFVideoTrimmerView.m */; };
+		C76136C2224472A000CD3785 /* LFDataFilterVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136282244729F00CD3785 /* LFDataFilterVideoView.m */; };
+		C76136C3224472A000CD3785 /* LFMEGIFImageSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C761362E2244729F00CD3785 /* LFMEGIFImageSerialization.m */; };
+		C76136C4224472A000CD3785 /* LFPhotoEditingController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136312244729F00CD3785 /* LFPhotoEditingController.m */; };
+		C76136C5224472A000CD3785 /* LFPhotoEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136342244729F00CD3785 /* LFPhotoEdit.m */; };
+		C76136C6224472A000CD3785 /* LFClippingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136382244729F00CD3785 /* LFClippingView.m */; };
+		C76136C7224472A000CD3785 /* LFEditingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136392244729F00CD3785 /* LFEditingView.m */; };
+		C76136C8224472A000CD3785 /* LFMaskLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C761363E2244729F00CD3785 /* LFMaskLayer.m */; };
+		C76136C9224472A000CD3785 /* LFSplashLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C761363F2244729F00CD3785 /* LFSplashLayer.m */; };
+		C76136CA224472A000CD3785 /* LFGridMaskLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136412244729F00CD3785 /* LFGridMaskLayer.m */; };
+		C76136CB224472A000CD3785 /* LFResizeControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136432244729F00CD3785 /* LFResizeControl.m */; };
+		C76136CC224472A000CD3785 /* LFGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136472244729F00CD3785 /* LFGridView.m */; };
+		C76136CD224472A000CD3785 /* LFGridLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136482244729F00CD3785 /* LFGridLayer.m */; };
+		C76136CE224472A000CD3785 /* LFMovingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C761364A2244729F00CD3785 /* LFMovingView.m */; };
+		C76136CF224472A000CD3785 /* LFStickerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C761364D2244729F00CD3785 /* LFStickerLabel.m */; };
+		C76136D0224472A000CD3785 /* LFClipToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = C761364F2244729F00CD3785 /* LFClipToolbar.m */; };
+		C76136D1224472A000CD3785 /* LFEditCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136552244729F00CD3785 /* LFEditCollectionView.m */; };
+		C76136D2224472A000CD3785 /* LFEditToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136562244729F00CD3785 /* LFEditToolbar.m */; };
+		C76136D3224472A000CD3785 /* LFStickerBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136572244729F00CD3785 /* LFStickerBar.m */; };
+		C76136D4224472A000CD3785 /* LFTextBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136582244729F00CD3785 /* LFTextBar.m */; };
+		C76136D5224472A000CD3785 /* LFZoomingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136592244729F00CD3785 /* LFZoomingView.m */; };
+		C76136D6224472A000CD3785 /* LFText.m in Sources */ = {isa = PBXBuildFile; fileRef = C761365C2244729F00CD3785 /* LFText.m */; };
+		C76136D7224472A000CD3785 /* LFFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136602244729F00CD3785 /* LFFilterView.m */; };
+		C76136D8224472A000CD3785 /* LFStickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136612244729F00CD3785 /* LFStickerView.m */; };
+		C76136D9224472A000CD3785 /* LFDataFilterImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136642244729F00CD3785 /* LFDataFilterImageView.m */; };
+		C76136DA224472A000CD3785 /* LFDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136672244729F00CD3785 /* LFDrawView.m */; };
+		C76136DB224472A000CD3785 /* LFSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136692244729F00CD3785 /* LFSplashView.m */; };
+		C76136DC224472A000CD3785 /* LFAVAssetData.m in Sources */ = {isa = PBXBuildFile; fileRef = C761366D2244729F00CD3785 /* LFAVAssetData.m */; };
+		C76136DD224472A000CD3785 /* LFVideoSession.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136742244729F00CD3785 /* LFVideoSession.m */; };
+		C76136DE224472A000CD3785 /* LFVideoMergeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136772244729F00CD3785 /* LFVideoMergeCommand.m */; };
+		C76136DF224472A000CD3785 /* LFVideoAudioMixCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136782244729F00CD3785 /* LFVideoAudioMixCommand.m */; };
+		C76136E0224472A000CD3785 /* LFVideoRotateCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136792244729F00CD3785 /* LFVideoRotateCommand.m */; };
+		C76136E1224472A000CD3785 /* LFVideoCropCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C761367A2244729F00CD3785 /* LFVideoCropCommand.m */; };
+		C76136E2224472A000CD3785 /* LFVideoRateCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C761367B2244729F00CD3785 /* LFVideoRateCommand.m */; };
+		C76136E3224472A000CD3785 /* LFVideoBaseCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C761367C2244729F00CD3785 /* LFVideoBaseCommand.m */; };
+		C76136E4224472A000CD3785 /* LFVideoWatermarkCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C761367D2244729F00CD3785 /* LFVideoWatermarkCommand.m */; };
+		C76136E5224472A000CD3785 /* LFVideoClipCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C761367E2244729F00CD3785 /* LFVideoClipCommand.m */; };
+		C76136E6224472A000CD3785 /* LFVideoFilterCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136802244729F00CD3785 /* LFVideoFilterCommand.m */; };
+		C7B6BA502221036100970D96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6BA4F2221036100970D96 /* AppDelegate.m */; };
+		C7B6BA532221036100970D96 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6BA522221036100970D96 /* ViewController.m */; };
+		C7B6BA562221036100970D96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B6BA542221036100970D96 /* Main.storyboard */; };
+		C7B6BA582221036200970D96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B6BA572221036200970D96 /* Assets.xcassets */; };
+		C7B6BA5B2221036200970D96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B6BA592221036200970D96 /* LaunchScreen.storyboard */; };
+		C7B6BA5E2221036200970D96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6BA5D2221036200970D96 /* main.m */; };
+		C7B6BA672221049300970D96 /* LFRecordingBoothController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6BA662221049300970D96 /* LFRecordingBoothController.m */; };
+		C7B6BA6B2221070800970D96 /* LFBaseRecordingBoothController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6BA6A2221070800970D96 /* LFBaseRecordingBoothController.m */; };
+		C7B6BA732221087B00970D96 /* LFConfigRecordingBoothController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6BA712221087B00970D96 /* LFConfigRecordingBoothController.m */; };
+		C7B6BA742221087B00970D96 /* LFConfigRecordingBoothController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7B6BA722221087B00970D96 /* LFConfigRecordingBoothController.xib */; };
+		C7B6BA7822212C8000970D96 /* LFRecordConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6BA7722212C8000970D96 /* LFRecordConfig.m */; };
+		C7B6BA7C22212F9500970D96 /* LFRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6BA7B22212F9500970D96 /* LFRecordManager.m */; };
+		C7B6BA852222472300970D96 /* LFDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6BA832222472300970D96 /* LFDownloadManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C76134FC22432D9F00CD3785 /* SampleVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SampleVideo.mp4; sourceTree = "<group>"; };
+		C76135952244729E00CD3785 /* UIImage+Bundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Bundle.m"; sourceTree = "<group>"; };
+		C76135962244729E00CD3785 /* UIImage+Bundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Bundle.h"; sourceTree = "<group>"; };
+		C76135972244729E00CD3785 /* JRVideoEditing.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JRVideoEditing.bundle; sourceTree = "<group>"; };
+		C761359A2244729E00CD3785 /* JRVideoPlayerOperationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRVideoPlayerOperationViewController.h; sourceTree = "<group>"; };
+		C761359B2244729E00CD3785 /* JRVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRVideoPlayerViewController.h; sourceTree = "<group>"; };
+		C761359C2244729E00CD3785 /* JRVideoPlayerOperationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRVideoPlayerOperationViewController.m; sourceTree = "<group>"; };
+		C761359D2244729E00CD3785 /* JRVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRVideoPlayerViewController.m; sourceTree = "<group>"; };
+		C761359F2244729E00CD3785 /* JRVideoPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRVideoPreviewViewController.h; sourceTree = "<group>"; };
+		C76135A02244729E00CD3785 /* JRVideoPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRVideoPreviewViewController.m; sourceTree = "<group>"; };
+		C76135A22244729E00CD3785 /* JRClipVideoEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRClipVideoEditingViewController.m; sourceTree = "<group>"; };
+		C76135A32244729E00CD3785 /* JRClipVideoEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRClipVideoEditingViewController.h; sourceTree = "<group>"; };
+		C76135A52244729E00CD3785 /* JRCameraVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRCameraVideoViewController.h; sourceTree = "<group>"; };
+		C76135A62244729E00CD3785 /* JRCameraVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JRCameraVideoViewController.xib; sourceTree = "<group>"; };
+		C76135A72244729E00CD3785 /* JRCameraVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRCameraVideoViewController.m; sourceTree = "<group>"; };
+		C76135A92244729E00CD3785 /* JRClipInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRClipInfo.h; sourceTree = "<group>"; };
+		C76135AA2244729E00CD3785 /* JRVideoClipInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRVideoClipInfo.h; sourceTree = "<group>"; };
+		C76135AB2244729E00CD3785 /* JRVideoClipInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRVideoClipInfo.m; sourceTree = "<group>"; };
+		C76135AC2244729E00CD3785 /* JRClipInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRClipInfo.m; sourceTree = "<group>"; };
+		C76135AE2244729E00CD3785 /* JRHorizontalCollectioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRHorizontalCollectioView.m; sourceTree = "<group>"; };
+		C76135AF2244729E00CD3785 /* JRVideoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRVideoCollectionViewCell.h; sourceTree = "<group>"; };
+		C76135B02244729E00CD3785 /* JRHorizontalCollectioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRHorizontalCollectioView.h; sourceTree = "<group>"; };
+		C76135B12244729E00CD3785 /* JRVideoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRVideoCollectionViewCell.m; sourceTree = "<group>"; };
+		C76135B22244729E00CD3785 /* JRVideoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JRVideoCollectionViewCell.xib; sourceTree = "<group>"; };
+		C76135B52244729E00CD3785 /* LFBaseEditingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFBaseEditingController.m; sourceTree = "<group>"; };
+		C76135B82244729E00CD3785 /* JRFilterBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRFilterBar.h; sourceTree = "<group>"; };
+		C76135BA2244729E00CD3785 /* JRFilterBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRFilterBarCell.m; sourceTree = "<group>"; };
+		C76135BB2244729E00CD3785 /* JRFilterBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRFilterBarCell.h; sourceTree = "<group>"; };
+		C76135BD2244729E00CD3785 /* JRFilterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRFilterModel.h; sourceTree = "<group>"; };
+		C76135BE2244729E00CD3785 /* JRFilterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRFilterModel.m; sourceTree = "<group>"; };
+		C76135BF2244729E00CD3785 /* JRFilterBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRFilterBar.m; sourceTree = "<group>"; };
+		C76135C12244729E00CD3785 /* JRPickColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRPickColorView.h; sourceTree = "<group>"; };
+		C76135C22244729E00CD3785 /* JRPickColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRPickColorView.m; sourceTree = "<group>"; };
+		C76135C42244729E00CD3785 /* LFColorMatrixType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFColorMatrixType.h; sourceTree = "<group>"; };
+		C76135C52244729E00CD3785 /* LFColorMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFColorMatrix.h; sourceTree = "<group>"; };
+		C76135C62244729E00CD3785 /* LFImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFImageUtil.h; sourceTree = "<group>"; };
+		C76135C72244729E00CD3785 /* LFColorMatrixType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFColorMatrixType.m; sourceTree = "<group>"; };
+		C76135C82244729E00CD3785 /* LFImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFImageUtil.m; sourceTree = "<group>"; };
+		C76135CB2244729F00CD3785 /* LFMutableFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFMutableFilter.m; sourceTree = "<group>"; };
+		C76135CC2244729F00CD3785 /* LFFilter+UIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFFilter+UIImage.h"; sourceTree = "<group>"; };
+		C76135CD2244729F00CD3785 /* LFFilter+save.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFFilter+save.h"; sourceTree = "<group>"; };
+		C76135CE2244729F00CD3785 /* LFFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFFilter.h; sourceTree = "<group>"; };
+		C76135CF2244729F00CD3785 /* LFFilter+Initialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFFilter+Initialize.h"; sourceTree = "<group>"; };
+		C76135D02244729F00CD3785 /* LFMutableFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFMutableFilter.h; sourceTree = "<group>"; };
+		C76135D12244729F00CD3785 /* LFFilter+UIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFFilter+UIImage.m"; sourceTree = "<group>"; };
+		C76135D22244729F00CD3785 /* LFFilter+save.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFFilter+save.m"; sourceTree = "<group>"; };
+		C76135D32244729F00CD3785 /* LFMutableFilter+Initialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFMutableFilter+Initialize.h"; sourceTree = "<group>"; };
+		C76135D42244729F00CD3785 /* LFFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFFilter.m; sourceTree = "<group>"; };
+		C76135D62244729F00CD3785 /* LFFilterGifView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFFilterGifView.h; sourceTree = "<group>"; };
+		C76135D72244729F00CD3785 /* LFFilterImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFFilterImageView.h; sourceTree = "<group>"; };
+		C76135D82244729F00CD3785 /* LFContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFContext.h; sourceTree = "<group>"; };
+		C76135D92244729F00CD3785 /* LFFilterVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFFilterVideoView.m; sourceTree = "<group>"; };
+		C76135DA2244729F00CD3785 /* LFContextImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFContextImageView.h; sourceTree = "<group>"; };
+		C76135DB2244729F00CD3785 /* LFFilterGifView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFFilterGifView.m; sourceTree = "<group>"; };
+		C76135DC2244729F00CD3785 /* LFContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFContext.m; sourceTree = "<group>"; };
+		C76135DD2244729F00CD3785 /* LFFilterImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFFilterImageView.m; sourceTree = "<group>"; };
+		C76135DE2244729F00CD3785 /* LFContextImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFContextImageView.m; sourceTree = "<group>"; };
+		C76135DF2244729F00CD3785 /* LFFilterVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFFilterVideoView.h; sourceTree = "<group>"; };
+		C76135E02244729F00CD3785 /* LFContextImageView+private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFContextImageView+private.h"; sourceTree = "<group>"; };
+		C76135E22244729F00CD3785 /* LFWeakSelectorTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFWeakSelectorTarget.m; sourceTree = "<group>"; };
+		C76135E32244729F00CD3785 /* LFSampleBufferHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFSampleBufferHolder.m; sourceTree = "<group>"; };
+		C76135E42244729F00CD3785 /* LFWeakSelectorTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFWeakSelectorTarget.h; sourceTree = "<group>"; };
+		C76135E52244729F00CD3785 /* LFSampleBufferHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFSampleBufferHolder.h; sourceTree = "<group>"; };
+		C76135E62244729F00CD3785 /* LFFilterSuiteHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFFilterSuiteHeader.h; sourceTree = "<group>"; };
+		C76135E72244729F00CD3785 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C76135E92244729F00CD3785 /* LFVideoExportSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoExportSession.h; sourceTree = "<group>"; };
+		C76135EA2244729F00CD3785 /* LFVideoExportSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoExportSession.m; sourceTree = "<group>"; };
+		C76135ED2244729F00CD3785 /* LFPhotoEditDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFPhotoEditDelegate.h; sourceTree = "<group>"; };
+		C76135EE2244729F00CD3785 /* LFMediaEditingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFMediaEditingType.h; sourceTree = "<group>"; };
+		C76135EF2244729F00CD3785 /* LFMediaEditingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFMediaEditingHeader.h; sourceTree = "<group>"; };
+		C76135F02244729F00CD3785 /* LFEditingProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFEditingProtocol.h; sourceTree = "<group>"; };
+		C76135F12244729F00CD3785 /* LFMediaEditingController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LFMediaEditingController.bundle; sourceTree = "<group>"; };
+		C76135F32244729F00CD3785 /* UIDevice+LFMEOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+LFMEOrientation.m"; sourceTree = "<group>"; };
+		C76135F42244729F00CD3785 /* UIView+LFMEFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LFMEFrame.h"; sourceTree = "<group>"; };
+		C76135F52244729F00CD3785 /* NSBundle+LFMediaEditing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+LFMediaEditing.h"; sourceTree = "<group>"; };
+		C76135F62244729F00CD3785 /* NSString+LFMECoreText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LFMECoreText.m"; sourceTree = "<group>"; };
+		C76135F72244729F00CD3785 /* UIImage+LFMECommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LFMECommon.h"; sourceTree = "<group>"; };
+		C76135F82244729F00CD3785 /* AVAsset+LFMECommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVAsset+LFMECommon.m"; sourceTree = "<group>"; };
+		C76135F92244729F00CD3785 /* UIView+LFMECommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LFMECommon.m"; sourceTree = "<group>"; };
+		C76135FA2244729F00CD3785 /* NSString+LFMECoreText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LFMECoreText.h"; sourceTree = "<group>"; };
+		C76135FB2244729F00CD3785 /* UIView+LFMEFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LFMEFrame.m"; sourceTree = "<group>"; };
+		C76135FC2244729F00CD3785 /* NSBundle+LFMediaEditing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+LFMediaEditing.m"; sourceTree = "<group>"; };
+		C76135FD2244729F00CD3785 /* UIDevice+LFMEOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+LFMEOrientation.h"; sourceTree = "<group>"; };
+		C76135FE2244729F00CD3785 /* UIImage+LFMECommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LFMECommon.m"; sourceTree = "<group>"; };
+		C76135FF2244729F00CD3785 /* AVAsset+LFMECommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVAsset+LFMECommon.h"; sourceTree = "<group>"; };
+		C76136002244729F00CD3785 /* UIView+LFMECommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LFMECommon.h"; sourceTree = "<group>"; };
+		C76136032244729F00CD3785 /* FilterSuiteUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterSuiteUtils.h; sourceTree = "<group>"; };
+		C76136042244729F00CD3785 /* FilterSuiteUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterSuiteUtils.m; sourceTree = "<group>"; };
+		C76136062244729F00CD3785 /* LFMECancelBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFMECancelBlock.h; sourceTree = "<group>"; };
+		C76136072244729F00CD3785 /* LFMECancelBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFMECancelBlock.m; sourceTree = "<group>"; };
+		C76136092244729F00CD3785 /* LFScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFScrollView.h; sourceTree = "<group>"; };
+		C761360A2244729F00CD3785 /* LFScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFScrollView.m; sourceTree = "<group>"; };
+		C761360B2244729F00CD3785 /* LFBaseEditingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFBaseEditingController.h; sourceTree = "<group>"; };
+		C761360E2244729F00CD3785 /* LFVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoPlayer.h; sourceTree = "<group>"; };
+		C761360F2244729F00CD3785 /* LFVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoPlayer.m; sourceTree = "<group>"; };
+		C76136112244729F00CD3785 /* LFVideoEditingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoEditingController.h; sourceTree = "<group>"; };
+		C76136122244729F00CD3785 /* LFVideoEditingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoEditingController.m; sourceTree = "<group>"; };
+		C76136142244729F00CD3785 /* LFVideoEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoEdit.h; sourceTree = "<group>"; };
+		C76136152244729F00CD3785 /* LFVideoEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoEdit.m; sourceTree = "<group>"; };
+		C76136172244729F00CD3785 /* LFVideoClippingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoClippingView.h; sourceTree = "<group>"; };
+		C76136182244729F00CD3785 /* LFVideoEditingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoEditingView.m; sourceTree = "<group>"; };
+		C761361A2244729F00CD3785 /* LFAudioTrackBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFAudioTrackBar.h; sourceTree = "<group>"; };
+		C761361B2244729F00CD3785 /* LFVideoClipToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoClipToolbar.m; sourceTree = "<group>"; };
+		C761361C2244729F00CD3785 /* LFAudioTrackBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFAudioTrackBar.m; sourceTree = "<group>"; };
+		C761361D2244729F00CD3785 /* LFVideoClipToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoClipToolbar.h; sourceTree = "<group>"; };
+		C761361E2244729F00CD3785 /* LFVideoPlayerLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoPlayerLayerView.m; sourceTree = "<group>"; };
+		C761361F2244729F00CD3785 /* LFVideoClippingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoClippingView.m; sourceTree = "<group>"; };
+		C76136212244729F00CD3785 /* LFVideoTrimmerGridLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoTrimmerGridLayer.m; sourceTree = "<group>"; };
+		C76136222244729F00CD3785 /* LFVideoTrimmerGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoTrimmerGridView.m; sourceTree = "<group>"; };
+		C76136232244729F00CD3785 /* LFVideoTrimmerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoTrimmerView.m; sourceTree = "<group>"; };
+		C76136242244729F00CD3785 /* LFDataFilterVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFDataFilterVideoView.h; sourceTree = "<group>"; };
+		C76136252244729F00CD3785 /* LFVideoTrimmerGridLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoTrimmerGridLayer.h; sourceTree = "<group>"; };
+		C76136262244729F00CD3785 /* LFVideoTrimmerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoTrimmerView.h; sourceTree = "<group>"; };
+		C76136272244729F00CD3785 /* LFVideoTrimmerGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoTrimmerGridView.h; sourceTree = "<group>"; };
+		C76136282244729F00CD3785 /* LFDataFilterVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFDataFilterVideoView.m; sourceTree = "<group>"; };
+		C76136292244729F00CD3785 /* LFVideoEditingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoEditingView.h; sourceTree = "<group>"; };
+		C761362A2244729F00CD3785 /* LFVideoPlayerLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoPlayerLayerView.h; sourceTree = "<group>"; };
+		C761362E2244729F00CD3785 /* LFMEGIFImageSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFMEGIFImageSerialization.m; sourceTree = "<group>"; };
+		C761362F2244729F00CD3785 /* LFMEGIFImageSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFMEGIFImageSerialization.h; sourceTree = "<group>"; };
+		C76136312244729F00CD3785 /* LFPhotoEditingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFPhotoEditingController.m; sourceTree = "<group>"; };
+		C76136322244729F00CD3785 /* LFPhotoEditingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFPhotoEditingController.h; sourceTree = "<group>"; };
+		C76136342244729F00CD3785 /* LFPhotoEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFPhotoEdit.m; sourceTree = "<group>"; };
+		C76136352244729F00CD3785 /* LFPhotoEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFPhotoEdit.h; sourceTree = "<group>"; };
+		C76136372244729F00CD3785 /* LFZoomingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFZoomingView.h; sourceTree = "<group>"; };
+		C76136382244729F00CD3785 /* LFClippingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFClippingView.m; sourceTree = "<group>"; };
+		C76136392244729F00CD3785 /* LFEditingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFEditingView.m; sourceTree = "<group>"; };
+		C761363C2244729F00CD3785 /* LFSplashLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFSplashLayer.h; sourceTree = "<group>"; };
+		C761363D2244729F00CD3785 /* LFMaskLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFMaskLayer.h; sourceTree = "<group>"; };
+		C761363E2244729F00CD3785 /* LFMaskLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFMaskLayer.m; sourceTree = "<group>"; };
+		C761363F2244729F00CD3785 /* LFSplashLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFSplashLayer.m; sourceTree = "<group>"; };
+		C76136412244729F00CD3785 /* LFGridMaskLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFGridMaskLayer.m; sourceTree = "<group>"; };
+		C76136422244729F00CD3785 /* LFGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFGridView.h; sourceTree = "<group>"; };
+		C76136432244729F00CD3785 /* LFResizeControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFResizeControl.m; sourceTree = "<group>"; };
+		C76136442244729F00CD3785 /* LFGridLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFGridLayer.h; sourceTree = "<group>"; };
+		C76136452244729F00CD3785 /* LFGridMaskLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFGridMaskLayer.h; sourceTree = "<group>"; };
+		C76136462244729F00CD3785 /* LFResizeControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFResizeControl.h; sourceTree = "<group>"; };
+		C76136472244729F00CD3785 /* LFGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFGridView.m; sourceTree = "<group>"; };
+		C76136482244729F00CD3785 /* LFGridLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFGridLayer.m; sourceTree = "<group>"; };
+		C761364A2244729F00CD3785 /* LFMovingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFMovingView.m; sourceTree = "<group>"; };
+		C761364B2244729F00CD3785 /* LFStickerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFStickerLabel.h; sourceTree = "<group>"; };
+		C761364C2244729F00CD3785 /* LFMovingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFMovingView.h; sourceTree = "<group>"; };
+		C761364D2244729F00CD3785 /* LFStickerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFStickerLabel.m; sourceTree = "<group>"; };
+		C761364F2244729F00CD3785 /* LFClipToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFClipToolbar.m; sourceTree = "<group>"; };
+		C76136502244729F00CD3785 /* LFEditToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFEditToolbar.h; sourceTree = "<group>"; };
+		C76136512244729F00CD3785 /* LFEditCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFEditCollectionView.h; sourceTree = "<group>"; };
+		C76136522244729F00CD3785 /* LFTextBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFTextBar.h; sourceTree = "<group>"; };
+		C76136532244729F00CD3785 /* LFStickerBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFStickerBar.h; sourceTree = "<group>"; };
+		C76136542244729F00CD3785 /* LFClipToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFClipToolbar.h; sourceTree = "<group>"; };
+		C76136552244729F00CD3785 /* LFEditCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFEditCollectionView.m; sourceTree = "<group>"; };
+		C76136562244729F00CD3785 /* LFEditToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFEditToolbar.m; sourceTree = "<group>"; };
+		C76136572244729F00CD3785 /* LFStickerBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFStickerBar.m; sourceTree = "<group>"; };
+		C76136582244729F00CD3785 /* LFTextBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFTextBar.m; sourceTree = "<group>"; };
+		C76136592244729F00CD3785 /* LFZoomingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFZoomingView.m; sourceTree = "<group>"; };
+		C761365A2244729F00CD3785 /* LFEditingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFEditingView.h; sourceTree = "<group>"; };
+		C761365C2244729F00CD3785 /* LFText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFText.m; sourceTree = "<group>"; };
+		C761365D2244729F00CD3785 /* LFText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFText.h; sourceTree = "<group>"; };
+		C761365E2244729F00CD3785 /* LFClippingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFClippingView.h; sourceTree = "<group>"; };
+		C76136602244729F00CD3785 /* LFFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFFilterView.m; sourceTree = "<group>"; };
+		C76136612244729F00CD3785 /* LFStickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFStickerView.m; sourceTree = "<group>"; };
+		C76136622244729F00CD3785 /* LFDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFDrawView.h; sourceTree = "<group>"; };
+		C76136632244729F00CD3785 /* LFSplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFSplashView.h; sourceTree = "<group>"; };
+		C76136642244729F00CD3785 /* LFDataFilterImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFDataFilterImageView.m; sourceTree = "<group>"; };
+		C76136652244729F00CD3785 /* LFStickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFStickerView.h; sourceTree = "<group>"; };
+		C76136662244729F00CD3785 /* LFFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFFilterView.h; sourceTree = "<group>"; };
+		C76136672244729F00CD3785 /* LFDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFDrawView.m; sourceTree = "<group>"; };
+		C76136682244729F00CD3785 /* LFDataFilterImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFDataFilterImageView.h; sourceTree = "<group>"; };
+		C76136692244729F00CD3785 /* LFSplashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFSplashView.m; sourceTree = "<group>"; };
+		C761366B2244729F00CD3785 /* LFVideoSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoSession.h; sourceTree = "<group>"; };
+		C761366D2244729F00CD3785 /* LFAVAssetData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFAVAssetData.m; sourceTree = "<group>"; };
+		C761366E2244729F00CD3785 /* LFAVAssetData+Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFAVAssetData+Filter.h"; sourceTree = "<group>"; };
+		C761366F2244729F00CD3785 /* LFAVAssetData+private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFAVAssetData+private.h"; sourceTree = "<group>"; };
+		C76136702244729F00CD3785 /* LFAVAssetData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFAVAssetData.h; sourceTree = "<group>"; };
+		C76136712244729F00CD3785 /* LFVideoSessionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoSessionHeader.h; sourceTree = "<group>"; };
+		C76136732244729F00CD3785 /* LFVideoCommandProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoCommandProtocol.h; sourceTree = "<group>"; };
+		C76136742244729F00CD3785 /* LFVideoSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoSession.m; sourceTree = "<group>"; };
+		C76136762244729F00CD3785 /* LFVideoFilterCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoFilterCommand.h; sourceTree = "<group>"; };
+		C76136772244729F00CD3785 /* LFVideoMergeCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoMergeCommand.m; sourceTree = "<group>"; };
+		C76136782244729F00CD3785 /* LFVideoAudioMixCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoAudioMixCommand.m; sourceTree = "<group>"; };
+		C76136792244729F00CD3785 /* LFVideoRotateCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoRotateCommand.m; sourceTree = "<group>"; };
+		C761367A2244729F00CD3785 /* LFVideoCropCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoCropCommand.m; sourceTree = "<group>"; };
+		C761367B2244729F00CD3785 /* LFVideoRateCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoRateCommand.m; sourceTree = "<group>"; };
+		C761367C2244729F00CD3785 /* LFVideoBaseCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoBaseCommand.m; sourceTree = "<group>"; };
+		C761367D2244729F00CD3785 /* LFVideoWatermarkCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoWatermarkCommand.m; sourceTree = "<group>"; };
+		C761367E2244729F00CD3785 /* LFVideoClipCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoClipCommand.m; sourceTree = "<group>"; };
+		C761367F2244729F00CD3785 /* LFVideoMergeCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoMergeCommand.h; sourceTree = "<group>"; };
+		C76136802244729F00CD3785 /* LFVideoFilterCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoFilterCommand.m; sourceTree = "<group>"; };
+		C76136812244729F00CD3785 /* LFVideoAudioMixCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoAudioMixCommand.h; sourceTree = "<group>"; };
+		C76136822244729F00CD3785 /* LFVideoRateCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoRateCommand.h; sourceTree = "<group>"; };
+		C76136832244729F00CD3785 /* LFVideoCropCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoCropCommand.h; sourceTree = "<group>"; };
+		C76136842244729F00CD3785 /* LFVideoRotateCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoRotateCommand.h; sourceTree = "<group>"; };
+		C76136852244729F00CD3785 /* LFVideoClipCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoClipCommand.h; sourceTree = "<group>"; };
+		C76136862244729F00CD3785 /* LFVideoWatermarkCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoWatermarkCommand.h; sourceTree = "<group>"; };
+		C76136872244729F00CD3785 /* LFVideoBaseCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoBaseCommand.h; sourceTree = "<group>"; };
+		C7B6BA4B2221036100970D96 /* recordingBooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordingBooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7B6BA4E2221036100970D96 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C7B6BA4F2221036100970D96 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C7B6BA512221036100970D96 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C7B6BA522221036100970D96 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C7B6BA552221036100970D96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7B6BA572221036200970D96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7B6BA5A2221036200970D96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C7B6BA5C2221036200970D96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7B6BA5D2221036200970D96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C7B6BA652221049300970D96 /* LFRecordingBoothController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFRecordingBoothController.h; sourceTree = "<group>"; };
+		C7B6BA662221049300970D96 /* LFRecordingBoothController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFRecordingBoothController.m; sourceTree = "<group>"; };
+		C7B6BA692221070800970D96 /* LFBaseRecordingBoothController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFBaseRecordingBoothController.h; sourceTree = "<group>"; };
+		C7B6BA6A2221070800970D96 /* LFBaseRecordingBoothController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFBaseRecordingBoothController.m; sourceTree = "<group>"; };
+		C7B6BA702221087B00970D96 /* LFConfigRecordingBoothController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFConfigRecordingBoothController.h; sourceTree = "<group>"; };
+		C7B6BA712221087B00970D96 /* LFConfigRecordingBoothController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFConfigRecordingBoothController.m; sourceTree = "<group>"; };
+		C7B6BA722221087B00970D96 /* LFConfigRecordingBoothController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LFConfigRecordingBoothController.xib; sourceTree = "<group>"; };
+		C7B6BA7622212C8000970D96 /* LFRecordConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFRecordConfig.h; sourceTree = "<group>"; };
+		C7B6BA7722212C8000970D96 /* LFRecordConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFRecordConfig.m; sourceTree = "<group>"; };
+		C7B6BA7A22212F9500970D96 /* LFRecordManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFRecordManager.h; sourceTree = "<group>"; };
+		C7B6BA7B22212F9500970D96 /* LFRecordManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFRecordManager.m; sourceTree = "<group>"; };
+		C7B6BA822222472300970D96 /* LFDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFDownloadManager.h; sourceTree = "<group>"; };
+		C7B6BA832222472300970D96 /* LFDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFDownloadManager.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7B6BA482221036100970D96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C76135922244729E00CD3785 /* OtherClass */ = {
+			isa = PBXGroup;
+			children = (
+				C76135932244729E00CD3785 /* JR */,
+				C76135B32244729E00CD3785 /* LF */,
+			);
+			path = OtherClass;
+			sourceTree = "<group>";
+		};
+		C76135932244729E00CD3785 /* JR */ = {
+			isa = PBXGroup;
+			children = (
+				C76135942244729E00CD3785 /* Image */,
+				C76135972244729E00CD3785 /* JRVideoEditing.bundle */,
+				C76135982244729E00CD3785 /* VC */,
+				C76135A82244729E00CD3785 /* Model */,
+				C76135AD2244729E00CD3785 /* View */,
+			);
+			path = JR;
+			sourceTree = "<group>";
+		};
+		C76135942244729E00CD3785 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				C76135952244729E00CD3785 /* UIImage+Bundle.m */,
+				C76135962244729E00CD3785 /* UIImage+Bundle.h */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		C76135982244729E00CD3785 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				C76135992244729E00CD3785 /* BaseVC */,
+				C761359E2244729E00CD3785 /* PreviewVC */,
+				C76135A12244729E00CD3785 /* ClipVideoVC */,
+				C76135A42244729E00CD3785 /* CameraVC */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		C76135992244729E00CD3785 /* BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				C761359A2244729E00CD3785 /* JRVideoPlayerOperationViewController.h */,
+				C761359B2244729E00CD3785 /* JRVideoPlayerViewController.h */,
+				C761359C2244729E00CD3785 /* JRVideoPlayerOperationViewController.m */,
+				C761359D2244729E00CD3785 /* JRVideoPlayerViewController.m */,
+			);
+			path = BaseVC;
+			sourceTree = "<group>";
+		};
+		C761359E2244729E00CD3785 /* PreviewVC */ = {
+			isa = PBXGroup;
+			children = (
+				C761359F2244729E00CD3785 /* JRVideoPreviewViewController.h */,
+				C76135A02244729E00CD3785 /* JRVideoPreviewViewController.m */,
+			);
+			path = PreviewVC;
+			sourceTree = "<group>";
+		};
+		C76135A12244729E00CD3785 /* ClipVideoVC */ = {
+			isa = PBXGroup;
+			children = (
+				C76135A22244729E00CD3785 /* JRClipVideoEditingViewController.m */,
+				C76135A32244729E00CD3785 /* JRClipVideoEditingViewController.h */,
+			);
+			path = ClipVideoVC;
+			sourceTree = "<group>";
+		};
+		C76135A42244729E00CD3785 /* CameraVC */ = {
+			isa = PBXGroup;
+			children = (
+				C76135A52244729E00CD3785 /* JRCameraVideoViewController.h */,
+				C76135A62244729E00CD3785 /* JRCameraVideoViewController.xib */,
+				C76135A72244729E00CD3785 /* JRCameraVideoViewController.m */,
+			);
+			path = CameraVC;
+			sourceTree = "<group>";
+		};
+		C76135A82244729E00CD3785 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C76135A92244729E00CD3785 /* JRClipInfo.h */,
+				C76135AA2244729E00CD3785 /* JRVideoClipInfo.h */,
+				C76135AB2244729E00CD3785 /* JRVideoClipInfo.m */,
+				C76135AC2244729E00CD3785 /* JRClipInfo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C76135AD2244729E00CD3785 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C76135AE2244729E00CD3785 /* JRHorizontalCollectioView.m */,
+				C76135AF2244729E00CD3785 /* JRVideoCollectionViewCell.h */,
+				C76135B02244729E00CD3785 /* JRHorizontalCollectioView.h */,
+				C76135B12244729E00CD3785 /* JRVideoCollectionViewCell.m */,
+				C76135B22244729E00CD3785 /* JRVideoCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C76135B32244729E00CD3785 /* LF */ = {
+			isa = PBXGroup;
+			children = (
+				C76135B42244729E00CD3785 /* LFMediaEditingController */,
+				C761366A2244729F00CD3785 /* LFVideoSession */,
+			);
+			path = LF;
+			sourceTree = "<group>";
+		};
+		C76135B42244729E00CD3785 /* LFMediaEditingController */ = {
+			isa = PBXGroup;
+			children = (
+				C76135B52244729E00CD3785 /* LFBaseEditingController.m */,
+				C76135B62244729E00CD3785 /* vendors */,
+				C76135EB2244729F00CD3785 /* common */,
+				C761360B2244729F00CD3785 /* LFBaseEditingController.h */,
+				C761360C2244729F00CD3785 /* LFVideoEditingController */,
+				C761362B2244729F00CD3785 /* LFPhotoEditingController */,
+			);
+			path = LFMediaEditingController;
+			sourceTree = "<group>";
+		};
+		C76135B62244729E00CD3785 /* vendors */ = {
+			isa = PBXGroup;
+			children = (
+				C76135B72244729E00CD3785 /* JRFilterBar */,
+				C76135C02244729E00CD3785 /* JRPickColorView */,
+				C76135C32244729E00CD3785 /* ColorMatrix */,
+				C76135C92244729E00CD3785 /* LFFilterSuite */,
+			);
+			path = vendors;
+			sourceTree = "<group>";
+		};
+		C76135B72244729E00CD3785 /* JRFilterBar */ = {
+			isa = PBXGroup;
+			children = (
+				C76135B82244729E00CD3785 /* JRFilterBar.h */,
+				C76135B92244729E00CD3785 /* Cell */,
+				C76135BC2244729E00CD3785 /* Model */,
+				C76135BF2244729E00CD3785 /* JRFilterBar.m */,
+			);
+			path = JRFilterBar;
+			sourceTree = "<group>";
+		};
+		C76135B92244729E00CD3785 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C76135BA2244729E00CD3785 /* JRFilterBarCell.m */,
+				C76135BB2244729E00CD3785 /* JRFilterBarCell.h */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C76135BC2244729E00CD3785 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C76135BD2244729E00CD3785 /* JRFilterModel.h */,
+				C76135BE2244729E00CD3785 /* JRFilterModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C76135C02244729E00CD3785 /* JRPickColorView */ = {
+			isa = PBXGroup;
+			children = (
+				C76135C12244729E00CD3785 /* JRPickColorView.h */,
+				C76135C22244729E00CD3785 /* JRPickColorView.m */,
+			);
+			path = JRPickColorView;
+			sourceTree = "<group>";
+		};
+		C76135C32244729E00CD3785 /* ColorMatrix */ = {
+			isa = PBXGroup;
+			children = (
+				C76135C42244729E00CD3785 /* LFColorMatrixType.h */,
+				C76135C52244729E00CD3785 /* LFColorMatrix.h */,
+				C76135C62244729E00CD3785 /* LFImageUtil.h */,
+				C76135C72244729E00CD3785 /* LFColorMatrixType.m */,
+				C76135C82244729E00CD3785 /* LFImageUtil.m */,
+			);
+			path = ColorMatrix;
+			sourceTree = "<group>";
+		};
+		C76135C92244729E00CD3785 /* LFFilterSuite */ = {
+			isa = PBXGroup;
+			children = (
+				C76135CA2244729F00CD3785 /* LFFilter */,
+				C76135D52244729F00CD3785 /* LFFilterDisplayers */,
+				C76135E12244729F00CD3785 /* LFFilterUtils */,
+				C76135E62244729F00CD3785 /* LFFilterSuiteHeader.h */,
+				C76135E72244729F00CD3785 /* README.md */,
+				C76135E82244729F00CD3785 /* LFExportSession */,
+			);
+			path = LFFilterSuite;
+			sourceTree = "<group>";
+		};
+		C76135CA2244729F00CD3785 /* LFFilter */ = {
+			isa = PBXGroup;
+			children = (
+				C76135CB2244729F00CD3785 /* LFMutableFilter.m */,
+				C76135CC2244729F00CD3785 /* LFFilter+UIImage.h */,
+				C76135CD2244729F00CD3785 /* LFFilter+save.h */,
+				C76135CE2244729F00CD3785 /* LFFilter.h */,
+				C76135CF2244729F00CD3785 /* LFFilter+Initialize.h */,
+				C76135D02244729F00CD3785 /* LFMutableFilter.h */,
+				C76135D12244729F00CD3785 /* LFFilter+UIImage.m */,
+				C76135D22244729F00CD3785 /* LFFilter+save.m */,
+				C76135D32244729F00CD3785 /* LFMutableFilter+Initialize.h */,
+				C76135D42244729F00CD3785 /* LFFilter.m */,
+			);
+			path = LFFilter;
+			sourceTree = "<group>";
+		};
+		C76135D52244729F00CD3785 /* LFFilterDisplayers */ = {
+			isa = PBXGroup;
+			children = (
+				C76135D62244729F00CD3785 /* LFFilterGifView.h */,
+				C76135D72244729F00CD3785 /* LFFilterImageView.h */,
+				C76135D82244729F00CD3785 /* LFContext.h */,
+				C76135D92244729F00CD3785 /* LFFilterVideoView.m */,
+				C76135DA2244729F00CD3785 /* LFContextImageView.h */,
+				C76135DB2244729F00CD3785 /* LFFilterGifView.m */,
+				C76135DC2244729F00CD3785 /* LFContext.m */,
+				C76135DD2244729F00CD3785 /* LFFilterImageView.m */,
+				C76135DE2244729F00CD3785 /* LFContextImageView.m */,
+				C76135DF2244729F00CD3785 /* LFFilterVideoView.h */,
+				C76135E02244729F00CD3785 /* LFContextImageView+private.h */,
+			);
+			path = LFFilterDisplayers;
+			sourceTree = "<group>";
+		};
+		C76135E12244729F00CD3785 /* LFFilterUtils */ = {
+			isa = PBXGroup;
+			children = (
+				C76135E22244729F00CD3785 /* LFWeakSelectorTarget.m */,
+				C76135E32244729F00CD3785 /* LFSampleBufferHolder.m */,
+				C76135E42244729F00CD3785 /* LFWeakSelectorTarget.h */,
+				C76135E52244729F00CD3785 /* LFSampleBufferHolder.h */,
+			);
+			path = LFFilterUtils;
+			sourceTree = "<group>";
+		};
+		C76135E82244729F00CD3785 /* LFExportSession */ = {
+			isa = PBXGroup;
+			children = (
+				C76135E92244729F00CD3785 /* LFVideoExportSession.h */,
+				C76135EA2244729F00CD3785 /* LFVideoExportSession.m */,
+			);
+			path = LFExportSession;
+			sourceTree = "<group>";
+		};
+		C76135EB2244729F00CD3785 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				C76135EC2244729F00CD3785 /* define */,
+				C76135F12244729F00CD3785 /* LFMediaEditingController.bundle */,
+				C76135F22244729F00CD3785 /* category */,
+				C76136012244729F00CD3785 /* utils */,
+				C76136082244729F00CD3785 /* view */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		C76135EC2244729F00CD3785 /* define */ = {
+			isa = PBXGroup;
+			children = (
+				C76135ED2244729F00CD3785 /* LFPhotoEditDelegate.h */,
+				C76135EE2244729F00CD3785 /* LFMediaEditingType.h */,
+				C76135EF2244729F00CD3785 /* LFMediaEditingHeader.h */,
+				C76135F02244729F00CD3785 /* LFEditingProtocol.h */,
+			);
+			path = define;
+			sourceTree = "<group>";
+		};
+		C76135F22244729F00CD3785 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				C76135F32244729F00CD3785 /* UIDevice+LFMEOrientation.m */,
+				C76135F42244729F00CD3785 /* UIView+LFMEFrame.h */,
+				C76135F52244729F00CD3785 /* NSBundle+LFMediaEditing.h */,
+				C76135F62244729F00CD3785 /* NSString+LFMECoreText.m */,
+				C76135F72244729F00CD3785 /* UIImage+LFMECommon.h */,
+				C76135F82244729F00CD3785 /* AVAsset+LFMECommon.m */,
+				C76135F92244729F00CD3785 /* UIView+LFMECommon.m */,
+				C76135FA2244729F00CD3785 /* NSString+LFMECoreText.h */,
+				C76135FB2244729F00CD3785 /* UIView+LFMEFrame.m */,
+				C76135FC2244729F00CD3785 /* NSBundle+LFMediaEditing.m */,
+				C76135FD2244729F00CD3785 /* UIDevice+LFMEOrientation.h */,
+				C76135FE2244729F00CD3785 /* UIImage+LFMECommon.m */,
+				C76135FF2244729F00CD3785 /* AVAsset+LFMECommon.h */,
+				C76136002244729F00CD3785 /* UIView+LFMECommon.h */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		C76136012244729F00CD3785 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				C76136022244729F00CD3785 /* FilterSuiteUtils */,
+				C76136052244729F00CD3785 /* CancelBlock */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		C76136022244729F00CD3785 /* FilterSuiteUtils */ = {
+			isa = PBXGroup;
+			children = (
+				C76136032244729F00CD3785 /* FilterSuiteUtils.h */,
+				C76136042244729F00CD3785 /* FilterSuiteUtils.m */,
+			);
+			path = FilterSuiteUtils;
+			sourceTree = "<group>";
+		};
+		C76136052244729F00CD3785 /* CancelBlock */ = {
+			isa = PBXGroup;
+			children = (
+				C76136062244729F00CD3785 /* LFMECancelBlock.h */,
+				C76136072244729F00CD3785 /* LFMECancelBlock.m */,
+			);
+			path = CancelBlock;
+			sourceTree = "<group>";
+		};
+		C76136082244729F00CD3785 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C76136092244729F00CD3785 /* LFScrollView.h */,
+				C761360A2244729F00CD3785 /* LFScrollView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		C761360C2244729F00CD3785 /* LFVideoEditingController */ = {
+			isa = PBXGroup;
+			children = (
+				C761360D2244729F00CD3785 /* utils */,
+				C76136102244729F00CD3785 /* controller */,
+				C76136132244729F00CD3785 /* model */,
+				C76136162244729F00CD3785 /* view */,
+			);
+			path = LFVideoEditingController;
+			sourceTree = "<group>";
+		};
+		C761360D2244729F00CD3785 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				C761360E2244729F00CD3785 /* LFVideoPlayer.h */,
+				C761360F2244729F00CD3785 /* LFVideoPlayer.m */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		C76136102244729F00CD3785 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				C76136112244729F00CD3785 /* LFVideoEditingController.h */,
+				C76136122244729F00CD3785 /* LFVideoEditingController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		C76136132244729F00CD3785 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C76136142244729F00CD3785 /* LFVideoEdit.h */,
+				C76136152244729F00CD3785 /* LFVideoEdit.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		C76136162244729F00CD3785 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C76136172244729F00CD3785 /* LFVideoClippingView.h */,
+				C76136182244729F00CD3785 /* LFVideoEditingView.m */,
+				C76136192244729F00CD3785 /* toolBar */,
+				C761361E2244729F00CD3785 /* LFVideoPlayerLayerView.m */,
+				C761361F2244729F00CD3785 /* LFVideoClippingView.m */,
+				C76136202244729F00CD3785 /* subview */,
+				C76136292244729F00CD3785 /* LFVideoEditingView.h */,
+				C761362A2244729F00CD3785 /* LFVideoPlayerLayerView.h */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		C76136192244729F00CD3785 /* toolBar */ = {
+			isa = PBXGroup;
+			children = (
+				C761361A2244729F00CD3785 /* LFAudioTrackBar.h */,
+				C761361B2244729F00CD3785 /* LFVideoClipToolbar.m */,
+				C761361C2244729F00CD3785 /* LFAudioTrackBar.m */,
+				C761361D2244729F00CD3785 /* LFVideoClipToolbar.h */,
+			);
+			path = toolBar;
+			sourceTree = "<group>";
+		};
+		C76136202244729F00CD3785 /* subview */ = {
+			isa = PBXGroup;
+			children = (
+				C76136212244729F00CD3785 /* LFVideoTrimmerGridLayer.m */,
+				C76136222244729F00CD3785 /* LFVideoTrimmerGridView.m */,
+				C76136232244729F00CD3785 /* LFVideoTrimmerView.m */,
+				C76136242244729F00CD3785 /* LFDataFilterVideoView.h */,
+				C76136252244729F00CD3785 /* LFVideoTrimmerGridLayer.h */,
+				C76136262244729F00CD3785 /* LFVideoTrimmerView.h */,
+				C76136272244729F00CD3785 /* LFVideoTrimmerGridView.h */,
+				C76136282244729F00CD3785 /* LFDataFilterVideoView.m */,
+			);
+			path = subview;
+			sourceTree = "<group>";
+		};
+		C761362B2244729F00CD3785 /* LFPhotoEditingController */ = {
+			isa = PBXGroup;
+			children = (
+				C761362C2244729F00CD3785 /* utils */,
+				C76136302244729F00CD3785 /* controller */,
+				C76136332244729F00CD3785 /* model */,
+				C76136362244729F00CD3785 /* view */,
+			);
+			path = LFPhotoEditingController;
+			sourceTree = "<group>";
+		};
+		C761362C2244729F00CD3785 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				C761362D2244729F00CD3785 /* GIFUtils */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		C761362D2244729F00CD3785 /* GIFUtils */ = {
+			isa = PBXGroup;
+			children = (
+				C761362E2244729F00CD3785 /* LFMEGIFImageSerialization.m */,
+				C761362F2244729F00CD3785 /* LFMEGIFImageSerialization.h */,
+			);
+			path = GIFUtils;
+			sourceTree = "<group>";
+		};
+		C76136302244729F00CD3785 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				C76136312244729F00CD3785 /* LFPhotoEditingController.m */,
+				C76136322244729F00CD3785 /* LFPhotoEditingController.h */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		C76136332244729F00CD3785 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C76136342244729F00CD3785 /* LFPhotoEdit.m */,
+				C76136352244729F00CD3785 /* LFPhotoEdit.h */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		C76136362244729F00CD3785 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C76136372244729F00CD3785 /* LFZoomingView.h */,
+				C76136382244729F00CD3785 /* LFClippingView.m */,
+				C76136392244729F00CD3785 /* LFEditingView.m */,
+				C761363A2244729F00CD3785 /* other */,
+				C761364E2244729F00CD3785 /* toolBar */,
+				C76136592244729F00CD3785 /* LFZoomingView.m */,
+				C761365A2244729F00CD3785 /* LFEditingView.h */,
+				C761365B2244729F00CD3785 /* model */,
+				C761365E2244729F00CD3785 /* LFClippingView.h */,
+				C761365F2244729F00CD3785 /* subView */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		C761363A2244729F00CD3785 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				C761363B2244729F00CD3785 /* splash */,
+				C76136402244729F00CD3785 /* clipping */,
+				C76136492244729F00CD3785 /* sticker */,
+			);
+			path = other;
+			sourceTree = "<group>";
+		};
+		C761363B2244729F00CD3785 /* splash */ = {
+			isa = PBXGroup;
+			children = (
+				C761363C2244729F00CD3785 /* LFSplashLayer.h */,
+				C761363D2244729F00CD3785 /* LFMaskLayer.h */,
+				C761363E2244729F00CD3785 /* LFMaskLayer.m */,
+				C761363F2244729F00CD3785 /* LFSplashLayer.m */,
+			);
+			path = splash;
+			sourceTree = "<group>";
+		};
+		C76136402244729F00CD3785 /* clipping */ = {
+			isa = PBXGroup;
+			children = (
+				C76136412244729F00CD3785 /* LFGridMaskLayer.m */,
+				C76136422244729F00CD3785 /* LFGridView.h */,
+				C76136432244729F00CD3785 /* LFResizeControl.m */,
+				C76136442244729F00CD3785 /* LFGridLayer.h */,
+				C76136452244729F00CD3785 /* LFGridMaskLayer.h */,
+				C76136462244729F00CD3785 /* LFResizeControl.h */,
+				C76136472244729F00CD3785 /* LFGridView.m */,
+				C76136482244729F00CD3785 /* LFGridLayer.m */,
+			);
+			path = clipping;
+			sourceTree = "<group>";
+		};
+		C76136492244729F00CD3785 /* sticker */ = {
+			isa = PBXGroup;
+			children = (
+				C761364A2244729F00CD3785 /* LFMovingView.m */,
+				C761364B2244729F00CD3785 /* LFStickerLabel.h */,
+				C761364C2244729F00CD3785 /* LFMovingView.h */,
+				C761364D2244729F00CD3785 /* LFStickerLabel.m */,
+			);
+			path = sticker;
+			sourceTree = "<group>";
+		};
+		C761364E2244729F00CD3785 /* toolBar */ = {
+			isa = PBXGroup;
+			children = (
+				C761364F2244729F00CD3785 /* LFClipToolbar.m */,
+				C76136502244729F00CD3785 /* LFEditToolbar.h */,
+				C76136512244729F00CD3785 /* LFEditCollectionView.h */,
+				C76136522244729F00CD3785 /* LFTextBar.h */,
+				C76136532244729F00CD3785 /* LFStickerBar.h */,
+				C76136542244729F00CD3785 /* LFClipToolbar.h */,
+				C76136552244729F00CD3785 /* LFEditCollectionView.m */,
+				C76136562244729F00CD3785 /* LFEditToolbar.m */,
+				C76136572244729F00CD3785 /* LFStickerBar.m */,
+				C76136582244729F00CD3785 /* LFTextBar.m */,
+			);
+			path = toolBar;
+			sourceTree = "<group>";
+		};
+		C761365B2244729F00CD3785 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C761365C2244729F00CD3785 /* LFText.m */,
+				C761365D2244729F00CD3785 /* LFText.h */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		C761365F2244729F00CD3785 /* subView */ = {
+			isa = PBXGroup;
+			children = (
+				C76136602244729F00CD3785 /* LFFilterView.m */,
+				C76136612244729F00CD3785 /* LFStickerView.m */,
+				C76136622244729F00CD3785 /* LFDrawView.h */,
+				C76136632244729F00CD3785 /* LFSplashView.h */,
+				C76136642244729F00CD3785 /* LFDataFilterImageView.m */,
+				C76136652244729F00CD3785 /* LFStickerView.h */,
+				C76136662244729F00CD3785 /* LFFilterView.h */,
+				C76136672244729F00CD3785 /* LFDrawView.m */,
+				C76136682244729F00CD3785 /* LFDataFilterImageView.h */,
+				C76136692244729F00CD3785 /* LFSplashView.m */,
+			);
+			path = subView;
+			sourceTree = "<group>";
+		};
+		C761366A2244729F00CD3785 /* LFVideoSession */ = {
+			isa = PBXGroup;
+			children = (
+				C761366B2244729F00CD3785 /* LFVideoSession.h */,
+				C761366C2244729F00CD3785 /* Asset */,
+				C76136712244729F00CD3785 /* LFVideoSessionHeader.h */,
+				C76136722244729F00CD3785 /* Protocol */,
+				C76136742244729F00CD3785 /* LFVideoSession.m */,
+				C76136752244729F00CD3785 /* Command */,
+			);
+			path = LFVideoSession;
+			sourceTree = "<group>";
+		};
+		C761366C2244729F00CD3785 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				C761366D2244729F00CD3785 /* LFAVAssetData.m */,
+				C761366E2244729F00CD3785 /* LFAVAssetData+Filter.h */,
+				C761366F2244729F00CD3785 /* LFAVAssetData+private.h */,
+				C76136702244729F00CD3785 /* LFAVAssetData.h */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
+		C76136722244729F00CD3785 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				C76136732244729F00CD3785 /* LFVideoCommandProtocol.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		C76136752244729F00CD3785 /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				C76136762244729F00CD3785 /* LFVideoFilterCommand.h */,
+				C76136772244729F00CD3785 /* LFVideoMergeCommand.m */,
+				C76136782244729F00CD3785 /* LFVideoAudioMixCommand.m */,
+				C76136792244729F00CD3785 /* LFVideoRotateCommand.m */,
+				C761367A2244729F00CD3785 /* LFVideoCropCommand.m */,
+				C761367B2244729F00CD3785 /* LFVideoRateCommand.m */,
+				C761367C2244729F00CD3785 /* LFVideoBaseCommand.m */,
+				C761367D2244729F00CD3785 /* LFVideoWatermarkCommand.m */,
+				C761367E2244729F00CD3785 /* LFVideoClipCommand.m */,
+				C761367F2244729F00CD3785 /* LFVideoMergeCommand.h */,
+				C76136802244729F00CD3785 /* LFVideoFilterCommand.m */,
+				C76136812244729F00CD3785 /* LFVideoAudioMixCommand.h */,
+				C76136822244729F00CD3785 /* LFVideoRateCommand.h */,
+				C76136832244729F00CD3785 /* LFVideoCropCommand.h */,
+				C76136842244729F00CD3785 /* LFVideoRotateCommand.h */,
+				C76136852244729F00CD3785 /* LFVideoClipCommand.h */,
+				C76136862244729F00CD3785 /* LFVideoWatermarkCommand.h */,
+				C76136872244729F00CD3785 /* LFVideoBaseCommand.h */,
+			);
+			path = Command;
+			sourceTree = "<group>";
+		};
+		C7B6BA422221036100970D96 = {
+			isa = PBXGroup;
+			children = (
+				C7B6BA4D2221036100970D96 /* recordingBooth */,
+				C7B6BA4C2221036100970D96 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C7B6BA4C2221036100970D96 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7B6BA4B2221036100970D96 /* recordingBooth.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7B6BA4D2221036100970D96 /* recordingBooth */ = {
+			isa = PBXGroup;
+			children = (
+				C76134FC22432D9F00CD3785 /* SampleVideo.mp4 */,
+				C76135922244729E00CD3785 /* OtherClass */,
+				C7B6BA642221037900970D96 /* recordingBoothClass */,
+				C7B6BA4E2221036100970D96 /* AppDelegate.h */,
+				C7B6BA4F2221036100970D96 /* AppDelegate.m */,
+				C7B6BA512221036100970D96 /* ViewController.h */,
+				C7B6BA522221036100970D96 /* ViewController.m */,
+				C7B6BA542221036100970D96 /* Main.storyboard */,
+				C7B6BA572221036200970D96 /* Assets.xcassets */,
+				C7B6BA592221036200970D96 /* LaunchScreen.storyboard */,
+				C7B6BA5C2221036200970D96 /* Info.plist */,
+				C7B6BA5D2221036200970D96 /* main.m */,
+			);
+			path = recordingBooth;
+			sourceTree = "<group>";
+		};
+		C7B6BA642221037900970D96 /* recordingBoothClass */ = {
+			isa = PBXGroup;
+			children = (
+				C7B6BA652221049300970D96 /* LFRecordingBoothController.h */,
+				C7B6BA662221049300970D96 /* LFRecordingBoothController.m */,
+				C7B6BA7D2222471900970D96 /* Utils */,
+				C7B6BA7922212F7400970D96 /* Manager */,
+				C7B6BA7522212C5E00970D96 /* Model */,
+				C7B6BA682221064100970D96 /* viewController */,
+			);
+			path = recordingBoothClass;
+			sourceTree = "<group>";
+		};
+		C7B6BA682221064100970D96 /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				C7B6BA692221070800970D96 /* LFBaseRecordingBoothController.h */,
+				C7B6BA6A2221070800970D96 /* LFBaseRecordingBoothController.m */,
+				C7B6BA6C2221071200970D96 /* Config */,
+			);
+			path = viewController;
+			sourceTree = "<group>";
+		};
+		C7B6BA6C2221071200970D96 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				C7B6BA702221087B00970D96 /* LFConfigRecordingBoothController.h */,
+				C7B6BA712221087B00970D96 /* LFConfigRecordingBoothController.m */,
+				C7B6BA722221087B00970D96 /* LFConfigRecordingBoothController.xib */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		C7B6BA7522212C5E00970D96 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C7B6BA7622212C8000970D96 /* LFRecordConfig.h */,
+				C7B6BA7722212C8000970D96 /* LFRecordConfig.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C7B6BA7922212F7400970D96 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C7B6BA7A22212F9500970D96 /* LFRecordManager.h */,
+				C7B6BA7B22212F9500970D96 /* LFRecordManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		C7B6BA7D2222471900970D96 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C7B6BA7E2222472200970D96 /* LFDownloadManager */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C7B6BA7E2222472200970D96 /* LFDownloadManager */ = {
+			isa = PBXGroup;
+			children = (
+				C7B6BA822222472300970D96 /* LFDownloadManager.h */,
+				C7B6BA832222472300970D96 /* LFDownloadManager.m */,
+			);
+			path = LFDownloadManager;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7B6BA4A2221036100970D96 /* recordingBooth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7B6BA612221036200970D96 /* Build configuration list for PBXNativeTarget "recordingBooth" */;
+			buildPhases = (
+				C7B6BA472221036100970D96 /* Sources */,
+				C7B6BA482221036100970D96 /* Frameworks */,
+				C7B6BA492221036100970D96 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = recordingBooth;
+			productName = recordingBooth;
+			productReference = C7B6BA4B2221036100970D96 /* recordingBooth.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7B6BA432221036100970D96 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Marc;
+				TargetAttributes = {
+					C7B6BA4A2221036100970D96 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = C7B6BA462221036100970D96 /* Build configuration list for PBXProject "recordingBooth" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C7B6BA422221036100970D96;
+			productRefGroup = C7B6BA4C2221036100970D96 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7B6BA4A2221036100970D96 /* recordingBooth */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7B6BA492221036100970D96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C76136972244729F00CD3785 /* JRVideoCollectionViewCell.xib in Resources */,
+				C761368C2244729F00CD3785 /* JRVideoEditing.bundle in Resources */,
+				C7B6BA5B2221036200970D96 /* LaunchScreen.storyboard in Resources */,
+				C7B6BA582221036200970D96 /* Assets.xcassets in Resources */,
+				C7B6BA742221087B00970D96 /* LFConfigRecordingBoothController.xib in Resources */,
+				C76136912244729F00CD3785 /* JRCameraVideoViewController.xib in Resources */,
+				C76136AA2244729F00CD3785 /* README.md in Resources */,
+				C76134FD22432D9F00CD3785 /* SampleVideo.mp4 in Resources */,
+				C7B6BA562221036100970D96 /* Main.storyboard in Resources */,
+				C76136AC2244729F00CD3785 /* LFMediaEditingController.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7B6BA472221036100970D96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C76136DB224472A000CD3785 /* LFSplashView.m in Sources */,
+				C76136B8224472A000CD3785 /* LFVideoEditingController.m in Sources */,
+				C76136B1224472A000CD3785 /* UIView+LFMEFrame.m in Sources */,
+				C761369D2244729F00CD3785 /* LFColorMatrixType.m in Sources */,
+				C76136A12244729F00CD3785 /* LFFilter+save.m in Sources */,
+				C76136A72244729F00CD3785 /* LFContextImageView.m in Sources */,
+				C76136B4224472A000CD3785 /* FilterSuiteUtils.m in Sources */,
+				C7B6BA7C22212F9500970D96 /* LFRecordManager.m in Sources */,
+				C76136DF224472A000CD3785 /* LFVideoAudioMixCommand.m in Sources */,
+				C761369C2244729F00CD3785 /* JRPickColorView.m in Sources */,
+				C76136982244729F00CD3785 /* LFBaseEditingController.m in Sources */,
+				C76136C0224472A000CD3785 /* LFVideoTrimmerGridView.m in Sources */,
+				C76136CC224472A000CD3785 /* LFGridView.m in Sources */,
+				C761368D2244729F00CD3785 /* JRVideoPlayerOperationViewController.m in Sources */,
+				C76136DD224472A000CD3785 /* LFVideoSession.m in Sources */,
+				C76136AE2244729F00CD3785 /* NSString+LFMECoreText.m in Sources */,
+				C76136A02244729F00CD3785 /* LFFilter+UIImage.m in Sources */,
+				C76136BF224472A000CD3785 /* LFVideoTrimmerGridLayer.m in Sources */,
+				C76136C9224472A000CD3785 /* LFSplashLayer.m in Sources */,
+				C76136D4224472A000CD3785 /* LFTextBar.m in Sources */,
+				C76136C6224472A000CD3785 /* LFClippingView.m in Sources */,
+				C76136D2224472A000CD3785 /* LFEditToolbar.m in Sources */,
+				C761369A2244729F00CD3785 /* JRFilterModel.m in Sources */,
+				C76136C4224472A000CD3785 /* LFPhotoEditingController.m in Sources */,
+				C7B6BA532221036100970D96 /* ViewController.m in Sources */,
+				C76136BC224472A000CD3785 /* LFAudioTrackBar.m in Sources */,
+				C76136B2224472A000CD3785 /* NSBundle+LFMediaEditing.m in Sources */,
+				C76136CB224472A000CD3785 /* LFResizeControl.m in Sources */,
+				C76136932244729F00CD3785 /* JRVideoClipInfo.m in Sources */,
+				C76136CF224472A000CD3785 /* LFStickerLabel.m in Sources */,
+				C76136902244729F00CD3785 /* JRClipVideoEditingViewController.m in Sources */,
+				C76136E6224472A000CD3785 /* LFVideoFilterCommand.m in Sources */,
+				C76136922244729F00CD3785 /* JRCameraVideoViewController.m in Sources */,
+				C76136D0224472A000CD3785 /* LFClipToolbar.m in Sources */,
+				C76136DE224472A000CD3785 /* LFVideoMergeCommand.m in Sources */,
+				C76136DC224472A000CD3785 /* LFAVAssetData.m in Sources */,
+				C761368E2244729F00CD3785 /* JRVideoPlayerViewController.m in Sources */,
+				C76136C2224472A000CD3785 /* LFDataFilterVideoView.m in Sources */,
+				C76136BB224472A000CD3785 /* LFVideoClipToolbar.m in Sources */,
+				C76136C7224472A000CD3785 /* LFEditingView.m in Sources */,
+				C76136CE224472A000CD3785 /* LFMovingView.m in Sources */,
+				C76136962244729F00CD3785 /* JRVideoCollectionViewCell.m in Sources */,
+				C76136D1224472A000CD3785 /* LFEditCollectionView.m in Sources */,
+				C76136AD2244729F00CD3785 /* UIDevice+LFMEOrientation.m in Sources */,
+				C7B6BA5E2221036200970D96 /* main.m in Sources */,
+				C76136E0224472A000CD3785 /* LFVideoRotateCommand.m in Sources */,
+				C761369E2244729F00CD3785 /* LFImageUtil.m in Sources */,
+				C76136A62244729F00CD3785 /* LFFilterImageView.m in Sources */,
+				C76136E1224472A000CD3785 /* LFVideoCropCommand.m in Sources */,
+				C76136A92244729F00CD3785 /* LFSampleBufferHolder.m in Sources */,
+				C76136DA224472A000CD3785 /* LFDrawView.m in Sources */,
+				C7B6BA732221087B00970D96 /* LFConfigRecordingBoothController.m in Sources */,
+				C76136A32244729F00CD3785 /* LFFilterVideoView.m in Sources */,
+				C76136D8224472A000CD3785 /* LFStickerView.m in Sources */,
+				C76136B5224472A000CD3785 /* LFMECancelBlock.m in Sources */,
+				C7B6BA7822212C8000970D96 /* LFRecordConfig.m in Sources */,
+				C76136E2224472A000CD3785 /* LFVideoRateCommand.m in Sources */,
+				C761368B2244729F00CD3785 /* UIImage+Bundle.m in Sources */,
+				C76136D7224472A000CD3785 /* LFFilterView.m in Sources */,
+				C76136B9224472A000CD3785 /* LFVideoEdit.m in Sources */,
+				C76136E3224472A000CD3785 /* LFVideoBaseCommand.m in Sources */,
+				C76136B3224472A000CD3785 /* UIImage+LFMECommon.m in Sources */,
+				C7B6BA6B2221070800970D96 /* LFBaseRecordingBoothController.m in Sources */,
+				C76136A82244729F00CD3785 /* LFWeakSelectorTarget.m in Sources */,
+				C76136E5224472A000CD3785 /* LFVideoClipCommand.m in Sources */,
+				C76136A42244729F00CD3785 /* LFFilterGifView.m in Sources */,
+				C76136992244729F00CD3785 /* JRFilterBarCell.m in Sources */,
+				C76136C5224472A000CD3785 /* LFPhotoEdit.m in Sources */,
+				C761369F2244729F00CD3785 /* LFMutableFilter.m in Sources */,
+				C761368F2244729F00CD3785 /* JRVideoPreviewViewController.m in Sources */,
+				C76136AF2244729F00CD3785 /* AVAsset+LFMECommon.m in Sources */,
+				C76136CA224472A000CD3785 /* LFGridMaskLayer.m in Sources */,
+				C76136B6224472A000CD3785 /* LFScrollView.m in Sources */,
+				C76136A52244729F00CD3785 /* LFContext.m in Sources */,
+				C76136B02244729F00CD3785 /* UIView+LFMECommon.m in Sources */,
+				C76136C3224472A000CD3785 /* LFMEGIFImageSerialization.m in Sources */,
+				C76136E4224472A000CD3785 /* LFVideoWatermarkCommand.m in Sources */,
+				C76136D3224472A000CD3785 /* LFStickerBar.m in Sources */,
+				C76136CD224472A000CD3785 /* LFGridLayer.m in Sources */,
+				C76136D5224472A000CD3785 /* LFZoomingView.m in Sources */,
+				C7B6BA852222472300970D96 /* LFDownloadManager.m in Sources */,
+				C76136BA224472A000CD3785 /* LFVideoEditingView.m in Sources */,
+				C76136C1224472A000CD3785 /* LFVideoTrimmerView.m in Sources */,
+				C7B6BA672221049300970D96 /* LFRecordingBoothController.m in Sources */,
+				C76136AB2244729F00CD3785 /* LFVideoExportSession.m in Sources */,
+				C76136942244729F00CD3785 /* JRClipInfo.m in Sources */,
+				C76136B7224472A000CD3785 /* LFVideoPlayer.m in Sources */,
+				C76136C8224472A000CD3785 /* LFMaskLayer.m in Sources */,
+				C76136BE224472A000CD3785 /* LFVideoClippingView.m in Sources */,
+				C76136D6224472A000CD3785 /* LFText.m in Sources */,
+				C761369B2244729F00CD3785 /* JRFilterBar.m in Sources */,
+				C7B6BA502221036100970D96 /* AppDelegate.m in Sources */,
+				C76136952244729F00CD3785 /* JRHorizontalCollectioView.m in Sources */,
+				C76136BD224472A000CD3785 /* LFVideoPlayerLayerView.m in Sources */,
+				C76136A22244729F00CD3785 /* LFFilter.m in Sources */,
+				C76136D9224472A000CD3785 /* LFDataFilterImageView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C7B6BA542221036100970D96 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7B6BA552221036100970D96 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C7B6BA592221036200970D96 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7B6BA5A2221036200970D96 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C7B6BA5F2221036200970D96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C7B6BA602221036200970D96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C7B6BA622221036200970D96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = recordingBooth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lincf0912.marc.recordingBooth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		C7B6BA632221036200970D96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = recordingBooth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lincf0912.marc.recordingBooth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7B6BA462221036100970D96 /* Build configuration list for PBXProject "recordingBooth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7B6BA5F2221036200970D96 /* Debug */,
+				C7B6BA602221036200970D96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7B6BA612221036200970D96 /* Build configuration list for PBXNativeTarget "recordingBooth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7B6BA622221036200970D96 /* Debug */,
+				C7B6BA632221036200970D96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C7B6BA432221036100970D96 /* Project object */;
+}
