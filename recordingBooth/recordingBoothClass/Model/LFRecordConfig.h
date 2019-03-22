@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *event;
 @property (nonatomic, assign) NSInteger fps;
 @property (nonatomic, assign) BOOL overlayIsOn;
-@property (nonatomic, strong) NSMutableArray <NSURL *>*musicList;
+@property (nonatomic, strong) NSMutableArray <NSString *>*musicList;
 @property (nonatomic, assign) BOOL automatic;
 
 + (instancetype)modelWithObjectData:(NSData *)data;
