@@ -19,7 +19,7 @@
 
 - (void)showRecordVideoViewController
 {
-    JRRecordVideoViewControllerFPSType type = 240;
+    JRRecordVideoViewControllerFPSType type = self.config.fps;
     JRRecordVideoViewController *cameraVC = [JRRecordVideoViewController showRecordVideoViewControllerWithVC:self fps:type sessionPreset:AVCaptureSessionPresetHigh];
     cameraVC.recordDelegate = self;
     /** save video url */

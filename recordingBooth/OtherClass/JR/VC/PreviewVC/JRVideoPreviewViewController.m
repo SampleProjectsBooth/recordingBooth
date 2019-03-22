@@ -235,6 +235,9 @@
                         NSLog(@"Export completed : %@", [url path]);
                         break;
                     default:
+                        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationController:didFinishEditUrl:error:)]) {
+                            [nav.operationDelegate videoEditingOperationController:nav didFinishEditUrl:nil error:exportSession.error];
+                        }
                         break;
                 }
             });
