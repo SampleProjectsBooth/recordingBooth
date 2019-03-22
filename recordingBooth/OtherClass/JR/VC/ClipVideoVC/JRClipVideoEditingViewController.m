@@ -291,7 +291,9 @@
             [array addObject:obj.asset];
         }
         JRVideoPreviewViewController *vc = [[JRVideoPreviewViewController alloc] initWithAssets:[array copy]];
-        [self presentViewController:vc animated:YES completion:nil];
+        NSMutableArray *vcs = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+        [vcs addObject:vc];
+        [self.navigationController setViewControllers:[vcs copy]];
     } else {
         UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:@"请裁剪视频" preferredStyle:(UIAlertControllerStyleAlert)];
         [self presentViewController:alertCon animated:YES completion:^{

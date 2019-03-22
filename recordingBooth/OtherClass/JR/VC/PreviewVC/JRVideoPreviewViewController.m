@@ -224,7 +224,7 @@
                         if (nav.autoSavePhotoAlbum) {
                             [self _saveVideo:url];
                         }
-                        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:didFinishEditUrl:)]) {
+                        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationController:didFinishEditUrl:)]) {
                             [nav.operationDelegate videoEditingOperationController:nav didFinishEditUrl:url];
                         }
                         NSLog(@"Export completed : %@", [url path]);

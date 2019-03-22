@@ -100,6 +100,8 @@
 		C76136E4224472A000CD3785 /* LFVideoWatermarkCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C761367D2244729F00CD3785 /* LFVideoWatermarkCommand.m */; };
 		C76136E5224472A000CD3785 /* LFVideoClipCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C761367E2244729F00CD3785 /* LFVideoClipCommand.m */; };
 		C76136E6224472A000CD3785 /* LFVideoFilterCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136802244729F00CD3785 /* LFVideoFilterCommand.m */; };
+		C76136EA2244B23E00CD3785 /* LFConfigRecordingBoothController+JRRecordVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136E92244B23E00CD3785 /* LFConfigRecordingBoothController+JRRecordVideoViewController.m */; };
+		C76136EE2244B44700CD3785 /* LFConfigRecordingBoothController+VideoEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C76136ED2244B44700CD3785 /* LFConfigRecordingBoothController+VideoEditingViewController.m */; };
 		C7B6BA502221036100970D96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6BA4F2221036100970D96 /* AppDelegate.m */; };
 		C7B6BA532221036100970D96 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6BA522221036100970D96 /* ViewController.m */; };
 		C7B6BA562221036100970D96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B6BA542221036100970D96 /* Main.storyboard */; };
@@ -309,6 +311,10 @@
 		C76136852244729F00CD3785 /* LFVideoClipCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoClipCommand.h; sourceTree = "<group>"; };
 		C76136862244729F00CD3785 /* LFVideoWatermarkCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoWatermarkCommand.h; sourceTree = "<group>"; };
 		C76136872244729F00CD3785 /* LFVideoBaseCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoBaseCommand.h; sourceTree = "<group>"; };
+		C76136E82244B23E00CD3785 /* LFConfigRecordingBoothController+JRRecordVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LFConfigRecordingBoothController+JRRecordVideoViewController.h"; sourceTree = "<group>"; };
+		C76136E92244B23E00CD3785 /* LFConfigRecordingBoothController+JRRecordVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LFConfigRecordingBoothController+JRRecordVideoViewController.m"; sourceTree = "<group>"; };
+		C76136EC2244B44700CD3785 /* LFConfigRecordingBoothController+VideoEditingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LFConfigRecordingBoothController+VideoEditingViewController.h"; sourceTree = "<group>"; };
+		C76136ED2244B44700CD3785 /* LFConfigRecordingBoothController+VideoEditingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LFConfigRecordingBoothController+VideoEditingViewController.m"; sourceTree = "<group>"; };
 		C7B6BA4B2221036100970D96 /* recordingBooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordingBooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B6BA4E2221036100970D96 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C7B6BA4F2221036100970D96 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -968,6 +974,17 @@
 			path = Command;
 			sourceTree = "<group>";
 		};
+		C76136EB2244B24500CD3785 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				C76136E82244B23E00CD3785 /* LFConfigRecordingBoothController+JRRecordVideoViewController.h */,
+				C76136E92244B23E00CD3785 /* LFConfigRecordingBoothController+JRRecordVideoViewController.m */,
+				C76136EC2244B44700CD3785 /* LFConfigRecordingBoothController+VideoEditingViewController.h */,
+				C76136ED2244B44700CD3785 /* LFConfigRecordingBoothController+VideoEditingViewController.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		C7B6BA422221036100970D96 = {
 			isa = PBXGroup;
 			children = (
@@ -1029,6 +1046,7 @@
 		C7B6BA6C2221071200970D96 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				C76136EB2244B24500CD3785 /* Category */,
 				C7B6BA702221087B00970D96 /* LFConfigRecordingBoothController.h */,
 				C7B6BA712221087B00970D96 /* LFConfigRecordingBoothController.m */,
 				C7B6BA722221087B00970D96 /* LFConfigRecordingBoothController.xib */,
@@ -1176,6 +1194,7 @@
 				C76136B2224472A000CD3785 /* NSBundle+LFMediaEditing.m in Sources */,
 				0553BB752244901000B9A2EF /* JRRecordVideoViewController.m in Sources */,
 				C76136CB224472A000CD3785 /* LFResizeControl.m in Sources */,
+				C76136EE2244B44700CD3785 /* LFConfigRecordingBoothController+VideoEditingViewController.m in Sources */,
 				C76136932244729F00CD3785 /* JRVideoClipInfo.m in Sources */,
 				C76136CF224472A000CD3785 /* LFStickerLabel.m in Sources */,
 				C76136E6224472A000CD3785 /* LFVideoFilterCommand.m in Sources */,
@@ -1239,6 +1258,7 @@
 				C76136D6224472A000CD3785 /* LFText.m in Sources */,
 				C761369B2244729F00CD3785 /* JRFilterBar.m in Sources */,
 				C7B6BA502221036100970D96 /* AppDelegate.m in Sources */,
+				C76136EA2244B23E00CD3785 /* LFConfigRecordingBoothController+JRRecordVideoViewController.m in Sources */,
 				0553BB722244901000B9A2EF /* JRVideoPlayerViewController.m in Sources */,
 				C76136952244729F00CD3785 /* JRHorizontalCollectioView.m in Sources */,
 				C76136BD224472A000CD3785 /* LFVideoPlayerLayerView.m in Sources */,
