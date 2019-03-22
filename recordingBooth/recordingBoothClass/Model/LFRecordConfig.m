@@ -10,7 +10,7 @@
 
 @implementation LFRecordConfig
 
-- (NSMutableArray *)musicList
+- (NSMutableArray <NSString *>*)musicList
 {
     if (!_musicList) {
         _musicList = [NSMutableArray array];

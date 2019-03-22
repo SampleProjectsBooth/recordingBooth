@@ -95,7 +95,7 @@
                 button.enabled = YES;
                 
                 if ([data writeToFile:path atomically:YES]) {
-                    [self.config.musicList setArray:@[path]];
+
                 } else {
                     NSLog(@"file save fail : %@", link);
                 }

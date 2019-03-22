@@ -8,6 +8,7 @@
 
 #import "LFConfigRecordingBoothController+VideoEditingViewController.h"
 #import "JRVideoEditingOperationController.h"
+#import "LFRecordManager.h"
 
 @interface LFConfigRecordingBoothController (VideoEditingViewControllerDelegate) <JRVideoEditingOperationControllerDelegate>
 
@@ -31,6 +32,39 @@
     NSString *path = [LFConfigRecordingBoothController createDirectoryUnderTemporaryDirectory:@"JR" file:@"test.mp4"];
     vc.videoUrl = [NSURL fileURLWithPath:path];
     vc.operationDelegate = self;
+    vc.minClippingDuration = 5.f;
+    vc.maxClippingDuration = 20.f;
+    
+    /** audio url */
+    NSMutableArray *audioUrls = [NSMutableArray arrayWithCapacity:3];
+    NSString *filePath = nil;
+    NSURL *fileUrl = nil;
+    for (NSString *link in self.config.musicList) {
+        filePath = [[LFRecordManager sharedRecordManager] filePathWithLink:link];
+        if (filePath) {
+            fileUrl = [NSURL fileURLWithPath:filePath];
+            if (fileUrl) {
+                [audioUrls addObject:fileUrl];
+            }
+        }
+    }
+    vc.videoEditingLibrary = ^(LFVideoEditingController * _Nonnull videoEditingController) {
+        videoEditingController.defaultAudioUrls = audioUrls;
+    };
+    
+    /** water mark */
+    UIImage *image = [UIImage imageNamed:@"waterMark.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.frame = CGRectMake(10, 10, image.size.width, image.size.height);
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
+    UIView *waterView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [waterView addSubview:imageView];
+    
+    /** save video url */
+    NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES).firstObject;
+    NSString *name = [[[NSDate date] description] stringByAppendingString:@"_edit.mp4"];
+    vc.videoUrl = [NSURL fileURLWithPath:[docPath stringByAppendingPathComponent:name]];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
@@ -38,18 +72,17 @@
 
 - (void)videoEditingOperationController:(JRVideoEditingOperationController *)operationer didFinishEditUrl:(NSURL *)url error:(nullable NSError *)error
 {
+    NSLog(@"videoEditingOperationControllerdidFinishEditUrl:%@ error:%@", url, error);
+    
     [operationer dismissViewControllerAnimated:YES completion:^{
-        
     }];
-    NSLog(@"videoEditingOperationControllerdidFinishEditUrl error: %@", error);
 }
 
 - (void)videoEditingOperationControllerDidCancel:(JRVideoEditingOperationController *)operationer
 {
-    [operationer dismissViewControllerAnimated:YES completion:^{
-        
-    }];
     NSLog(@"videoEditingOperationControllerDidCancel");
+    [operationer dismissViewControllerAnimated:YES completion:^{
+    }];
 }
 
 #pragma mark - Class Methods
