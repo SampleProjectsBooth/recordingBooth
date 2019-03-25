@@ -14,6 +14,8 @@
 		0553BB762244901000B9A2EF /* JRRecordVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0553BB6D2244901000B9A2EF /* JRRecordVideoViewController.xib */; };
 		0553BB772244901000B9A2EF /* UIImage+JRBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB6F2244901000B9A2EF /* UIImage+JRBundle.m */; };
 		0553BB7A2244AFCC00B9A2EF /* JRVideoEditingOperationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB792244AFCC00B9A2EF /* JRVideoEditingOperationController.m */; };
+		05F9B9A42248DD9C00FB8C5B /* 3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 05F9B9A22248DD9B00FB8C5B /* 3.mp4 */; };
+		05F9B9A52248DD9C00FB8C5B /* 2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 05F9B9A32248DD9B00FB8C5B /* 2.mp4 */; };
 		C76134FD22432D9F00CD3785 /* SampleVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C76134FC22432D9F00CD3785 /* SampleVideo.mp4 */; };
 		C761368C2244729F00CD3785 /* JRVideoEditing.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C76135972244729E00CD3785 /* JRVideoEditing.bundle */; };
 		C76136932244729F00CD3785 /* JRVideoClipInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135AB2244729E00CD3785 /* JRVideoClipInfo.m */; };
@@ -131,6 +133,8 @@
 		0553BB702244901000B9A2EF /* UIImage+JRBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JRBundle.h"; sourceTree = "<group>"; };
 		0553BB782244AFCC00B9A2EF /* JRVideoEditingOperationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRVideoEditingOperationController.h; sourceTree = "<group>"; };
 		0553BB792244AFCC00B9A2EF /* JRVideoEditingOperationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRVideoEditingOperationController.m; sourceTree = "<group>"; };
+		05F9B9A22248DD9B00FB8C5B /* 3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3.mp4; sourceTree = "<group>"; };
+		05F9B9A32248DD9B00FB8C5B /* 2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2.mp4; sourceTree = "<group>"; };
 		C76134FC22432D9F00CD3785 /* SampleVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SampleVideo.mp4; sourceTree = "<group>"; };
 		C76135972244729E00CD3785 /* JRVideoEditing.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JRVideoEditing.bundle; sourceTree = "<group>"; };
 		C76135A92244729E00CD3785 /* JRClipInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRClipInfo.h; sourceTree = "<group>"; };
@@ -999,6 +1003,8 @@
 		C7B6BA4D2221036100970D96 /* recordingBooth */ = {
 			isa = PBXGroup;
 			children = (
+				05F9B9A32248DD9B00FB8C5B /* 2.mp4 */,
+				05F9B9A22248DD9B00FB8C5B /* 3.mp4 */,
 				C76136EF2244E2F200CD3785 /* waterMark.png */,
 				C76134FC22432D9F00CD3785 /* SampleVideo.mp4 */,
 				C76135922244729E00CD3785 /* OtherClass */,
@@ -1145,12 +1151,14 @@
 				C76136972244729F00CD3785 /* JRVideoCollectionViewCell.xib in Resources */,
 				C761368C2244729F00CD3785 /* JRVideoEditing.bundle in Resources */,
 				C7B6BA5B2221036200970D96 /* LaunchScreen.storyboard in Resources */,
+				05F9B9A42248DD9C00FB8C5B /* 3.mp4 in Resources */,
 				C7B6BA582221036200970D96 /* Assets.xcassets in Resources */,
 				C7B6BA742221087B00970D96 /* LFConfigRecordingBoothController.xib in Resources */,
 				C76136AA2244729F00CD3785 /* README.md in Resources */,
 				C76136F02244E2F200CD3785 /* waterMark.png in Resources */,
 				C76134FD22432D9F00CD3785 /* SampleVideo.mp4 in Resources */,
 				C7B6BA562221036100970D96 /* Main.storyboard in Resources */,
+				05F9B9A52248DD9C00FB8C5B /* 2.mp4 in Resources */,
 				C76136AC2244729F00CD3785 /* LFMediaEditingController.bundle in Resources */,
 				0553BB762244901000B9A2EF /* JRRecordVideoViewController.xib in Resources */,
 			);

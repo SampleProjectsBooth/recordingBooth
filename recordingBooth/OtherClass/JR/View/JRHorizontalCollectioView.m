@@ -46,7 +46,7 @@
 
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(JRVideoClipInfo *)object
 {
-    if (self.data.count >= index) {
+    if (self.data.count > index) {
         [self.data replaceObjectAtIndex:index withObject:object];
         [self.collectionView reloadData];
     }

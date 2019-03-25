@@ -107,6 +107,17 @@
                         <action selector="startOnClick:" destination="-1" eventType="touchUpInside" id="zsf-DM-c7n"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xW-HG-lCW">
+                    <rect key="frame" x="147" y="287" width="83" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="XQC-7V-iBp"/>
+                        <constraint firstAttribute="width" constant="83" id="un2-0L-QlV"/>
+                    </constraints>
+                    <state key="normal" title="MergeVideo"/>
+                    <connections>
+                        <action selector="mergeVideoOnClick:" destination="-1" eventType="touchUpInside" id="yRd-Es-nNF"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -120,11 +131,13 @@
                 <constraint firstItem="EfC-we-dxX" firstAttribute="leading" secondItem="mN3-HM-HNt" secondAttribute="leading" id="8b8-4i-Xel"/>
                 <constraint firstItem="8ql-Hx-wcK" firstAttribute="centerY" secondItem="o5F-P6-QqV" secondAttribute="centerY" id="9xI-tT-IGo"/>
                 <constraint firstItem="o5F-P6-QqV" firstAttribute="top" secondItem="fXI-vs-C2l" secondAttribute="bottom" constant="20" id="BTs-W4-2Vg"/>
+                <constraint firstItem="5xW-HG-lCW" firstAttribute="top" secondItem="UPY-Jf-nMi" secondAttribute="bottom" constant="25" id="EXr-xu-kfW"/>
                 <constraint firstItem="mN3-HM-HNt" firstAttribute="leading" secondItem="Q7c-MR-ALV" secondAttribute="leading" id="G1I-5f-AJT"/>
                 <constraint firstItem="Q7c-MR-ALV" firstAttribute="leading" secondItem="UPY-Jf-nMi" secondAttribute="leading" id="Ga2-g7-XpU"/>
                 <constraint firstItem="y1v-yk-coa" firstAttribute="leading" secondItem="UPY-Jf-nMi" secondAttribute="trailing" constant="20" id="IAc-bU-MUe"/>
                 <constraint firstItem="GC7-7F-si7" firstAttribute="top" secondItem="o5F-P6-QqV" secondAttribute="bottom" constant="25" id="NXC-ra-r6h"/>
                 <constraint firstItem="mN3-HM-HNt" firstAttribute="top" secondItem="Q7c-MR-ALV" secondAttribute="bottom" constant="25" id="Nfh-Aa-A0t"/>
+                <constraint firstItem="5xW-HG-lCW" firstAttribute="leading" secondItem="Q7c-MR-ALV" secondAttribute="trailing" constant="65" id="O2L-q1-4Ai"/>
                 <constraint firstItem="BDN-Ud-gg5" firstAttribute="centerY" secondItem="GC7-7F-si7" secondAttribute="centerY" id="QPm-4O-PVv"/>
                 <constraint firstItem="EfC-we-dxX" firstAttribute="top" secondItem="mN3-HM-HNt" secondAttribute="bottom" constant="25" id="eZl-br-oak"/>
                 <constraint firstItem="5m8-SN-mGG" firstAttribute="leading" secondItem="HCU-jq-F9n" secondAttribute="trailing" constant="20" id="gwp-ag-C8k"/>

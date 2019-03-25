@@ -8,10 +8,12 @@
 
 #import "JRVideoEditingOperationController.h"
 #import "JRClipVideoEditingViewController.h"
+#import "JRVideoPreviewViewController.h"
 
 @interface JRVideoEditingOperationController ()
 {
-    AVAsset *_asset;
+    NSArray *_assets;
+    NSUInteger _editType;
 }
 
 @end
@@ -36,14 +38,29 @@
 //    [self setNavigationBarHidden:YES];
 }
 
-- (instancetype)initWithAsset:(AVAsset *)asset
+- (instancetype)initWithAssets:(NSArray<AVAsset *> *)assets EditType:(NSUInteger)editType
 {
     self = [super init];
     if (self) {
-        _asset = asset;
+        _assets = assets;
+        _editType = editType;
         [self _createCustomInit];
     } return self;
 }
+
+- (instancetype)initWithClipAsset:(AVAsset *)ClipAsset
+{
+    if (ClipAsset) {
+        return [self initWithAssets:@[ClipAsset] EditType:0];
+    }
+    return nil;
+}
+
+- (instancetype)initWithEditAsset:(NSArray<AVAsset *> *)EditAsset
+{
+    return [self initWithAssets:EditAsset EditType:1];
+}
+
 
 #pragma mark - Setter And Getter
 - (void)setMinClippingDuration:(double)minClippingDuration
@@ -64,7 +81,15 @@
 - (void)_createCustomInit
 {
     [self _defaultData];
-    JRClipVideoEditingViewController *vc = [[JRClipVideoEditingViewController alloc] initWithVideoAsset:_asset placeholderImage:[_asset lf_firstImage:nil]];
+    JRVideoPlayerViewController *vc = nil;
+    if (_editType == 0) {
+        AVAsset *asset = [_assets firstObject];
+        JRClipVideoEditingViewController *ClipVideoVC = [[JRClipVideoEditingViewController alloc] initWithVideoAsset:asset placeholderImage:[asset lf_firstImage:nil]];
+        vc = ClipVideoVC;
+    } else {
+        JRVideoPreviewViewController *previewVideoVC = [[JRVideoPreviewViewController alloc] initWithAssets:_assets];
+        vc = previewVideoVC;
+    }
     [self setViewControllers:@[vc]];
 }
 
@@ -74,7 +99,10 @@
     _presetQuality = AVAssetExportPresetHighestQuality;
     _videoType = AVFileTypeQuickTimeMovie;
     _minClippingDuration = 1.f;
-    _maxClippingDuration = CMTimeGetSeconds(_asset.duration);
+    if (_editType == 0) {
+        AVAsset *asset = [_assets firstObject];
+        _maxClippingDuration = CMTimeGetSeconds(asset.duration);
+    }
 }
 
 @end

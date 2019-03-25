@@ -124,6 +124,17 @@
     [self.aVideoPlayer seekToTime:time];
 }
 
+/** 静音 */
+- (void)mute:(BOOL)mute
+{
+    [self.aVideoPlayer mute:mute];
+}
+
+- (BOOL)isPlaying
+{
+    return [self.aVideoPlayer isPlaying];
+}
+
 
 #pragma mark - Setter And Getter
 - (void)setAsset:(AVAsset *)asset
@@ -142,6 +153,12 @@
     } else {
         [self LFVideoPlayerFailedToPrepare:nil error:[NSError errorWithDomain:@"asset is not video tracks" code:-707 userInfo:@{NSLocalizedDescriptionKey:@"无效资源"}]];
     }
+}
+
+- (void)setCancelBtnTitle:(NSString *)cancelBtnTitle
+{
+    _cancelBtnTitle = cancelBtnTitle;
+    [self.cancelBtn setTitle:cancelBtnTitle forState:(UIControlStateNormal)];
 }
 
 #pragma mark - Class Methods
@@ -215,6 +232,7 @@
 - (void)LFVideoPlayerReadyToPlay:(LFVideoPlayer *)player duration:(double)duration
 {
     [self didReayToplay:duration];
+    [self mute:YES];
 }
 
 - (void)LFVideoPlayerSyncScrub:(LFVideoPlayer *)player duration:(double)duration

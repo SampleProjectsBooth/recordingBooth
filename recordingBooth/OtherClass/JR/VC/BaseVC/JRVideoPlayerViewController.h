@@ -63,11 +63,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) AVAsset *asset;
 
+/** 默认取消 */
+@property (nonatomic, copy) NSString *cancelBtnTitle;
+
 - (void)play;
 
 - (void)pause;
 
 -(void)reset;
+
+/** 静音 */
+- (void)mute:(BOOL)mute;
+
+- (BOOL)isPlaying;
 
 /** 跳转到某帧 */
 - (void)seekToTime:(CGFloat)time;

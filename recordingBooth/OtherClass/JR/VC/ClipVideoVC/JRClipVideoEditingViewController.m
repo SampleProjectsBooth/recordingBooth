@@ -16,8 +16,6 @@
 
 @interface JRClipVideoEditingViewController () <LFVideoTrimmerViewDelegate, JRHorizontalCollectioViewDelegate>
 
-@property (nonatomic, weak) UIButton *aPlayBtn;
-
 @property (nonatomic, weak) LFVideoTrimmerView *aVideoTrimmerView;
 
 @property (nonatomic, weak) UIView *backgroundTrimmerView;
@@ -85,8 +83,6 @@
     bFrame.origin.x = rect.origin.x-5.f;
     self.backgroundTrimmerView.frame = bFrame;
     
-    self.aPlayBtn.center = CGPointMake(CGRectGetMidX(self.videoPlayerViewFrame), CGRectGetMidY(self.videoPlayerViewFrame));
-    
     CGRect c = self.clipBtn.frame;
     c.origin.y = CGRectGetMaxY(rect) + 10.f;
     c.origin.x = CGRectGetWidth(self.view.frame) - CGRectGetWidth(c) - 20.f;
@@ -132,20 +128,6 @@
     self.aVideoTrimmerView = trimmerView;
     [self.aVideoTrimmerView setAsset:self.asset];
     
-    
-    /** 播放按钮 */
-    UIButton *button = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    button.selected = NO;
-    button.enabled = NO;
-    button.hidden = YES;
-    button.frame = CGRectMake(0.f, 0.f, 50.f, 50.f);
-    [button setImage:[UIImage jr_getImgFromJRVideoEditingBundleWithName:@"pause.png"] forState:(UIControlStateSelected)];
-    [button setImage:[UIImage jr_getImgFromJRVideoEditingBundleWithName:@"errorPlay.png"] forState:(UIControlStateDisabled)];
-    [button setImage:[UIImage jr_getImgFromJRVideoEditingBundleWithName:@"play.png"] forState:(UIControlStateNormal)];
-    [button addTarget:self action:@selector(_vdeioPlayAction) forControlEvents:(UIControlEventTouchUpInside)];
-    [self.view addSubview:button];
-    self.aPlayBtn = button;
-    
     /** 裁剪按钮 */
     UIButton *button1 = [UIButton buttonWithType:(UIButtonTypeCustom)];
     button1.frame = CGRectMake(0.f, 0.f, 60.f, 30.f);
@@ -161,22 +143,11 @@
     self.collectionView = vi;
 }
 
-
-- (void)_vdeioPlayAction
-{
-    [self reset];
-    [self seekToTime:self.startTime];
-    self.aPlayBtn.selected = !self.aPlayBtn.selected;
-    if (self.aPlayBtn.selected) {
-        [self play];
-    } else {
-        [self pause];
-    }
-}
-
 /** 裁剪 */
 - (void)_clipVideoAction
 {
+    [self pause];
+    
     CGFloat width = CGRectGetWidth(self.aVideoTrimmerView.frame);
     
     CGFloat location = self.startTime * (self.aVideoTrimmerView.frame.size.width/self.totalDuration);
@@ -207,6 +178,7 @@
     videoInfo.clipInfo = clipInfo;
     [self.aVideoTrimmerView setGridRange:replaceRange animated:NO];
     [self lf_videoTrimmerViewDidBeginResizing:self.aVideoTrimmerView gridRange:replaceRange];
+    [self lf_videoTrimmerViewDidResizing:self.aVideoTrimmerView gridRange:replaceRange];
     [self lf_videoTrimmerViewDidEndResizing:self.aVideoTrimmerView gridRange:replaceRange];
     
     if (margin < self.aVideoTrimmerView.controlMinWidth) {
@@ -233,8 +205,6 @@
 #pragma mark - VideoPlayerProtocol
 - (void)didReayToplay:(double)duration
 {
-    self.aPlayBtn.hidden = NO;
-    self.aPlayBtn.enabled = YES;
     self.startTime = 0;
     self.totalDuration = self.endTime = duration;
     [self.aVideoTrimmerView setHiddenProgress:NO];
@@ -247,31 +217,30 @@
     self.noTag = YES;
     [self.aVideoTrimmerView setGridRange:firstRange animated:NO];
     [self lf_videoTrimmerViewDidBeginResizing:self.aVideoTrimmerView gridRange:firstRange];
+    [self lf_videoTrimmerViewDidResizing:self.aVideoTrimmerView gridRange:firstRange];
     [self lf_videoTrimmerViewDidEndResizing:self.aVideoTrimmerView gridRange:firstRange];
+    
+    [self play];
+
 }
 
 - (void)pregessToPlay:(double)duration
 {
     self.aVideoTrimmerView.progress = duration/self.totalDuration;
-    if (duration > self.endTime) {
-        [self pause];
-        [self didEndToplay];
+    if (duration >= self.endTime) {
+        [self reset];
+        [self seekToTime:self.startTime];
     }
 }
 
 - (void)didEndToplay
 {
-    self.aPlayBtn.hidden = NO;
-    self.aPlayBtn.selected = NO;
-    
-    [self reset];
-    [self seekToTime:self.startTime];
+    [self play];
 }
 
 - (void)didRefusedPlay:(NSError *)error
 {
-    self.aPlayBtn.hidden = NO;
-    self.aPlayBtn.enabled = NO;
+
 }
 
 - (void)cancel
@@ -291,9 +260,8 @@
             [array addObject:obj.asset];
         }
         JRVideoPreviewViewController *vc = [[JRVideoPreviewViewController alloc] initWithAssets:[array copy]];
-        NSMutableArray *vcs = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
-        [vcs addObject:vc];
-        [self.navigationController setViewControllers:[vcs copy]];
+        vc.cancelBtnTitle = @"返回";
+        [self.navigationController pushViewController:vc animated:NO];
     } else {
         UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:@"请裁剪视频" preferredStyle:(UIAlertControllerStyleAlert)];
         [self presentViewController:alertCon animated:YES completion:^{
@@ -308,10 +276,8 @@
 - (void)lf_videoTrimmerViewDidBeginResizing:(LFVideoTrimmerView *)trimmerView gridRange:(NSRange)gridRange
 {
     [self pause];
-    [self.aPlayBtn setSelected:NO];
     [trimmerView setHiddenProgress:YES];
     trimmerView.progress = 0;
-    [self lf_videoTrimmerViewDidResizing:trimmerView gridRange:gridRange];
     
 }
 
@@ -321,18 +287,24 @@
 
     double endTime = MIN(lfme_videoDuration(NSMaxRange(gridRange)/CGRectGetWidth(trimmerView.frame)*self.totalDuration), self.totalDuration);
 
-    [self seekToTime:((self.startTime != startTime) ? startTime : endTime)];
+    if (!self.noTag) {
+        double seekToTime = ((self.startTime != startTime) ? startTime : endTime);
+        NSLog(@"seekToTime:%f", seekToTime);
+        [self seekToTime:seekToTime];
+    } else {
+        self.noTag = NO;
+    }
     
     self.startTime = lfme_videoDuration(startTime);
     self.endTime = lfme_videoDuration(endTime);
     
     trimmerView.progress = startTime;
-
 }
 
 - (void)lf_videoTrimmerViewDidEndResizing:(LFVideoTrimmerView *)trimmerView gridRange:(NSRange)gridRange
 {
     [trimmerView setHiddenProgress:NO];
+    [self play];
 }
 
 #pragma mark - JRHorizontalCollectioViewDelegate
@@ -346,7 +318,6 @@
     NSRange range = info.clipInfo.clipRange;
     self.aVideoTrimmerView.userInteractionEnabled = YES;
     self.clipBtn.enabled = YES;
-    self.aPlayBtn.enabled = YES;
     [self.aVideoTrimmerView setGridRange:range animated:NO];
     [self lf_videoTrimmerViewDidBeginResizing:self.aVideoTrimmerView gridRange:range];
     [self lf_videoTrimmerViewDidEndResizing:self.aVideoTrimmerView gridRange:range];

@@ -24,7 +24,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JRVideoEditingOperationController : UINavigationController
 
-- (instancetype)initWithAsset:(AVAsset *)asset;
+
+/**
+ 剪辑视频
+
+ @param ClipAsset asset
+ @return instancetype
+ */
+- (instancetype)initWithClipAsset:(AVAsset *)ClipAsset;
+
+/**
+ 预览编辑
+
+ @param EditAsset asset
+ @return instancetype
+ */
+- (instancetype)initWithEditAsset:(NSArray <AVAsset *>*)EditAsset;
+
 
 @property (nonatomic, weak) id<JRVideoEditingOperationControllerDelegate>operationDelegate;
 

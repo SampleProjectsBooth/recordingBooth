@@ -12,8 +12,10 @@
 
 #import "LFConfigRecordingBoothController+VideoEditingViewController.h"
 #import "LFConfigRecordingBoothController+JRRecordVideoViewController.h"
+#import "JRVideoEditingOperationController.h"
+#import <Photos/Photos.h>
 
-@interface LFConfigRecordingBoothController ()
+@interface LFConfigRecordingBoothController () <JRVideoEditingOperationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *eventField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *fpsSegment;
@@ -139,7 +141,58 @@
     [self showRecordVideoViewController];
 }
 
+- (IBAction)mergeVideoOnClick:(id)sender {
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"2" withExtension:@"mp4"];
 
+    AVURLAsset *asset0 = [AVURLAsset URLAssetWithURL:url options:nil];
+    
+    url = [[NSBundle mainBundle] URLForResource:@"3" withExtension:@"mp4"];
+    
+    AVURLAsset *asset1 = [AVURLAsset URLAssetWithURL:url options:nil];
+
+    NSArray *array = @[asset0, asset1];
+    
+    JRVideoEditingOperationController *con = [[JRVideoEditingOperationController alloc] initWithEditAsset:array];
+    con.operationDelegate = self;
+    NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES).firstObject;
+    NSString *name = [[[NSDate date] description] stringByAppendingString:@".mp4"];
+    con.videoUrl = [NSURL fileURLWithPath:[docPath stringByAppendingPathComponent:name]];
+    [self presentViewController:con animated:NO completion:nil];
+}
+
+- (void)videoEditingOperationController:(JRVideoEditingOperationController *)operationer didFinishEditUrl:(nullable NSURL *)url error:(nullable NSError *)error
+{
+    __block NSString *localIdentifier = nil;
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        
+        localIdentifier = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:url].placeholderForCreatedAsset.localIdentifier;
+        
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        
+        if (success) {
+            if (localIdentifier) {
+                PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[localIdentifier] options:nil].firstObject;
+                PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
+                options.version = PHVideoRequestOptionsVersionOriginal;
+                options.deliveryMode = PHVideoRequestOptionsDeliveryModeHighQualityFormat;
+                [[PHImageManager defaultManager] requestAVAssetForVideo:asset options:options resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+                    NSLog(@"save video success");
+                }];
+            }
+            
+        } else {
+            NSLog(@"save video error:%@", error);
+        }
+        
+    }];
+
+}
+
+- (void)videoEditingOperationControllerDidCancel:(JRVideoEditingOperationController *)operationer
+{
+    [operationer dismissViewControllerAnimated:NO completion:nil];
+}
 
 #pragma mark - private
 - (void)loadUIConfig

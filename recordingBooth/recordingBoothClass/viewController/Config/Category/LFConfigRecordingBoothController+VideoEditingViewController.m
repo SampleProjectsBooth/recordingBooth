@@ -18,7 +18,7 @@
 
 - (void)showVideoEditingViewController:(AVAsset *)asset
 {
-    JRVideoEditingOperationController *vc = [[JRVideoEditingOperationController alloc] initWithAsset:asset];
+    JRVideoEditingOperationController *vc = [[JRVideoEditingOperationController alloc] initWithClipAsset:asset];
 
     vc.operationDelegate = self;
     vc.minClippingDuration = 5.f;
@@ -47,7 +47,13 @@
     imageView.frame = CGRectMake(10, 10, image.size.width, image.size.height);
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
-    UIView *waterView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    /** 水印图片拉伸是因为尺寸问题 */
+    AVAssetTrack *videoTrak = [[asset tracksWithMediaType:AVMediaTypeVideo] firstObject];
+    CGSize size = [UIScreen mainScreen].bounds.size;
+    if (videoTrak) {
+        size = videoTrak.naturalSize;
+    }
+    UIView *waterView = [[UIView alloc] initWithFrame:(CGRect){0.f, 0.f, size}];
     [waterView addSubview:imageView];
     vc.overlayView = waterView;
     
