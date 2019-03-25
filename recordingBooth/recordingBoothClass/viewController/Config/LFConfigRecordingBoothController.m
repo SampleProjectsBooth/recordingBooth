@@ -104,7 +104,9 @@
         
         if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"link" message:@"This link has been downloaded. Do you want to download again?" preferredStyle: UIAlertControllerStyleAlert];
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                button.enabled = YES;
+            }];
             [alertController addAction:cancelAction];
             
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"Download" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -156,6 +158,7 @@
         }
         [self.overlaySwitch setOn:self.config.overlayIsOn];
         self.recordSegment.selectedSegmentIndex = self.config.automatic ? 1 : 0;
+        self.urlLinkField.text = self.config.musicList.firstObject;
     }
 }
 
@@ -170,9 +173,9 @@
     config.fps = [self.fpsSegment titleForSegmentAtIndex:self.fpsSegment.selectedSegmentIndex].integerValue;
     config.overlayIsOn = self.overlaySwitch.isOn;
     config.automatic = self.recordSegment.selectedSegmentIndex == 1;
-    NSString *path = [[LFRecordManager sharedRecordManager] filePathWithLink:self.urlLinkField.text];
-    if (path) {
-        [config.musicList setArray:@[path]];
+    NSString *link = self.urlLinkField.text;
+    if (link) {
+        [config.musicList setArray:@[link]];
     }
     self.config = config;
 }

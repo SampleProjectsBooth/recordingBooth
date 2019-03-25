@@ -19,10 +19,15 @@
 - (void)showVideoEditingViewController:(AVAsset *)asset
 {
     JRVideoEditingOperationController *vc = [[JRVideoEditingOperationController alloc] initWithAsset:asset];
-
     vc.operationDelegate = self;
-    vc.minClippingDuration = 5.f;
-    vc.maxClippingDuration = 20.f;
+    
+    if (self.config.automatic) {
+        
+    } else {
+        vc.minClippingDuration = 5.f;
+        vc.maxClippingDuration = 20.f;
+    }
+    
     
     /** audio url */
     NSMutableArray *audioUrls = [NSMutableArray arrayWithCapacity:3];
@@ -41,15 +46,17 @@
         videoEditingController.defaultAudioUrls = audioUrls;
     };
     
-    /** water mark */
-    UIImage *image = [UIImage imageNamed:@"waterMark.png"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.frame = CGRectMake(10, 10, image.size.width, image.size.height);
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    imageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
-    UIView *waterView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [waterView addSubview:imageView];
-    vc.overlayView = waterView;
+    if (self.config.overlayIsOn) {
+        /** water mark */
+        UIImage *image = [UIImage imageNamed:@"waterMark.png"];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        imageView.frame = CGRectMake(10, 10, image.size.width, image.size.height);
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
+        UIView *waterView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        [waterView addSubview:imageView];
+        vc.overlayView = waterView;        
+    }
     
     /** save video url */
     NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES).firstObject;
