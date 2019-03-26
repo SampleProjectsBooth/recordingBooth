@@ -171,15 +171,17 @@
     if (margin > self.aVideoTrimmerView.controlMinWidth*3/2) {
         margin = self.aVideoTrimmerView.controlMinWidth;
     }
+    
     /** 裁剪之后的区域 */
     NSRange replaceRange = NSMakeRange(currentWidth, margin);
-    
+    [self _changeTrimmerView:replaceRange];
+
     /** ------------- 下面就开始裁剪了 ------------ */
     
     /** 裁剪前后时间 */
-    double start = MIN(lfme_videoDuration(currentRange.location/CGRectGetWidth(self.aVideoTrimmerView.frame)*self.totalDuration), self.totalDuration);
+    double start = MIN(currentRange.location/width*self.totalDuration, self.totalDuration);
     
-    double end = MIN(lfme_videoDuration(NSMaxRange(currentRange)/CGRectGetWidth(self.aVideoTrimmerView.frame)*self.totalDuration), self.totalDuration);
+    double end = MIN(NSMaxRange(currentRange)/width*self.totalDuration, self.totalDuration);
 
     
     JRClipInfo *clipInfo = [JRClipInfo new];
@@ -188,7 +190,6 @@
     clipInfo.clipRange = currentRange;
     JRVideoClipInfo *videoInfo = [JRVideoClipInfo new];
     videoInfo.clipInfo = clipInfo;
-    [self _changeTrimmerView:replaceRange];
     
     if (margin < self.aVideoTrimmerView.controlMinWidth) {
         self.clipBtn.enabled = NO;
