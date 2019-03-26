@@ -36,6 +36,8 @@
 
 @property (nonatomic, assign) BOOL noTag;
 
+@property (nonatomic, assign) NSRange currentRange;
+
 @end
 
 @implementation JRClipVideoEditingViewController
@@ -156,25 +158,29 @@
     
     CGFloat width = CGRectGetWidth(self.aVideoTrimmerView.frame);
     
-    CGFloat location = self.startTime * (self.aVideoTrimmerView.frame.size.width/self.totalDuration);
-    CGFloat length = (self.endTime * (self.aVideoTrimmerView.frame.size.width/self.totalDuration)) - location;
+    NSRange currentRange = self.currentRange;
 
-    NSRange currentRange = NSMakeRange(location, length);
-    
     if (currentRange.location == width) {
         return;
     }
     
     CGFloat currentWidth = NSMaxRange(currentRange);
+    
     CGFloat margin = width - currentWidth;
+    /** 如果剩余裁剪区域超过最小值的3/2，取最小值 */
     if (margin > self.aVideoTrimmerView.controlMinWidth*3/2) {
         margin = self.aVideoTrimmerView.controlMinWidth;
     }
-    
+    /** 裁剪之后的区域 */
     NSRange replaceRange = NSMakeRange(currentWidth, margin);
     
-    double start = self.startTime;
-    double end = self.endTime;
+    /** ------------- 下面就开始裁剪了 ------------ */
+    
+    /** 裁剪前后时间 */
+    double start = MIN(lfme_videoDuration(currentRange.location/CGRectGetWidth(self.aVideoTrimmerView.frame)*self.totalDuration), self.totalDuration);
+    
+    double end = MIN(lfme_videoDuration(NSMaxRange(currentRange)/CGRectGetWidth(self.aVideoTrimmerView.frame)*self.totalDuration), self.totalDuration);
+
     
     JRClipInfo *clipInfo = [JRClipInfo new];
     clipInfo.startTime = start;
@@ -313,6 +319,7 @@
 {
     [trimmerView setHiddenProgress:NO];
     [self play];
+    self.currentRange = gridRange;
 }
 
 #pragma mark - JRHorizontalCollectioViewDelegate
