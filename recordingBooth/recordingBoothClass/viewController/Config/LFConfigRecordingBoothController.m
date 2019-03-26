@@ -31,7 +31,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapEndEditing)];
+    [self.view addGestureRecognizer:tap];
+    
     [self loadUIConfig];
+}
+
+- (void)tapEndEditing
+{
+    [self.view endEditing:YES];
 }
 
 - (IBAction)saveOnClick:(id)sender {
