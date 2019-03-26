@@ -105,6 +105,12 @@
     [self pause];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self play];
+}
+
 - (void)dealloc
 {
     [self.aVideoTrimmerView removeFromSuperview];
@@ -176,10 +182,7 @@
     clipInfo.clipRange = currentRange;
     JRVideoClipInfo *videoInfo = [JRVideoClipInfo new];
     videoInfo.clipInfo = clipInfo;
-    [self.aVideoTrimmerView setGridRange:replaceRange animated:NO];
-    [self lf_videoTrimmerViewDidBeginResizing:self.aVideoTrimmerView gridRange:replaceRange];
-    [self lf_videoTrimmerViewDidResizing:self.aVideoTrimmerView gridRange:replaceRange];
-    [self lf_videoTrimmerViewDidEndResizing:self.aVideoTrimmerView gridRange:replaceRange];
+    [self _changeTrimmerView:replaceRange];
     
     if (margin < self.aVideoTrimmerView.controlMinWidth) {
         self.clipBtn.enabled = NO;
@@ -200,6 +203,14 @@
 
 }
 
+- (void)_changeTrimmerView:(NSRange)range
+{
+    [self.aVideoTrimmerView setGridRange:range animated:NO];
+    [self lf_videoTrimmerViewDidBeginResizing:self.aVideoTrimmerView gridRange:range];
+    [self lf_videoTrimmerViewDidResizing:self.aVideoTrimmerView gridRange:range];
+    [self lf_videoTrimmerViewDidEndResizing:self.aVideoTrimmerView gridRange:range];
+}
+
 #pragma mark - Setter And Getter
 
 #pragma mark - VideoPlayerProtocol
@@ -215,11 +226,7 @@
     }
     NSRange firstRange = NSMakeRange(0, self.aVideoTrimmerView.controlMinWidth);
     self.noTag = YES;
-    [self.aVideoTrimmerView setGridRange:firstRange animated:NO];
-    [self lf_videoTrimmerViewDidBeginResizing:self.aVideoTrimmerView gridRange:firstRange];
-    [self lf_videoTrimmerViewDidResizing:self.aVideoTrimmerView gridRange:firstRange];
-    [self lf_videoTrimmerViewDidEndResizing:self.aVideoTrimmerView gridRange:firstRange];
-    
+    [self _changeTrimmerView:firstRange];
     [self play];
 
 }
@@ -261,7 +268,7 @@
         }
         JRVideoPreviewViewController *vc = [[JRVideoPreviewViewController alloc] initWithAssets:[array copy]];
         vc.cancelBtnTitle = @"返回";
-        [self.navigationController pushViewController:vc animated:NO];
+        [self.navigationController pushViewController:vc animated:YES];
     } else {
         UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:@"请裁剪视频" preferredStyle:(UIAlertControllerStyleAlert)];
         [self presentViewController:alertCon animated:YES completion:^{
@@ -283,6 +290,7 @@
 
 - (void)lf_videoTrimmerViewDidResizing:(LFVideoTrimmerView *)trimmerView gridRange:(NSRange)gridRange
 {
+    
     double startTime = MIN(lfme_videoDuration(gridRange.location/CGRectGetWidth(trimmerView.frame)*self.totalDuration), self.totalDuration);
 
     double endTime = MIN(lfme_videoDuration(NSMaxRange(gridRange)/CGRectGetWidth(trimmerView.frame)*self.totalDuration), self.totalDuration);
@@ -318,8 +326,6 @@
     NSRange range = info.clipInfo.clipRange;
     self.aVideoTrimmerView.userInteractionEnabled = YES;
     self.clipBtn.enabled = YES;
-    [self.aVideoTrimmerView setGridRange:range animated:NO];
-    [self lf_videoTrimmerViewDidBeginResizing:self.aVideoTrimmerView gridRange:range];
-    [self lf_videoTrimmerViewDidEndResizing:self.aVideoTrimmerView gridRange:range];
+    [self _changeTrimmerView:range];
 }
 @end

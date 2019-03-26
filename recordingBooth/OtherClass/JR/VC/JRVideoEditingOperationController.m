@@ -90,7 +90,7 @@
         JRVideoPreviewViewController *previewVideoVC = [[JRVideoPreviewViewController alloc] initWithAssets:_assets];
         vc = previewVideoVC;
     }
-    [self setViewControllers:@[vc]];
+    [self pushViewController:vc animated:YES];
 }
 
 - (void)_defaultData

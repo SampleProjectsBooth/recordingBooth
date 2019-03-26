@@ -22,6 +22,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.deleteBtn setImage:[UIImage jr_getImgFromJRVideoEditingBundleWithName:@"delete.png"] forState:(UIControlStateNormal)];
 }
 
