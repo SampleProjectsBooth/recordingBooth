@@ -184,8 +184,8 @@ NSTimeInterval lfme_videoDuration(NSTimeInterval duration)
     if (gridRange.length < self.gridView.controlMinWidth) {
         gridRange.length = self.gridView.controlMinWidth;
     }
-    if (NSMaxRange(gridRange) > self.gridView.controlMaxWidth) {
-        gridRange.location = self.gridView.controlMaxWidth - gridRange.length;
+    if (gridRange.length > self.gridView.controlMaxWidth) {
+        gridRange.length = self.gridView.controlMaxWidth;
     }
     
     [self.gridView setGridRect:CGRectMake(gridRange.location, 0, gridRange.length, self.gridView.frame.size.height) animated:animated];
