@@ -18,16 +18,19 @@
 
 - (void)showVideoEditingViewController:(AVAsset *)asset
 {
-    JRVideoEditingOperationController *vc = [[JRVideoEditingOperationController alloc] initWithClipAsset:asset];
-    vc.operationDelegate = self;
-    
+    JRVideoEditingOperationController *vc;
+    self.config = [LFRecordConfig new];
+    self.config.automatic= YES;
     if (self.config.automatic) {
-        
+        vc = [[JRVideoEditingOperationController alloc] initWithEditAsset:@[asset]];
     } else {
+        vc = [[JRVideoEditingOperationController alloc] initWithClipAsset:asset];
         vc.minClippingDuration = 5.f;
         vc.maxClippingDuration = 20.f;
     }
     
+    vc.operationDelegate = self;
+
     
     /** audio url */
     NSMutableArray *audioUrls = [NSMutableArray arrayWithCapacity:3];

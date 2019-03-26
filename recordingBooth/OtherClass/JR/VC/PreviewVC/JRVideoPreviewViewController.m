@@ -177,7 +177,14 @@
 
 - (void)cancel
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    if ([[self.navigationController.viewControllers firstObject] isKindOfClass:[JRVideoPreviewViewController class]]) {
+        JRVideoEditingOperationController *nav = (JRVideoEditingOperationController *)self.navigationController;
+        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:)]) {
+            [nav.operationDelegate videoEditingOperationControllerDidCancel:nav];
+        }
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)finish
