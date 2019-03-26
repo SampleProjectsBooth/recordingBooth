@@ -19,8 +19,6 @@
 - (void)showVideoEditingViewController:(AVAsset *)asset
 {
     JRVideoEditingOperationController *vc;
-    self.config = [LFRecordConfig new];
-    self.config.automatic= YES;
     if (self.config.automatic) {
         vc = [[JRVideoEditingOperationController alloc] initWithEditAsset:@[asset]];
     } else {
