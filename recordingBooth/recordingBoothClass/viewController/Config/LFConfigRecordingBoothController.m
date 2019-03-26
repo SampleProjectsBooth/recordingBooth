@@ -149,8 +149,6 @@
     [self showRecordVideoViewController];
 }
 
-
-
 #pragma mark - private
 - (void)loadUIConfig
 {

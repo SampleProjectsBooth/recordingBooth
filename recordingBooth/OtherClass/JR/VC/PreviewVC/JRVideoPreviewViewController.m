@@ -20,8 +20,7 @@
 
 @property (nonatomic, strong) LFAVAssetData *assetData;
 
-/** 需要保存到编辑数据 */
-@property (nonatomic, strong) LFVideoEdit *videoEdit;
+@property (nonatomic, strong) NSMutableArray *editAssets;
 
 @end
 
@@ -30,7 +29,8 @@
 #pragma mark - ViewController Life And Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.    for (AVAsset *assetObj in dataSources) {
+    // Do any additional setup after loading the view.
+
 }
 
 - (instancetype)initWithAssets:(NSArray<AVAsset *> *)assets
@@ -38,6 +38,7 @@
     self = [super initWithPlaceholderImage:nil];
     if (self) {
         [self _createJRCollectionView];
+        _editAssets = [NSMutableArray arrayWithArray:assets];
         for (AVAsset *assetObj in assets) {
             JRVideoClipInfo *videoInfo = [JRVideoClipInfo new];
             videoInfo.asset = assetObj;
@@ -96,14 +97,15 @@
 {
     NSArray *assets = self.collectionView.dataSource;
     if (assets.count > 0) {
-        JRVideoClipInfo *first = [assets firstObject];
-        LFVideoSession *videoSession = [[LFVideoSession alloc] initWithAsset:first.asset];
-        NSUInteger i = 1;
-        while (i<assets.count) {
-            JRVideoClipInfo *assetObj = assets[i];
-            LFVideoMergeCommand *mergeCommand = [[LFVideoMergeCommand alloc] initWithAssetData:videoSession.assetData asset:assetObj.asset];
-            [videoSession addCommand:mergeCommand];
-            i ++;
+        LFVideoSession *videoSession = nil;
+        for (NSUInteger i = 0; i  < assets.count; i ++) {
+            JRVideoClipInfo *obj = [assets objectAtIndex:i];
+            if (!videoSession) {
+                videoSession = [[LFVideoSession alloc] initWithAsset:obj.asset];
+            } else {
+                LFVideoMergeCommand *mergeCommand = [[LFVideoMergeCommand alloc] initWithAssetData:videoSession.assetData asset:obj.asset];
+                [videoSession addCommand:mergeCommand];
+            }
         }
         [videoSession execute];
         self.assetData = videoSession.assetData;
@@ -123,6 +125,7 @@
         JRVideoClipInfo *obj = [JRVideoClipInfo new];
         obj.asset = asset;
         [self.collectionView replaceObjectAtIndex:self.selectIndex withObject:obj];
+//        [self.collectionView addJRVideoClipInfo:obj];
         [self _createVideoSession];
     }
     self.selectIndex = -10086;
@@ -174,9 +177,13 @@
 
 - (void)cancel
 {
-    JRVideoEditingOperationController *nav = (JRVideoEditingOperationController *)self.navigationController;
-    if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:)]) {
-        [nav.operationDelegate videoEditingOperationControllerDidCancel:nav];
+    if ([[self.navigationController.viewControllers firstObject] isKindOfClass:[JRVideoPreviewViewController class]]) {
+        JRVideoEditingOperationController *nav = (JRVideoEditingOperationController *)self.navigationController;
+        if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationControllerDidCancel:)]) {
+            [nav.operationDelegate videoEditingOperationControllerDidCancel:nav];
+        }
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
@@ -248,10 +255,11 @@
 #pragma mark - JRHorizontalCollectioViewDelegate
 - (void)horizontalCollectioView:(JRHorizontalCollectioView *)collectioView didSelectItemAtIndex:(NSUInteger)index
 {
+    JRVideoClipInfo *info = [collectioView.dataSource objectAtIndex:index];
+
     self.selectIndex = index;
     // Do any additional setup after select someone.
     /** 操作结束后需要更新_replaceDataSourcesWithAssat： */
-    JRVideoClipInfo *info = [collectioView.dataSource objectAtIndex:index];
     
     LFVideoEditingController *lfVideoEditVC = [[LFVideoEditingController alloc] init];
     lfVideoEditVC.delegate = self;
@@ -261,8 +269,9 @@
     if (nav.videoEditingLibrary) {
         nav.videoEditingLibrary(lfVideoEditVC);
     }
-    if (self.videoEdit) {
-        lfVideoEditVC.videoEdit = self.videoEdit;
+    id obj = [self.editAssets objectAtIndex:index];
+    if ([obj isKindOfClass:[LFVideoEdit class]]) {
+        lfVideoEditVC.videoEdit = (LFVideoEdit *)obj;
     } else {
         [lfVideoEditVC setVideoAsset:info.asset placeholderImage:info.image];
     }
@@ -281,9 +290,9 @@
     [videoEditingVC.navigationController dismissViewControllerAnimated:NO completion:nil];
     if (videoEdit && videoEdit.editFinalURL) {
         AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoEdit.editFinalURL options:nil];
+        [self.editAssets replaceObjectAtIndex:self.selectIndex withObject:videoEdit];
         [self _replaceDataSourcesWithAssat:asset];
     }
-    self.videoEdit = videoEdit;
 }
 
 
