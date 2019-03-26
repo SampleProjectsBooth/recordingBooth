@@ -54,8 +54,9 @@
                 [self.assetData.audioCompositionTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, self.mergeAsset.duration) ofTrack:_assetAudioTrack atTime:duration error:&error];
             }
             
+            self.error = error;
             if (error != nil) {
-                NSLog(@"Failed to insert append %@ : %@", self.mergeAsset, error);
+                NSLog(@"Failed to append %@ : %@", self.mergeAsset, error);
             }            
         }
         

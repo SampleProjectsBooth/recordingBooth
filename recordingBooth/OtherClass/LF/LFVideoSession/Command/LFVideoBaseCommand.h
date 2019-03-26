@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithAssetData:(LFAVAssetData *)assetData;
 
+@property (nonatomic, strong) NSError *error;
+
 @end
 
 NS_ASSUME_NONNULL_END

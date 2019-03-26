@@ -34,9 +34,12 @@
 {
     if (self.assetData) {
         
+        
         AVMutableComposition *composition = self.assetData.composition;
         
-        [composition scaleTimeRange:CMTimeRangeMake(kCMTimeZero, composition.duration) toDuration:CMTimeMake(composition.duration.value*self.rate, composition.duration.timescale)];
+        [self.assetData.videoCompositionTrack scaleTimeRange:CMTimeRangeMake(kCMTimeZero, composition.duration) toDuration:CMTimeMake(composition.duration.value*self.rate, composition.duration.timescale)];
+        
+        [self.assetData.audioCompositionTrack scaleTimeRange:CMTimeRangeMake(kCMTimeZero, composition.duration) toDuration:CMTimeMake(composition.duration.value*self.rate, composition.duration.timescale)];
         
         AVMutableVideoCompositionInstruction *instruction = nil;
         for (id <AVVideoCompositionInstruction>obj in self.assetData.internal_videoComposition.instructions) {
