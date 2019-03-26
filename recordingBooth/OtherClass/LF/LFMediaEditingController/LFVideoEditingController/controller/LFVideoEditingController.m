@@ -80,7 +80,7 @@
     _placeholderImage = image;
     [_EditingView setVideoAsset:asset placeholderImage:image];
     /** default audio urls */
-    if (self.defaultAudioUrls.count) {
+    if (!_videoEdit && self.defaultAudioUrls.count) {
         NSMutableArray *m_audioUrls = [_EditingView.audioUrls mutableCopy];
         for (NSURL *url in self.defaultAudioUrls) {
             if ([url isKindOfClass:[NSURL class]]) {

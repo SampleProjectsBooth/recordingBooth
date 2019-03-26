@@ -40,7 +40,7 @@
                 inputParameters = [self.assetData.audioMix.inputParameters mutableCopy];
             }
             /** 声音采集 */
-            AVURLAsset *audioAsset =[[AVURLAsset alloc]initWithURL:self.audioUrl options:nil];
+            AVURLAsset *audioAsset = [[AVURLAsset alloc]initWithURL:self.audioUrl options:nil];
             
             AVAssetTrack *additional_assetAudioTrack = nil;
             /** 检查是否有效音轨 */
@@ -62,6 +62,11 @@
                 }
                 
                 self.assetData.audioMix.inputParameters = inputParameters;
+                
+                self.error = error;
+                if (error != nil) {
+                    NSLog(@"Failed to append %@ : %@", self.audioUrl, error);
+                }
             }
             
         }

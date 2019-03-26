@@ -87,15 +87,16 @@
         }
         
         _videoSize = _videoCompositionTrack.naturalSize;
-        
-        _videoComposition = [AVMutableVideoComposition videoComposition];
-        _videoComposition.frameDuration = CMTimeMake(1, 30);
-        _videoComposition.renderSize = _videoSize;
     }
 }
 
 - (AVMutableVideoComposition *)internal_videoComposition
 {
+    if (_videoComposition == nil) {
+        _videoComposition = [AVMutableVideoComposition videoComposition];
+        _videoComposition.frameDuration = CMTimeMake(1, 30);
+        _videoComposition.renderSize = _videoSize;
+    }
     return _videoComposition;
 }
 
