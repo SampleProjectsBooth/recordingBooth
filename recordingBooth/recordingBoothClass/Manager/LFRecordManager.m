@@ -71,7 +71,7 @@ static LFRecordManager *sharedSelf = nil;
 - (BOOL)recordConfigWriteToFile:(LFRecordConfig *)config
 {
     NSString *configPath = [self.recordBasePath lf_stringByAppendingPathComponent:lf_recordConfigPath];
-    if (config.event) {
+    if (config.event.length) {
         NSString *path = [configPath stringByAppendingPathComponent:config.event];
         return [config.objectData writeToFile:path atomically:YES];
     }
