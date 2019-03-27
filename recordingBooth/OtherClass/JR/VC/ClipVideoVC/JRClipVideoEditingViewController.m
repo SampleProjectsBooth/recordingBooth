@@ -298,9 +298,9 @@
 - (void)lf_videoTrimmerViewDidResizing:(LFVideoTrimmerView *)trimmerView gridRange:(NSRange)gridRange
 {
     
-    double startTime = MIN(lfme_videoDuration(gridRange.location/CGRectGetWidth(trimmerView.frame)*self.totalDuration), self.totalDuration);
+    double startTime = MIN(gridRange.location/CGRectGetWidth(trimmerView.frame)*self.totalDuration, self.totalDuration);
 
-    double endTime = MIN(lfme_videoDuration(NSMaxRange(gridRange)/CGRectGetWidth(trimmerView.frame)*self.totalDuration), self.totalDuration);
+    double endTime = MIN(NSMaxRange(gridRange)/CGRectGetWidth(trimmerView.frame)*self.totalDuration, self.totalDuration);
 
     if (!self.noTag) {
         double seekToTime = ((self.startTime != startTime) ? startTime : endTime);
