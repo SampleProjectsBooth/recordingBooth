@@ -95,6 +95,14 @@
     UIView *overlayView = self.view;
     
     if (overlayView) {
+        /** 根据视频大小，重新排版水印 */
+        UIView *newMarkView = [[UIView alloc] initWithFrame:(CGRect){0.f, 0.f, videoSize}];
+        for (UIView *subView in self.view.subviews) {
+            CGRect rect = [self.view convertRect:subView.frame toView:newMarkView];
+            subView.frame = rect;
+            [newMarkView addSubview:subView];
+        }
+        overlayView = newMarkView;
         
         CGRect rect = overlayView.frame;
         /** 参数取整，否则可能会出现1像素偏差 */
@@ -110,19 +118,19 @@
         UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
         CGContextRef context = UIGraphicsGetCurrentContext();
         //2.绘制图层
-        [overlayView.layer renderInContext: context];
+        [overlayView.layer renderInContext:context];
         //3.从上下文中获取新图片
         UIImage *watermarkImage = UIGraphicsGetImageFromCurrentImageContext();
         //4.关闭图形上下文
         UIGraphicsEndImageContext();
         
         /** 缩放至视频大小 */
-        UIGraphicsBeginImageContextWithOptions(videoSize, NO, 1);
-        [watermarkImage drawInRect:CGRectMake(0, 0, videoSize.width, videoSize.height)];
-        UIImage *generatedWatermarkImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+//        UIGraphicsBeginImageContextWithOptions(videoSize, NO, 1);
+//        [watermarkImage drawInRect:CGRectMake(0, 0, videoSize.width, videoSize.height)];
+//        UIImage *generatedWatermarkImage = UIGraphicsGetImageFromCurrentImageContext();
+//        UIGraphicsEndImageContext();
         
-        return generatedWatermarkImage;
+        return watermarkImage;
     }
     return nil;
 }

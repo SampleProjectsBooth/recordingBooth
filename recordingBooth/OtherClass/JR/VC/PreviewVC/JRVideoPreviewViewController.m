@@ -149,13 +149,8 @@
     NSString *name = @"保存视频成功";
     if (error) {
         name = [NSString stringWithFormat:@"保存视频失败%@", error.localizedDescription];
-        
     }
-    UIAlertController *ale = [UIAlertController alertControllerWithTitle:nil message:name preferredStyle:(UIAlertControllerStyleAlert)];
-    [ale addAction:[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
-        
-    }]];
-    [self presentViewController:ale animated:YES completion:nil];
+    NSLog(@"_savedVideoPath:%@", name);
 }
 
 #pragma mark - VideoPlayerProtocol
