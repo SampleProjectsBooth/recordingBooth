@@ -15,6 +15,7 @@
 		0553BB772244901000B9A2EF /* UIImage+JRBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB6F2244901000B9A2EF /* UIImage+JRBundle.m */; };
 		0553BB7A2244AFCC00B9A2EF /* JRVideoEditingOperationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0553BB792244AFCC00B9A2EF /* JRVideoEditingOperationController.m */; };
 		05FDE68D224B703C00F3A502 /* JRRecordVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDE68C224B703C00F3A502 /* JRRecordVideoController.m */; };
+		C71C1CDF224B7C600082BCB0 /* LFMediaEditingController.strings in Resources */ = {isa = PBXBuildFile; fileRef = C71C1CDE224B7C5F0082BCB0 /* LFMediaEditingController.strings */; };
 		C76134FD22432D9F00CD3785 /* SampleVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C76134FC22432D9F00CD3785 /* SampleVideo.mp4 */; };
 		C761368C2244729F00CD3785 /* JRVideoEditing.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C76135972244729E00CD3785 /* JRVideoEditing.bundle */; };
 		C76136932244729F00CD3785 /* JRVideoClipInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C76135AB2244729E00CD3785 /* JRVideoClipInfo.m */; };
@@ -132,8 +133,10 @@
 		0553BB702244901000B9A2EF /* UIImage+JRBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JRBundle.h"; sourceTree = "<group>"; };
 		0553BB782244AFCC00B9A2EF /* JRVideoEditingOperationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRVideoEditingOperationController.h; sourceTree = "<group>"; };
 		0553BB792244AFCC00B9A2EF /* JRVideoEditingOperationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRVideoEditingOperationController.m; sourceTree = "<group>"; };
+		05F9B9A22248DD9B00FB8C5B /* 3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3.mp4; sourceTree = "<group>"; };
 		05FDE68B224B703C00F3A502 /* JRRecordVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRRecordVideoController.h; sourceTree = "<group>"; };
 		05FDE68C224B703C00F3A502 /* JRRecordVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRRecordVideoController.m; sourceTree = "<group>"; };
+		C71C1CDE224B7C5F0082BCB0 /* LFMediaEditingController.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LFMediaEditingController.strings; sourceTree = "<group>"; };
 		C76134FC22432D9F00CD3785 /* SampleVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SampleVideo.mp4; sourceTree = "<group>"; };
 		C76135972244729E00CD3785 /* JRVideoEditing.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JRVideoEditing.bundle; sourceTree = "<group>"; };
 		C76135A92244729E00CD3785 /* JRClipInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRClipInfo.h; sourceTree = "<group>"; };
@@ -362,6 +365,14 @@
 			path = class;
 			sourceTree = "<group>";
 		};
+		052E7935224B835F004AF220 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				05F9B9A22248DD9B00FB8C5B /* 3.mp4 */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		0553BB5E2244901000B9A2EF /* VC */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,6 +479,7 @@
 		C76135B32244729E00CD3785 /* LF */ = {
 			isa = PBXGroup;
 			children = (
+				C71C1CDE224B7C5F0082BCB0 /* LFMediaEditingController.strings */,
 				C76135B42244729E00CD3785 /* LFMediaEditingController */,
 				C761366A2244729F00CD3785 /* LFVideoSession */,
 			);
@@ -998,6 +1010,7 @@
 			children = (
 				C7B6BA4D2221036100970D96 /* recordingBooth */,
 				C7B6BA4C2221036100970D96 /* Products */,
+				052E7935224B835F004AF220 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1158,6 +1171,7 @@
 				C76136972244729F00CD3785 /* JRVideoCollectionViewCell.xib in Resources */,
 				C761368C2244729F00CD3785 /* JRVideoEditing.bundle in Resources */,
 				C7B6BA5B2221036200970D96 /* LaunchScreen.storyboard in Resources */,
+				C71C1CDF224B7C600082BCB0 /* LFMediaEditingController.strings in Resources */,
 				C7B6BA582221036200970D96 /* Assets.xcassets in Resources */,
 				C7B6BA742221087B00970D96 /* LFConfigRecordingBoothController.xib in Resources */,
 				C76136AA2244729F00CD3785 /* README.md in Resources */,
@@ -1416,7 +1430,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3VDRUN62M8;
 				INFOPLIST_FILE = recordingBooth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1425,7 +1439,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lincf0912.marc.recordingBooth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1434,7 +1448,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3VDRUN62M8;
 				INFOPLIST_FILE = recordingBooth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1443,7 +1457,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lincf0912.marc.recordingBooth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

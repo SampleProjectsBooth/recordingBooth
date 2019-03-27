@@ -146,9 +146,9 @@
 
 //保存视频完成之后的回调
 - (void)_savedVideoPath:(NSString *)path didFinishSavingWithError: (NSError *)error contextInfo: (void *)contextInfo {
-    NSString *name = @"保存视频成功";
+    NSString *name = @"Save success";
     if (error) {
-        name = [NSString stringWithFormat:@"保存视频失败%@", error.localizedDescription];
+        name = [NSString stringWithFormat:@"Save fail:%@", error.localizedDescription];
     }
     NSLog(@"_savedVideoPath:%@", name);
 }
@@ -198,7 +198,7 @@
     NSURL *url = nav.videoUrl;
     if (!url) {
         if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationController:didFinishEditUrl:error:)]) {
-            [nav.operationDelegate videoEditingOperationController:nav didFinishEditUrl:nil error:[NSError errorWithDomain:@"url is error" code:-90 userInfo:@{NSLocalizedDescriptionKey:@"视频存储地址无效"}]];
+            [nav.operationDelegate videoEditingOperationController:nav didFinishEditUrl:nil error:[NSError errorWithDomain:@"url is error" code:-90 userInfo:@{NSLocalizedDescriptionKey:@"Video Path is Invalid."}]];
         }
         return;
     }
@@ -208,7 +208,7 @@
     }
     
 
-    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:nil message:@"正在储存..." preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:nil message:@"Saving..." preferredStyle:(UIAlertControllerStyleAlert)];
     [self presentViewController:alertCon animated:YES completion:^{
         AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:videoSession.assetData.composition presetName:nav.presetQuality];
         exportSession.outputURL = url;
@@ -227,7 +227,7 @@
                         break;
                     case AVAssetExportSessionStatusCancelled:
                         if ([nav.operationDelegate respondsToSelector:@selector(videoEditingOperationController:didFinishEditUrl:error:)]) {
-                            [nav.operationDelegate videoEditingOperationController:nav didFinishEditUrl:nil error:[NSError errorWithDomain:@"url is error" code:-90 userInfo:@{NSLocalizedDescriptionKey:@"操作已取消"}]];
+                            [nav.operationDelegate videoEditingOperationController:nav didFinishEditUrl:nil error:[NSError errorWithDomain:@"url is error" code:-90 userInfo:@{NSLocalizedDescriptionKey:@"Operation cancelled."}]];
                         }
                         break;
                     case AVAssetExportSessionStatusCompleted:

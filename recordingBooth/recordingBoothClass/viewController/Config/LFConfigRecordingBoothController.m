@@ -170,10 +170,6 @@
 
 - (void)saveUIConfig
 {
-    if (self.eventField.text.length == 0) {
-        NSLog(@"event is nil");
-        return;
-    }
     LFRecordConfig *config = [LFRecordConfig new];
     config.event = self.eventField.text;
     config.fps = [self.fpsSegment titleForSegmentAtIndex:self.fpsSegment.selectedSegmentIndex].integerValue;

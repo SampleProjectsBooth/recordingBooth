@@ -139,7 +139,7 @@
     /** 裁剪按钮 */
     UIButton *button1 = [UIButton buttonWithType:(UIButtonTypeCustom)];
     button1.frame = CGRectMake(0.f, 0.f, 60.f, 30.f);
-    [button1 setTitle:@"裁剪" forState:(UIControlStateNormal)];
+    [button1 setTitle:@"Clip" forState:(UIControlStateNormal)];
     [button1 addTarget:self action:@selector(_clipVideoAction) forControlEvents:(UIControlEventTouchUpInside)];
     [button1 setBackgroundColor:[UIColor colorWithWhite:0.f alpha:0.3]];
     [self.view addSubview:button1];
@@ -274,10 +274,10 @@
             [array addObject:obj.asset];
         }
         JRVideoPreviewViewController *vc = [[JRVideoPreviewViewController alloc] initWithAssets:[array copy]];
-        vc.cancelBtnTitle = @"返回";
+        vc.cancelBtnTitle = @"Back";
         [self.navigationController pushViewController:vc animated:YES];
     } else {
-        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:@"请裁剪视频" preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"Tips" message:@"Please clip the video." preferredStyle:(UIAlertControllerStyleAlert)];
         [self presentViewController:alertCon animated:YES completion:^{
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.25f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [alertCon dismissViewControllerAnimated:YES completion:nil];
