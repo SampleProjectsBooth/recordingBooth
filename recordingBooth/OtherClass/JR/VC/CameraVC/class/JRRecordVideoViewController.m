@@ -154,18 +154,14 @@
 }
 
 #pragma mark - Public Methods
-+ (instancetype)showRecordVideoViewControllerWithVC:(UIViewController *)vc fps:(JRRecordVideoViewControllerFPSType)fps sessionPreset:(nonnull AVCaptureSessionPreset)sessionPreset
+- (instancetype)initWithFPS:(JRRecordVideoViewControllerFPSType)fps sessionPreset:(AVCaptureSessionPreset)sessionPreset
 {
-    if (vc) {
-        JRRecordVideoViewController *recordVC = [[JRRecordVideoViewController alloc] init];
-        recordVC.sessionPreset = sessionPreset;
-        [recordVC _createCameraTools];
-        [recordVC _setCaremaFPSWithType:fps];
-        [vc presentViewController:recordVC animated:YES completion:^{
-        }];
-        return recordVC;
-    }
-    return nil;
+    self = [super init];
+    if (self) {
+        self.sessionPreset = sessionPreset;
+        [self _createCameraTools];
+        [self _setCaremaFPSWithType:fps];
+    } return self;
 }
 
 #pragma mark - Class Methods
@@ -281,11 +277,9 @@
 }
 
 - (IBAction)_cancelCameraAction:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{
-        if ([self.recordDelegate respondsToSelector:@selector(didCancelRecordVideoVC:)]) {
-            [self.recordDelegate didCancelRecordVideoVC:self];
-        }
-    }];
+    if ([self.recordDelegate respondsToSelector:@selector(didCancelRecordVideoVC:)]) {
+        [self.recordDelegate didCancelRecordVideoVC:self];
+    }
 }
 
 - (IBAction)_recordAction:(id)sender {
@@ -468,19 +462,9 @@
 }
 
 - (void)_didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL error:(NSError *)error {
-    
-    if (error) {
-        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"%@", error.localizedDescription] preferredStyle:(UIAlertControllerStyleAlert)];
-        [self presentViewController:alertCon animated:YES completion:^{
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.25f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [alertCon dismissViewControllerAnimated:YES completion:nil];
-            });
-        }];
-    } else {
-        if ([self.recordDelegate respondsToSelector:@selector(didFinishRecordVideoVC:)]) {
-            [self.recordDelegate didFinishRecordVideoVC:self];
-        }
-    }    
+    if ([self.recordDelegate respondsToSelector:@selector(didFinishRecordVideoVC:url:error:)]) {
+        [self.recordDelegate didFinishRecordVideoVC:self url:outputFileURL error:error];
+    }
 }
 
 

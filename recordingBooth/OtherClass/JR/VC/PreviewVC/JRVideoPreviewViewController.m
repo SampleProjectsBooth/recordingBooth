@@ -188,6 +188,9 @@
 
     /** 加水印 */
     LFVideoSession *videoSession = [[LFVideoSession alloc] initWithAsset:self.asset];
+    
+    LFVideoRotateCommand *rotateCommadn = [[LFVideoRotateCommand alloc] initWithAssetData:videoSession.assetData orientation:(LFVideoRotateOrientation0)];
+    [videoSession addCommand:rotateCommadn];
     LFVideoWatermarkCommand *watermarkCommadn = [[LFVideoWatermarkCommand alloc] initWithAssetData:videoSession.assetData view:nav.overlayView];
     [videoSession addCommand:watermarkCommadn];
     [videoSession execute];

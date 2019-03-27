@@ -18,15 +18,16 @@ typedef NS_ENUM(NSUInteger, JRRecordVideoViewControllerFPSType) {
     JRRecordVideoViewControllerFPS240 = 240,
 };
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol JRRecordVideoViewControllerDelegate <NSObject>
 
-- (void)didFinishRecordVideoVC:(JRRecordVideoViewController *)recordVC;
+- (void)didFinishRecordVideoVC:(JRRecordVideoViewController *)recordVC url:(nullable NSURL *)url error:(nullable NSError *)error;
 
 - (void)didCancelRecordVideoVC:(JRRecordVideoViewController *)recordVC;
 
 @end
-
-NS_ASSUME_NONNULL_BEGIN
 
 @interface JRRecordVideoViewController : UIViewController
 
@@ -34,12 +35,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  初始化方法
 
- @param vc vc
  @param fps zhenlv
  @param sessionPreset 视频质量
  @return instancetype
  */
-+ (instancetype)showRecordVideoViewControllerWithVC:(UIViewController *)vc fps:(JRRecordVideoViewControllerFPSType)fps sessionPreset:(AVCaptureSessionPreset)sessionPreset;
+- (instancetype)initWithFPS:(JRRecordVideoViewControllerFPSType)fps sessionPreset:(AVCaptureSessionPreset)sessionPreset;
 
 /** 视频保存路径 */
 @property (nonatomic, strong) NSURL *saveURL;

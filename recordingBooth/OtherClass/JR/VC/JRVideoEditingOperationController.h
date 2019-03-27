@@ -41,7 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (instancetype)initWithEditAsset:(NSArray <AVAsset *>*)EditAsset;
 
-
 @property (nonatomic, weak) id<JRVideoEditingOperationControllerDelegate>operationDelegate;
 
 /** 自动保存到相册 默认YES */
