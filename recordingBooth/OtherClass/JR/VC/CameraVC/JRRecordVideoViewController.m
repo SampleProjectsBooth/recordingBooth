@@ -181,14 +181,14 @@
     if ((audioStatus == videoStatus) && (videoStatus == AVAuthorizationStatusAuthorized)) {
         return YES;
     } else {
-        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"请打开相机权限" message:@"设置-隐私-相机" preferredStyle:(UIAlertControllerStyleAlert)];
-        [alertCon addAction:[UIAlertAction actionWithTitle:@"去打开" style:(UIAlertActionStyleDestructive) handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"Camera permission" message:@"Setting-Privacy-Camera" preferredStyle:(UIAlertControllerStyleAlert)];
+        [alertCon addAction:[UIAlertAction actionWithTitle:@"Go" style:(UIAlertActionStyleDestructive) handler:^(UIAlertAction * _Nonnull action) {
             NSURL * url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
             if([[UIApplication sharedApplication] canOpenURL:url]) {
                 [[UIApplication sharedApplication] openURL:url];
             }
         }]];
-        [alertCon addAction:[UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+        [alertCon addAction:[UIAlertAction actionWithTitle:@"Cancel" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
             [self dismissViewControllerAnimated:YES completion:nil];
         }]];
         [self presentViewController:alertCon animated:YES completion:nil];
@@ -264,7 +264,7 @@
         }
         return YES;
     } else {
-        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:@"视频输出路径有误" preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"Error" message:@"Video Output Error" preferredStyle:(UIAlertControllerStyleAlert)];
         [self presentViewController:alertCon animated:YES completion:^{
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.25f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [alertCon dismissViewControllerAnimated:YES completion:nil];
@@ -470,7 +470,7 @@
 - (void)_didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL error:(NSError *)error {
     
     if (error) {
-        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"%@", error.localizedDescription] preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"Error" message:[NSString stringWithFormat:@"%@", error.localizedDescription] preferredStyle:(UIAlertControllerStyleAlert)];
         [self presentViewController:alertCon animated:YES completion:^{
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.25f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [alertCon dismissViewControllerAnimated:YES completion:nil];

@@ -151,7 +151,7 @@
         self.aVideoPlayerLayerView.frame = rect;
         [self.aVideoPlayer resetDisplay];
     } else {
-        [self LFVideoPlayerFailedToPrepare:nil error:[NSError errorWithDomain:@"asset is not video tracks" code:-707 userInfo:@{NSLocalizedDescriptionKey:@"无效资源"}]];
+        [self LFVideoPlayerFailedToPrepare:nil error:[NSError errorWithDomain:@"asset is not video tracks" code:-707 userInfo:@{NSLocalizedDescriptionKey:@"Invalid."}]];
     }
 }
 
@@ -195,7 +195,7 @@
     self.aVideoPlayerLayerView  = playerLayerView;
     
     UIButton *button = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    [button setTitle:@"取消" forState:(UIControlStateNormal)];
+    [button setTitle:@"Cancel" forState:(UIControlStateNormal)];
     [button addTarget:self action:@selector(_cancelAction)
      forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundColor:[UIColor colorWithWhite:0.f alpha:0.3]];
@@ -203,7 +203,7 @@
     self.cancelBtn = button;
     
     UIButton *button1 = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    [button1 setTitle:@"完成" forState:(UIControlStateNormal)];
+    [button1 setTitle:@"Ok" forState:(UIControlStateNormal)];
     [button1 setBackgroundColor:[UIColor colorWithWhite:0.f alpha:0.3]];
     [button1 addTarget:self action:@selector(_completeAction)
       forControlEvents:UIControlEventTouchUpInside];
