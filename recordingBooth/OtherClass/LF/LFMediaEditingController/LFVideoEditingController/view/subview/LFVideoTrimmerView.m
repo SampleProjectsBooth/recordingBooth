@@ -181,12 +181,12 @@ NSTimeInterval lfme_videoDuration(NSTimeInterval duration)
 /** 重设控制区域 */
 - (void)setGridRange:(NSRange)gridRange animated:(BOOL)animated
 {
-    if (gridRange.length < self.gridView.controlMinWidth) {
-        gridRange.length = self.gridView.controlMinWidth;
-    }
-    if (gridRange.length > self.gridView.controlMaxWidth) {
-        gridRange.length = self.gridView.controlMaxWidth;
-    }
+//    if (gridRange.length < self.gridView.controlMinWidth) {
+//        gridRange.length = self.gridView.controlMinWidth;
+//    }
+//    if (gridRange.length > self.gridView.controlMaxWidth) {
+//        gridRange.length = self.gridView.controlMaxWidth;
+//    }
     
     [self.gridView setGridRect:CGRectMake(gridRange.location, 0, gridRange.length, self.gridView.frame.size.height) animated:animated];
     [self calcTime];
