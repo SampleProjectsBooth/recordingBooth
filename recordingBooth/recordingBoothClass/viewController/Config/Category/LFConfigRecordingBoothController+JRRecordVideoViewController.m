@@ -36,7 +36,7 @@
     if (error) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"%@", error.localizedDescription] preferredStyle:(UIAlertControllerStyleAlert)];
         [alert addAction:[UIAlertAction actionWithTitle:@"确认" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
-            [self recordVideoControllerDidCancel:controller];
+            [controller dismissViewControllerAnimated:YES completion:nil];
         }]];
         [controller presentViewController:alert animated:YES completion:nil];
     } else {
@@ -52,30 +52,31 @@
         } completionHandler:^(BOOL success, NSError * _Nullable error1) {
             
             if (success) {
-                if (localIdentifier) {
-                    PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[localIdentifier] options:nil].firstObject;
-                    PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
-                    options.version = PHVideoRequestOptionsVersionOriginal;
-                    options.deliveryMode = PHVideoRequestOptionsDeliveryModeHighQualityFormat;
-                    [[PHImageManager defaultManager] requestAVAssetForVideo:asset options:options resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
-                        [alert dismissViewControllerAnimated:YES completion:^{
+                
+                PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[localIdentifier] options:nil].firstObject;
+                
+                PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
+                options.deliveryMode = PHVideoRequestOptionsDeliveryModeHighQualityFormat;
+                [[PHImageManager defaultManager] requestAVAssetForVideo:asset options:options resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [alert dismissViewControllerAnimated:NO completion:^{
                             [controller dismissViewControllerAnimated:YES completion:^{
                                 [self showVideoEditingViewController:asset];
                             }];
                         }];
-                    }];
-                }
-                
+                    });
+                }];
             } else {
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"%@", error1.localizedDescription] preferredStyle:(UIAlertControllerStyleAlert)];
-                [alert addAction:[UIAlertAction actionWithTitle:@"确认" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
-                    [self recordVideoControllerDidCancel:controller];
-                }]];
-                [controller presentViewController:alert animated:YES completion:nil];
-
-                NSLog(@"save video error:%@", error1);
+                [alert dismissViewControllerAnimated:NO completion:^{
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"%@", error1.localizedDescription] preferredStyle:(UIAlertControllerStyleAlert)];
+                    [alert addAction:[UIAlertAction actionWithTitle:@"确认" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+                        [controller dismissViewControllerAnimated:YES completion:nil];
+                    }]];
+                    [controller presentViewController:alert animated:YES completion:nil];
+                    
+                    NSLog(@"save video error:%@", error1);
+                }];
             }
-            
         }];
     }
     
