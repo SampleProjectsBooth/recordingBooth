@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @interface LFVideoWatermarkCommand : LFVideoBaseCommand
 
+/** 以屏幕大小为尺寸的View布局，最终会调整到视频的大小。 */
 - (instancetype)initWithAssetData:(LFAVAssetData *)assetData view:(UIView *)view;
 
 @end

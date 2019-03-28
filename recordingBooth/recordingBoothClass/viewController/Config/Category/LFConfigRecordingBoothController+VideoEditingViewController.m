@@ -48,13 +48,13 @@
     };
     
     if (self.config.overlayIsOn) {
-        /** water mark */
+#warning water mark image
         UIImage *image = [UIImage imageNamed:@"waterMark.png"];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
         
         imageView.frame = CGRectMake((CGRectGetWidth([UIScreen mainScreen].bounds) - 10.f - image.size.width), (CGRectGetHeight([UIScreen mainScreen].bounds) - 10.f - image.size.height), image.size.width, image.size.height);
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-//        imageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
+        imageView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
         UIView *waterView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
         [waterView addSubview:imageView];
         vc.overlayView = waterView;        
