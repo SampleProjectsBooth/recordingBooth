@@ -95,6 +95,7 @@
     UIView *overlayView = self.view;
     
     if (overlayView) {
+#warning 未解决
         /** 根据视频大小，重新排版水印 */
         UIView *newMarkView = [[UIView alloc] initWithFrame:(CGRect){0.f, 0.f, videoSize}];
         for (UIView *subView in self.view.subviews) {

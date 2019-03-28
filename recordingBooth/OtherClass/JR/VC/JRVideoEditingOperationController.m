@@ -9,6 +9,7 @@
 #import "JRVideoEditingOperationController.h"
 #import "JRClipVideoEditingViewController.h"
 #import "JRVideoPreviewViewController.h"
+#import "JRRecordVideoViewController.h"
 
 @interface JRVideoEditingOperationController ()
 {
@@ -37,6 +38,8 @@
     [super viewWillDisappear:animated];
 //    [self setNavigationBarHidden:YES];
 }
+
+#pragma mark - Public Methods
 
 - (instancetype)initWithAssets:(NSArray<AVAsset *> *)assets EditType:(NSUInteger)editType
 {

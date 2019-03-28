@@ -51,9 +51,10 @@
         /** water mark */
         UIImage *image = [UIImage imageNamed:@"waterMark.png"];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        imageView.frame = CGRectMake(10, 10, image.size.width, image.size.height);
+        
+        imageView.frame = CGRectMake((CGRectGetWidth([UIScreen mainScreen].bounds) - 10.f - image.size.width), (CGRectGetHeight([UIScreen mainScreen].bounds) - 10.f - image.size.height), image.size.width, image.size.height);
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
+//        imageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
         UIView *waterView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
         [waterView addSubview:imageView];
         vc.overlayView = waterView;        
