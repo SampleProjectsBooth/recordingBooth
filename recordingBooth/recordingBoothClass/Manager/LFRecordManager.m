@@ -102,7 +102,7 @@ static LFRecordManager *sharedSelf = nil;
 
 - (NSString *)filePathWithLink:(NSString *)link
 {
-    if (link) {
+    if (link.length) {
         NSString *filePath = [self.recordBasePath lf_stringByAppendingPathComponent:lf_recordFilePath];
         NSString *path = [filePath stringByAppendingPathComponent:link.lastPathComponent];
         return path;
