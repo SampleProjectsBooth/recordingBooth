@@ -51,10 +51,10 @@
     }
     topMargin += 10.f;
     
-    CGRect rectBtn = (CGRect){20.f, topMargin, 40.f, 20.f};
+    CGRect rectBtn = (CGRect){20.f, topMargin, 60.f, 20.f};
     self.cancelBtn.frame = rectBtn;
     
-    CGRect rect1 = (CGRect){CGRectGetWidth(self.view.frame) - 40.f - 20.f, topMargin, 40.f, 20.f};
+    CGRect rect1 = (CGRect){CGRectGetWidth(self.view.frame) - 40.f - 20.f, topMargin, 60.f, 20.f};
     self.completeBtn.frame = rect1;
 
 }

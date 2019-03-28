@@ -47,6 +47,7 @@
     self = [self initWithPlaceholderImage:placeholderImage];
     if (self) {
         self.asset = videoAsset;
+        self.totalDuration = CMTimeGetSeconds(videoAsset.duration);
     } return self;
 }
 
@@ -119,6 +120,25 @@
     self.aVideoTrimmerView = nil;
 }
 
+#pragma mark - Setter And Getter
+- (void)setMinClippingDuration:(double)minClippingDuration
+{
+    if (self.totalDuration < minClippingDuration) {
+        minClippingDuration = self.totalDuration;
+    }
+    _minClippingDuration = minClippingDuration;
+}
+
+- (void)setMaxClippingDuration:(double)maxClippingDuration
+{
+    if (self.minClippingDuration > maxClippingDuration) {
+        maxClippingDuration = self.totalDuration;
+    }
+    if (maxClippingDuration > self.totalDuration) {
+        maxClippingDuration = self.totalDuration;
+    }
+    _maxClippingDuration = maxClippingDuration;
+}
 #pragma mark - Private Methods
 - (void)_createPlayerView
 {
@@ -227,6 +247,7 @@
     self.totalDuration = self.endTime = duration;
     [self.aVideoTrimmerView setHiddenProgress:NO];
     self.aVideoTrimmerView.progress = 0;
+    
     self.aVideoTrimmerView.controlMinWidth = CGRectGetWidth(self.aVideoTrimmerView.frame) * (self.minClippingDuration / self.totalDuration);
     if (self.maxClippingDuration > 0.f) {
         self.aVideoTrimmerView.controlMaxWidth = CGRectGetWidth(self.aVideoTrimmerView.frame) * (self.maxClippingDuration / self.totalDuration);
