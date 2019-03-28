@@ -34,8 +34,8 @@
 - (void)recordVideoController:(JRRecordVideoViewController *)controller didFinishVideoURL:(nullable NSURL *)videoURL error:(nullable NSError *)error
 {
     if (error) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"%@", error.localizedDescription] preferredStyle:(UIAlertControllerStyleAlert)];
-        [alert addAction:[UIAlertAction actionWithTitle:@"确认" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"error" message:[NSString stringWithFormat:@"%@", error.localizedDescription] preferredStyle:(UIAlertControllerStyleAlert)];
+        [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
             [controller dismissViewControllerAnimated:YES completion:nil];
         }]];
         [controller presentViewController:alert animated:YES completion:nil];
@@ -68,8 +68,8 @@
                 }];
             } else {
                 [alert dismissViewControllerAnimated:NO completion:^{
-                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"%@", error1.localizedDescription] preferredStyle:(UIAlertControllerStyleAlert)];
-                    [alert addAction:[UIAlertAction actionWithTitle:@"确认" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"error" message:[NSString stringWithFormat:@"%@", error1.localizedDescription] preferredStyle:(UIAlertControllerStyleAlert)];
+                    [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
                         [controller dismissViewControllerAnimated:YES completion:nil];
                     }]];
                     [controller presentViewController:alert animated:YES completion:nil];
