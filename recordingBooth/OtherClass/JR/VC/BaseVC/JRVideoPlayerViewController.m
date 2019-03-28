@@ -10,6 +10,9 @@
 #import "LFVideoPlayerLayerView.h"
 #import "LFVideoPlayer.h"
 
+
+#define JRButtonSize CGSizeMake(60, 40)
+
 @interface JRVideoPlayerViewController () <LFVideoPlayerDelegate>
 
 @property (nonatomic, strong) LFVideoPlayer *aVideoPlayer;
@@ -51,10 +54,10 @@
     }
     topMargin += 10.f;
     
-    CGRect rectBtn = (CGRect){20.f, topMargin, 60.f, 20.f};
+    CGRect rectBtn = (CGRect){20.f, topMargin, JRButtonSize};
     self.cancelBtn.frame = rectBtn;
     
-    CGRect rect1 = (CGRect){CGRectGetWidth(self.view.frame) - 40.f - 20.f, topMargin, 60.f, 20.f};
+    CGRect rect1 = (CGRect){CGRectGetWidth(self.view.frame) - JRButtonSize.width - 20.f, topMargin, JRButtonSize};
     self.completeBtn.frame = rect1;
 
 }

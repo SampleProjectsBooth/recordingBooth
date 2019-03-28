@@ -139,6 +139,7 @@
     }
     _maxClippingDuration = maxClippingDuration;
 }
+
 #pragma mark - Private Methods
 - (void)_createPlayerView
 {
@@ -263,8 +264,10 @@
 {
     self.aVideoTrimmerView.progress = duration/self.totalDuration;
     if (duration >= self.endTime) {
-        [self reset];
+        [self pause];
+        self.aVideoTrimmerView.progress = self.startTime/self.totalDuration;
         [self seekToTime:self.startTime];
+        [self play];
     }
 }
 
